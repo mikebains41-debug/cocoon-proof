@@ -1,0 +1,11 @@
+cms/ holds files from the CMS Home Health PC Pricer for calendar year 2021,
+as the U.S. Centers for Medicare & Medicaid Services publishes them: the
+calculator HHCAL213 and the driver, manager and opener that call it
+(hhcal213.cbl, hhdrv213.cbl, hhmgr213.cbl, hhopn213.cbl), the copybooks
+they use, and the test claims and tables shipped with them (HHAFILE,
+MSAFILE, CBSAFILE, HRGTABL, REVTABL). They are CMS's, unmodified; verify.sh
+makes its two build-only changes to copies in work/.
+
+cocoon/hhdrv213_tap.cbl is CMS's driver, hhdrv213.cbl, with Cocoon's tap
+added: statements that print, as hex, every record passed to HHCAL213
+before and after each call.

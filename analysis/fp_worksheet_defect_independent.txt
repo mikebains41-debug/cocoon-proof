@@ -1,0 +1,1285 @@
+# Cocoon false-positive worksheet
+#
+# Every finding below was reported on UNMODIFIED source: code nobody
+# has touched, so every one of them is a candidate false positive.
+#
+# Write one of these after "verdict:" on each block.
+#
+#   real    a reader of this program would want to see this. The
+#           finding is true of the code and worth an engineer's minute.
+#   noise   they would not. Either it is not true of the code, or it is
+#           true and could not matter.
+#   unsure  you cannot tell from the lines shown. Counted separately
+#           and excluded from the rate, because a guess is not a label.
+#
+# "why:" is optional and is for the ones you would argue about.
+#
+# corpora: /data/data/com.termux/files/home/cobol_corpora/cbsa-src, /data/data/com.termux/files/home/cobol_corpora/cardemo, /data/data/com.termux/files/home/cobol_corpora/nist-cobol85, /data/data/com.termux/files/home/cobol_corpora/dscobol, /data/data/com.termux/files/home/cms/cobol
+# findings in the population: 187
+# sampled: 66   (stratified by class, random seed 3)
+# generated: 2026-10-11
+#
+# Filled worksheets belong in the repository. A published rate whose
+# labels nobody can see is an assertion.
+
+# tier: defect - only findings the default report calls defects
+#
+# population ALTER_STATEMENT: 4 finding(s), 4 sampled
+#
+# population CICS_LENGTH_EXCEEDS_FIELD: 2 finding(s), 2 sampled
+#
+# population PERFORM_RECURSION: 10 finding(s), 10 sampled
+#
+# population READ_NO_AT_END: 10 finding(s), 10 sampled
+#
+# population UNIT_OF_WORK_UNBOUNDED: 10 finding(s), 10 sampled
+#
+# population WRITE_NO_EXCEPTION: 151 finding(s), 30 sampled
+
+====================================================================
+001  ALTER_STATEMENT
+     cardemo/app/cbl/CBSTM03A.CBL:300
+     ALTER 8100-FILE-OPEN TO 8100-TRNXFILE-OPEN changes a GO TO
+     target at run time. The path through this program depends on
+     execution history, not on the source. No static analysis,
+     migration tool, or automated test can follow it.
+
+     297 | 
+     298 |            EVALUATE WS-FL-DD
+     299 |              WHEN 'TRNXFILE'
+ >   300 |                ALTER 8100-FILE-OPEN TO PROCEED TO 8100-TRNXFILE-OPEN
+     301 |                GO TO 8100-FILE-OPEN
+     302 |              WHEN 'XREFFILE'
+     303 |                ALTER 8100-FILE-OPEN TO PROCEED TO 8200-XREFFILE-OPEN
+
+verdict:
+why:
+
+====================================================================
+002  ALTER_STATEMENT
+     cardemo/app/cbl/CBSTM03A.CBL:303
+     ALTER 8100-FILE-OPEN TO 8200-XREFFILE-OPEN changes a GO TO
+     target at run time. The path through this program depends on
+     execution history, not on the source. No static analysis,
+     migration tool, or automated test can follow it.
+
+     300 |                ALTER 8100-FILE-OPEN TO PROCEED TO 8100-TRNXFILE-OPEN
+     301 |                GO TO 8100-FILE-OPEN
+     302 |              WHEN 'XREFFILE'
+ >   303 |                ALTER 8100-FILE-OPEN TO PROCEED TO 8200-XREFFILE-OPEN
+     304 |                GO TO 8100-FILE-OPEN
+     305 |              WHEN 'CUSTFILE'
+     306 |                ALTER 8100-FILE-OPEN TO PROCEED TO 8300-CUSTFILE-OPEN
+
+verdict:
+why:
+
+====================================================================
+003  ALTER_STATEMENT
+     cardemo/app/cbl/CBSTM03A.CBL:306
+     ALTER 8100-FILE-OPEN TO 8300-CUSTFILE-OPEN changes a GO TO
+     target at run time. The path through this program depends on
+     execution history, not on the source. No static analysis,
+     migration tool, or automated test can follow it.
+
+     303 |                ALTER 8100-FILE-OPEN TO PROCEED TO 8200-XREFFILE-OPEN
+     304 |                GO TO 8100-FILE-OPEN
+     305 |              WHEN 'CUSTFILE'
+ >   306 |                ALTER 8100-FILE-OPEN TO PROCEED TO 8300-CUSTFILE-OPEN
+     307 |                GO TO 8100-FILE-OPEN
+     308 |              WHEN 'ACCTFILE'
+     309 |                ALTER 8100-FILE-OPEN TO PROCEED TO 8400-ACCTFILE-OPEN
+
+verdict:
+why:
+
+====================================================================
+004  ALTER_STATEMENT
+     cardemo/app/cbl/CBSTM03A.CBL:309
+     ALTER 8100-FILE-OPEN TO 8400-ACCTFILE-OPEN changes a GO TO
+     target at run time. The path through this program depends on
+     execution history, not on the source. No static analysis,
+     migration tool, or automated test can follow it.
+
+     306 |                ALTER 8100-FILE-OPEN TO PROCEED TO 8300-CUSTFILE-OPEN
+     307 |                GO TO 8100-FILE-OPEN
+     308 |              WHEN 'ACCTFILE'
+ >   309 |                ALTER 8100-FILE-OPEN TO PROCEED TO 8400-ACCTFILE-OPEN
+     310 |                GO TO 8100-FILE-OPEN
+     311 |              WHEN 'READTRNX'
+     312 |                GO TO 8500-READTRNX-READ
+
+verdict:
+why:
+
+====================================================================
+005  CICS_LENGTH_EXCEEDS_FIELD
+     cbsa-src/cics-banking-sample-application-cbsa-2026Q1/src/base/cobol_src/BNK1CCS.cbl:276
+     RETURN names WS-COMM-AREA with LENGTH(248). That field and
+     everything after it in the record come to 5 byte(s), so the
+     transfer reaches 243 byte(s) past the end of the record into
+     whatever follows it in storage. The command succeeds and
+     nothing is logged.
+
+     273 |       *
+     274 |       * Now RETURN
+     275 |       *
+ >   276 |            EXEC CICS
+     277 |               RETURN TRANSID('OCCS')
+     278 |               COMMAREA(WS-COMM-AREA)
+     279 |               LENGTH(248)
+
+verdict:
+why:
+
+====================================================================
+006  CICS_LENGTH_EXCEEDS_FIELD
+     cbsa-src/cics-banking-sample-application-cbsa-2026Q1/src/base/cobol_src/BNK1TFN.cbl:247
+     RETURN names WS-COMMAREA with LENGTH(29). That field and
+     everything after it in the record come to 28 byte(s), so the
+     transfer reaches 1 byte(s) past the end of the record into
+     whatever follows it in storage. The command succeeds and
+     nothing is logged.
+
+     244 |       *
+     245 |       *     Now RETURN
+     246 |       *
+ >   247 |             EXEC CICS
+     248 |                RETURN TRANSID('OTFN')
+     249 |                COMMAREA(WS-COMMAREA)
+     250 |                LENGTH(29)
+
+verdict:
+why:
+
+====================================================================
+007  PERFORM_RECURSION
+     cardemo/app/app-authorization-ims-db2-mq/cbl/COPAUA0C.cbl:983
+     PERFORM cycle: 9500-LOG-ERROR -> 9990-END-ROUTINE ->
+     9000-TERMINATE -> 9100-CLOSE-REQUEST-QUEUE -> 9500-LOG-ERROR.
+     Without the RECURSIVE clause the PERFORM stack is not
+     re-entrant — the second return address overwrites the first
+     and control returns to the wrong place.
+
+     980 |            EXIT.
+     981 |       *
+     982 |       * ------------------------------------------------------------- *
+ >   983 |        9500-LOG-ERROR.
+     984 |       * ------------------------------------------------------------ *
+     985 | 
+     986 |            EXEC CICS ASKTIME NOHANDLE
+
+verdict:
+why:
+
+====================================================================
+008  PERFORM_RECURSION
+     cardemo/app/app-vsam-mq/cbl/COACCT01.cbl:538
+     PERFORM cycle: 8000-TERMINATION -> 5100-CLOSE-OUTPUT-QUEUE ->
+     8000-TERMINATION. Without the RECURSIVE clause the PERFORM
+     stack is not re-entrant — the second return address overwrites
+     the first and control returns to the wrong place.
+
+     535 | 044900              PERFORM 8000-TERMINATION                            
+     536 | 045000     END-EVALUATE.                                                
+     537 | 045100     .                                                            
+ >   538 | 045200 8000-TERMINATION.                                                
+     539 | 045300                                                                  
+     540 | 045400     IF REPLY-QUEUE-OPEN                                          
+     541 | 045500        PERFORM 5000-CLOSE-INPUT-QUEUE                            
+
+verdict:
+why:
+
+====================================================================
+009  PERFORM_RECURSION
+     cardemo/app/app-vsam-mq/cbl/COACCT01.cbl:538
+     PERFORM cycle: 8000-TERMINATION -> 5200-CLOSE-ERROR-QUEUE ->
+     9000-ERROR -> 8000-TERMINATION. Without the RECURSIVE clause
+     the PERFORM stack is not re-entrant — the second return
+     address overwrites the first and control returns to the wrong
+     place.
+
+     535 | 044900              PERFORM 8000-TERMINATION                            
+     536 | 045000     END-EVALUATE.                                                
+     537 | 045100     .                                                            
+ >   538 | 045200 8000-TERMINATION.                                                
+     539 | 045300                                                                  
+     540 | 045400     IF REPLY-QUEUE-OPEN                                          
+     541 | 045500        PERFORM 5000-CLOSE-INPUT-QUEUE                            
+
+verdict:
+why:
+
+====================================================================
+010  PERFORM_RECURSION
+     cardemo/app/app-vsam-mq/cbl/COACCT01.cbl:538
+     PERFORM cycle: 8000-TERMINATION -> 5000-CLOSE-INPUT-QUEUE ->
+     8000-TERMINATION. Without the RECURSIVE clause the PERFORM
+     stack is not re-entrant — the second return address overwrites
+     the first and control returns to the wrong place.
+
+     535 | 044900              PERFORM 8000-TERMINATION                            
+     536 | 045000     END-EVALUATE.                                                
+     537 | 045100     .                                                            
+ >   538 | 045200 8000-TERMINATION.                                                
+     539 | 045300                                                                  
+     540 | 045400     IF REPLY-QUEUE-OPEN                                          
+     541 | 045500        PERFORM 5000-CLOSE-INPUT-QUEUE                            
+
+verdict:
+why:
+
+====================================================================
+011  PERFORM_RECURSION
+     cardemo/app/app-vsam-mq/cbl/COACCT01.cbl:538
+     PERFORM cycle: 8000-TERMINATION -> 5200-CLOSE-ERROR-QUEUE ->
+     8000-TERMINATION. Without the RECURSIVE clause the PERFORM
+     stack is not re-entrant — the second return address overwrites
+     the first and control returns to the wrong place.
+
+     535 | 044900              PERFORM 8000-TERMINATION                            
+     536 | 045000     END-EVALUATE.                                                
+     537 | 045100     .                                                            
+ >   538 | 045200 8000-TERMINATION.                                                
+     539 | 045300                                                                  
+     540 | 045400     IF REPLY-QUEUE-OPEN                                          
+     541 | 045500        PERFORM 5000-CLOSE-INPUT-QUEUE                            
+
+verdict:
+why:
+
+====================================================================
+012  PERFORM_RECURSION
+     cardemo/app/app-vsam-mq/cbl/CODATE01.cbl:442
+     PERFORM cycle: 8000-TERMINATION -> 5200-CLOSE-ERROR-QUEUE ->
+     8000-TERMINATION. Without the RECURSIVE clause the PERFORM
+     stack is not re-entrant — the second return address overwrites
+     the first and control returns to the wrong place.
+
+     439 | 044900              PERFORM 8000-TERMINATION                            
+     440 | 045000     END-EVALUATE.                                                
+     441 | 045100     .                                                            
+ >   442 | 045200 8000-TERMINATION.                                                
+     443 | 045300                                                                  
+     444 | 045400     IF REPLY-QUEUE-OPEN                                          
+     445 | 045500        PERFORM 5000-CLOSE-INPUT-QUEUE                            
+
+verdict:
+why:
+
+====================================================================
+013  PERFORM_RECURSION
+     cardemo/app/app-vsam-mq/cbl/CODATE01.cbl:442
+     PERFORM cycle: 8000-TERMINATION -> 5000-CLOSE-INPUT-QUEUE ->
+     8000-TERMINATION. Without the RECURSIVE clause the PERFORM
+     stack is not re-entrant — the second return address overwrites
+     the first and control returns to the wrong place.
+
+     439 | 044900              PERFORM 8000-TERMINATION                            
+     440 | 045000     END-EVALUATE.                                                
+     441 | 045100     .                                                            
+ >   442 | 045200 8000-TERMINATION.                                                
+     443 | 045300                                                                  
+     444 | 045400     IF REPLY-QUEUE-OPEN                                          
+     445 | 045500        PERFORM 5000-CLOSE-INPUT-QUEUE                            
+
+verdict:
+why:
+
+====================================================================
+014  PERFORM_RECURSION
+     cardemo/app/app-vsam-mq/cbl/CODATE01.cbl:442
+     PERFORM cycle: 8000-TERMINATION -> 5100-CLOSE-OUTPUT-QUEUE ->
+     8000-TERMINATION. Without the RECURSIVE clause the PERFORM
+     stack is not re-entrant — the second return address overwrites
+     the first and control returns to the wrong place.
+
+     439 | 044900              PERFORM 8000-TERMINATION                            
+     440 | 045000     END-EVALUATE.                                                
+     441 | 045100     .                                                            
+ >   442 | 045200 8000-TERMINATION.                                                
+     443 | 045300                                                                  
+     444 | 045400     IF REPLY-QUEUE-OPEN                                          
+     445 | 045500        PERFORM 5000-CLOSE-INPUT-QUEUE                            
+
+verdict:
+why:
+
+====================================================================
+015  PERFORM_RECURSION
+     cardemo/app/app-vsam-mq/cbl/CODATE01.cbl:442
+     PERFORM cycle: 8000-TERMINATION -> 5200-CLOSE-ERROR-QUEUE ->
+     9000-ERROR -> 8000-TERMINATION. Without the RECURSIVE clause
+     the PERFORM stack is not re-entrant — the second return
+     address overwrites the first and control returns to the wrong
+     place.
+
+     439 | 044900              PERFORM 8000-TERMINATION                            
+     440 | 045000     END-EVALUATE.                                                
+     441 | 045100     .                                                            
+ >   442 | 045200 8000-TERMINATION.                                                
+     443 | 045300                                                                  
+     444 | 045400     IF REPLY-QUEUE-OPEN                                          
+     445 | 045500        PERFORM 5000-CLOSE-INPUT-QUEUE                            
+
+verdict:
+why:
+
+====================================================================
+016  PERFORM_RECURSION
+     nist-cobol85/src/SG202A.CBL:344
+     PERFORM cycle: TEST-3 -> TEST-4 -> TEST-3. Without the
+     RECURSIVE clause the PERFORM stack is not re-entrant — the
+     second return address overwrites the first and control returns
+     to the wrong place.
+
+     341 | 034100     MOVE "TEST-2" TO PAR-NAME.                                   
+     342 | 034200     MOVE "ALTER NOT CALLD" TO FEATURE.                           
+     343 | 034300     PERFORM PRINT-DETAIL.                                        
+ >   344 | 034400 TEST-3.                                                          
+     345 | 034500     MOVE SPACE TO CORRECT-A.                                     
+     346 | 034600*    NOTE      THIS TEST WILL ENSURE THAT A PERFORM STATEMENT     
+     347 | 034700*             REFERENCING A OVERLAYABLE FOLLOWED BY A  PERMANENT  
+
+verdict:
+why:
+
+====================================================================
+017  READ_NO_AT_END
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/FAVRPT.cbl:49
+     READ FAVIN has no AT END, no INVALID KEY, and no FILE STATUS
+     test. When the file is exhausted or a key is not found, the
+     program continues with whatever was in the record area before
+     the read.
+
+      46 | 
+      47 |            OPEN INPUT FAVIN.
+      48 | 
+ >    49 |            READ FAVIN.
+      50 |            DISPLAY "Read Favin."
+      51 |            DISPLAY FAV-RECORD.
+      52 |            INITIALIZE FAVOUT-RECORD.
+
+verdict:
+why:
+
+====================================================================
+018  READ_NO_AT_END
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/FAVRPT.cbl:66
+     READ FAVIN has no AT END, no INVALID KEY, and no FILE STATUS
+     test. When the file is exhausted or a key is not found, the
+     program continues with whatever was in the record area before
+     the read.
+
+      63 | 
+      64 |            DISPLAY FAVOUT-RECORD.
+      65 | 
+ >    66 |            READ FAVIN.
+      67 |            DISPLAY FAV-RECORD.
+      68 | 
+      69 |            MOVE FI-Group-Name TO FO-Group-Name.
+
+verdict:
+why:
+
+====================================================================
+019  READ_NO_AT_END
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/FAVRPT.cbl:81
+     READ FAVIN has no AT END, no INVALID KEY, and no FILE STATUS
+     test. When the file is exhausted or a key is not found, the
+     program continues with whatever was in the record area before
+     the read.
+
+      78 | 
+      79 |            DISPLAY FAVOUT-RECORD.
+      80 | 
+ >    81 |            READ FAVIN.
+      82 |            DISPLAY FAV-RECORD.
+      83 | 
+      84 |            MOVE FI-Group-Name TO FO-Group-Name.
+
+verdict:
+why:
+
+====================================================================
+020  READ_NO_AT_END
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/HOSPEDIT.cbl:333
+     READ IT-INS-TYPE has no AT END, no INVALID KEY, and no FILE
+     STATUS test. When the file is exhausted or a key is not found,
+     the program continues with whatever was in the record area
+     before the read.
+
+     330 |            OPEN INPUT IT-INS-TYPE.
+     331 |            SET T-IDX TO 1
+     332 |            PERFORM 5 TIMES
+ >   333 |               READ IT-INS-TYPE INTO INS-TYPE-ITEM(T-IDX)
+     334 |               SET T-IDX UP BY 1
+     335 |            END-PERFORM.
+     336 |            CLOSE IT-INS-TYPE.
+
+verdict:
+why:
+
+====================================================================
+021  READ_NO_AT_END
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/ws532.cbl:58
+     READ FAVIN has no AT END, no INVALID KEY, and no FILE STATUS
+     test. When the file is exhausted or a key is not found, the
+     program continues with whatever was in the record area before
+     the read.
+
+      55 | 
+      56 |            OPEN INPUT FAVIN.
+      57 | 
+ >    58 |            READ FAVIN.
+      59 |            INITIALIZE FAVOUT-RECORD.
+      60 | 
+      61 |            MOVE FI-Group-Name TO FO-Group-Name.
+
+verdict:
+why:
+
+====================================================================
+022  READ_NO_AT_END
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/ws532.cbl:73
+     READ FAVIN has no AT END, no INVALID KEY, and no FILE STATUS
+     test. When the file is exhausted or a key is not found, the
+     program continues with whatever was in the record area before
+     the read.
+
+      70 | 
+      71 |            DISPLAY FAVOUT-RECORD.
+      72 | 
+ >    73 |            READ FAVIN.
+      74 | 
+      75 |            MOVE FI-Group-Name TO FO-Group-Name.
+      76 |            MOVE FI-Number-Of-Musicians TO FO-Number-Of-Musicians.
+
+verdict:
+why:
+
+====================================================================
+023  READ_NO_AT_END
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/ws532.cbl:87
+     READ FAVIN has no AT END, no INVALID KEY, and no FILE STATUS
+     test. When the file is exhausted or a key is not found, the
+     program continues with whatever was in the record area before
+     the read.
+
+      84 | 
+      85 |            DISPLAY FAVOUT-RECORD.
+      86 | 
+ >    87 |            READ FAVIN.
+      88 | 
+      89 |            MOVE FI-Group-Name TO FO-Group-Name.
+      90 |            MOVE FI-Number-Of-Musicians TO FO-Number-Of-Musicians.
+
+verdict:
+why:
+
+====================================================================
+024  READ_NO_AT_END
+     dscobol/Mainframe/Tutorials/ECBAP/cbl/WS532.cbl:52
+     READ FAVIN has no AT END, no INVALID KEY, and no FILE STATUS
+     test. When the file is exhausted or a key is not found, the
+     program continues with whatever was in the record area before
+     the read.
+
+      49 | 
+      50 |            OPEN INPUT FAVIN.
+      51 | 
+ >    52 |            READ FAVIN.
+      53 |            INITIALIZE FAVOUT-RECORD.
+      54 | 
+      55 |            MOVE FI-Group-Name TO FO-Group-Name.
+
+verdict:
+why:
+
+====================================================================
+025  READ_NO_AT_END
+     dscobol/Mainframe/Tutorials/ECBAP/cbl/WS532.cbl:67
+     READ FAVIN has no AT END, no INVALID KEY, and no FILE STATUS
+     test. When the file is exhausted or a key is not found, the
+     program continues with whatever was in the record area before
+     the read.
+
+      64 | 
+      65 |            DISPLAY FAVOUT-RECORD.
+      66 | 
+ >    67 |            READ FAVIN.
+      68 | 
+      69 |            MOVE FI-Group-Name TO FO-Group-Name.
+      70 |            MOVE FI-Number-Of-Musicians TO FO-Number-Of-Musicians.
+
+verdict:
+why:
+
+====================================================================
+026  READ_NO_AT_END
+     dscobol/Mainframe/Tutorials/ECBAP/cbl/WS532.cbl:81
+     READ FAVIN has no AT END, no INVALID KEY, and no FILE STATUS
+     test. When the file is exhausted or a key is not found, the
+     program continues with whatever was in the record area before
+     the read.
+
+      78 | 
+      79 |            DISPLAY FAVOUT-RECORD.
+      80 | 
+ >    81 |            READ FAVIN.
+      82 | 
+      83 |            MOVE FI-Group-Name TO FO-Group-Name.
+      84 |            MOVE FI-Number-Of-Musicians TO FO-Number-Of-Musicians.
+
+verdict:
+why:
+
+====================================================================
+027  UNIT_OF_WORK_UNBOUNDED
+     cardemo/app/app-transaction-type-db2/cbl/COBTUPDT.cbl:137
+     INSERT in paragraph 10031-INSERT-DB, PERFORMed from
+     1003-TREAT-RECORD, which is PERFORMed from inside an inline
+     loop, and the program never issues COMMIT. Every lock taken
+     from the first change is held until the job ends, and a
+     failure part way through leaves no point to restart from
+     except the beginning.
+
+     134 |       * SQL TO INSERT THE RECORD                                        
+     135 |       ******************************************************************
+     136 |       *                                                                 
+ >   137 |            EXEC SQL                                                     
+     138 |                 INSERT INTO CARDDEMO.TRANSACTION_TYPE                   
+     139 |                 (                                                       
+     140 |                 TR_TYPE,                                                
+
+verdict:
+why:
+
+====================================================================
+028  UNIT_OF_WORK_UNBOUNDED
+     cardemo/app/app-transaction-type-db2/cbl/COBTUPDT.cbl:171
+     UPDATE in paragraph 10032-UPDATE-DB, PERFORMed from
+     1003-TREAT-RECORD, which is PERFORMed from inside an inline
+     loop, and the program never issues COMMIT. Every lock taken
+     from the first change is held until the job ends, and a
+     failure part way through leaves no point to restart from
+     except the beginning.
+
+     168 |       * SQL TO UPDATE THE RECORD                                        
+     169 |       ******************************************************************
+     170 |       *                                                                 
+ >   171 |            EXEC SQL                                                     
+     172 |                 UPDATE CARDDEMO.TRANSACTION_TYPE                        
+     173 |                    SET TR_DESCRIPTION = :INPUT-REC-DESC                 
+     174 |                  WHERE TR_TYPE = :INPUT-REC-NUMBER                      
+
+verdict:
+why:
+
+====================================================================
+029  UNIT_OF_WORK_UNBOUNDED
+     cardemo/app/app-transaction-type-db2/cbl/COBTUPDT.cbl:201
+     DELETE in paragraph 10033-DELETE-DB, PERFORMed from
+     1003-TREAT-RECORD, which is PERFORMed from inside an inline
+     loop, and the program never issues COMMIT. Every lock taken
+     from the first change is held until the job ends, and a
+     failure part way through leaves no point to restart from
+     except the beginning.
+
+     198 |       * SQL TO DELETE THE RECORD                                        
+     199 |       ******************************************************************
+     200 |       *                                                                 
+ >   201 |            EXEC SQL                                                     
+     202 |                 DELETE FROM CARDDEMO.TRANSACTION_TYPE                   
+     203 |                  WHERE TR_TYPE = :INPUT-REC-NUMBER                      
+     204 |            END-EXEC.                                                    
+
+verdict:
+why:
+
+====================================================================
+030  UNIT_OF_WORK_UNBOUNDED
+     dscobol/GnuCOBOL/DB2/Tutorials/Murach/original-code/UPDTCUST.cbl:90
+     INSERT in paragraph 120-INSERT-CUSTOMER-ROW, PERFORMed from
+     100-POST-CUST-TRANSACTION, which is PERFORMed in a loop, and
+     the program never issues COMMIT. Every lock taken from the
+     first change is held until the job ends, and a failure part
+     way through leaves no point to restart from except the
+     beginning.
+
+      87 |        120-INSERT-CUSTOMER-ROW.
+      88 |       *
+      89 |            MOVE CTR-TRANSACTION-DATA TO CUSTOMER-ROW
+ >    90 |            EXEC SQL
+      91 |                INSERT INTO MM01.CUSTOMER
+      92 |                       ( CUSTNO,   FNAME,     LNAME,    ADDR,
+      93 |                         CITY,     STATE,     ZIPCODE)
+
+verdict:
+why:
+
+====================================================================
+031  UNIT_OF_WORK_UNBOUNDED
+     dscobol/GnuCOBOL/DB2/Tutorials/Murach/original-code/UPDTCUST.cbl:103
+     UPDATE in paragraph 130-UPDATE-CUSTOMER-ROW, PERFORMed from
+     100-POST-CUST-TRANSACTION, which is PERFORMed in a loop, and
+     the program never issues COMMIT. Every lock taken from the
+     first change is held until the job ends, and a failure part
+     way through leaves no point to restart from except the
+     beginning.
+
+     100 |        130-UPDATE-CUSTOMER-ROW.
+     101 |       *
+     102 |            MOVE CTR-TRANSACTION-DATA TO CUSTOMER-ROW
+ >   103 |            EXEC SQL
+     104 |                UPDATE MM01.CUSTOMER
+     105 |                   SET FNAME   = :FNAME,
+     106 |                       LNAME   = :LNAME,
+
+verdict:
+why:
+
+====================================================================
+032  UNIT_OF_WORK_UNBOUNDED
+     dscobol/GnuCOBOL/DB2/Tutorials/Murach/original-code/UPDTCUST.cbl:119
+     DELETE in paragraph 140-DELETE-CUSTOMER-ROW, PERFORMed from
+     100-POST-CUST-TRANSACTION, which is PERFORMed in a loop, and
+     the program never issues COMMIT. Every lock taken from the
+     first change is held until the job ends, and a failure part
+     way through leaves no point to restart from except the
+     beginning.
+
+     116 |        140-DELETE-CUSTOMER-ROW.
+     117 |       *
+     118 |            MOVE CTR-CUSTOMER-NUMBER TO CUSTNO.
+ >   119 |            EXEC SQL
+     120 |                DELETE FROM MM01.CUSTOMER
+     121 |                    WHERE CUSTNO = :CUSTNO
+     122 |            END-EXEC.
+
+verdict:
+why:
+
+====================================================================
+033  UNIT_OF_WORK_UNBOUNDED
+     dscobol/GnuCOBOL/DB2/Tutorials/Murach/original-code/VNCUPDT.cbl:112
+     INSERT in paragraph 120-INSERT-CUSTOMER-ROW, PERFORMed from
+     100-POST-CUST-TRANSACTION, which is PERFORMed in a loop, and
+     the program never issues COMMIT. Every lock taken from the
+     first change is held until the job ends, and a failure part
+     way through leaves no point to restart from except the
+     beginning.
+
+     109 |        120-INSERT-CUSTOMER-ROW.
+     110 |       *
+     111 |            PERFORM 130-SET-NULLS-AND-LENGTHS.
+ >   112 |            EXEC SQL
+     113 |                INSERT INTO MM01.VARCUST
+     114 |                      (  CUSTNO,               FNAME,
+     115 |                         LNAME,                CITY,
+
+verdict:
+why:
+
+====================================================================
+034  UNIT_OF_WORK_UNBOUNDED
+     dscobol/GnuCOBOL/DB2/Tutorials/Murach/original-code/VNCUPDT.cbl:163
+     UPDATE in paragraph 140-UPDATE-CUSTOMER-ROW, PERFORMed from
+     100-POST-CUST-TRANSACTION, which is PERFORMed in a loop, and
+     the program never issues COMMIT. Every lock taken from the
+     first change is held until the job ends, and a failure part
+     way through leaves no point to restart from except the
+     beginning.
+
+     160 |        140-UPDATE-CUSTOMER-ROW.
+     161 |       *
+     162 |            PERFORM 130-SET-NULLS-AND-LENGTHS.
+ >   163 |            EXEC SQL
+     164 |                UPDATE MM01.VARCUST
+     165 |                   SET CUSTNO  = :CUSTNO,
+     166 |                       FNAME   = :FNAME,
+
+verdict:
+why:
+
+====================================================================
+035  UNIT_OF_WORK_UNBOUNDED
+     dscobol/GnuCOBOL/DB2/Tutorials/Murach/original-code/VNCUPDT.cbl:181
+     DELETE in paragraph 150-DELETE-CUSTOMER-ROW, PERFORMed from
+     100-POST-CUST-TRANSACTION, which is PERFORMed in a loop, and
+     the program never issues COMMIT. Every lock taken from the
+     first change is held until the job ends, and a failure part
+     way through leaves no point to restart from except the
+     beginning.
+
+     178 |       *
+     179 |        150-DELETE-CUSTOMER-ROW.
+     180 |       *
+ >   181 |            EXEC SQL
+     182 |                DELETE FROM MM01.VARCUST
+     183 |                    WHERE CUSTNO = :CUSTNO
+     184 |            END-EXEC.
+
+verdict:
+why:
+
+====================================================================
+036  UNIT_OF_WORK_UNBOUNDED
+     dscobol/Mainframe/DB2/Basic/cbl/DBCBEX01.cbl:188
+     INSERT in paragraph 6000-WRITE-DB1, PERFORMed from
+     2100-INSERT-INFILE, which is PERFORMed from inside an inline
+     loop, and the program never issues COMMIT. Every lock taken
+     from the first change is held until the job ends, and a
+     failure part way through leaves no point to restart from
+     except the beginning.
+
+     185 | 
+     186 |        6000-Write-DB1.
+     187 |            DISPLAY "The data: " LoadFile-Employee-Record.
+ >   188 |            EXEC SQL
+     189 |               INSERT INTO EMPLOYE2
+     190 |               VALUES (
+     191 |                   :HV-Emp-Number, :HV-First-Name, :HV-Middle-Init,
+
+verdict:
+why:
+
+====================================================================
+037  WRITE_NO_EXCEPTION
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/FAVRPT2.cbl:94
+     WRITE to FAVOUT has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+      91 |            MOVE FI-Group-Is-Still-Together TO
+      92 |                     FO-Group-Is-Still-Together.
+      93 | 
+ >    94 |            WRITE FAVOUT-RECORD.
+      95 | 
+      96 |            PERFORM 5000-Read-FAVIN.
+
+verdict:
+why:
+
+====================================================================
+038  WRITE_NO_EXCEPTION
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/HOSPEDIT.cbl:439
+     WRITE to RPTFILE has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     436 |            MOVE "Rec in:" TO EOJ-Print-Message.
+     437 |            MOVE RECORDS-READ TO EOJ-Print-Number.
+     438 |            MOVE EOJ-Print-Line TO RPT-REC.
+ >   439 |            WRITE RPT-REC.
+     440 | 
+     441 |            MOVE "Rec written:" TO EOJ-Print-Message.
+     442 |            MOVE RECORDS-WRITTEN TO EOJ-Print-Number.
+
+verdict:
+why:
+
+====================================================================
+039  WRITE_NO_EXCEPTION
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/HOSPEDIT.cbl:456
+     WRITE to RPTFILE has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     453 |            MOVE "Outpat:" TO EOJ-Print-Message.
+     454 |            MOVE NBR-OUTPATIENTS TO EOJ-Print-Number.
+     455 |            MOVE EOJ-Print-Line TO RPT-REC.
+ >   456 |            WRITE RPT-REC.
+     457 |            MOVE "HMO:" TO EOJ-Print-Message.
+     458 |            MOVE NBR-HMO TO EOJ-Print-Number.
+     459 |            MOVE EOJ-Print-Line TO RPT-REC.
+
+verdict:
+why:
+
+====================================================================
+040  WRITE_NO_EXCEPTION
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/ws120.cbl:354
+     WRITE to INSRPT has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     351 |               AFTER ADVANCING 1.
+     352 |            WRITE Print-Line FROM R1-Column-Header1
+     353 |               AFTER ADVANCING 2.
+ >   354 |            WRITE Print-Line FROM R1-Column-Header2
+     355 |               AFTER ADVANCING 1.
+     356 |            WRITE Print-Line FROM R1-Column-Header3
+     357 |               AFTER ADVANCING 1.
+
+verdict:
+why:
+
+====================================================================
+041  WRITE_NO_EXCEPTION
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/ws162e.cbl:591
+     WRITE to RPTFILE has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     588 | 
+     589 |        6120-Write-R1-Detail.
+     590 |            MOVE R1-Detail-Line TO R1-Print-Line.
+ >   591 |            WRITE R1-Print-Line
+     592 |               AFTER ADVANCING R1-Line-Advance LINES.
+     593 |            ADD R1-Line-Advance TO R1-Line-Count.
+     594 |            ADD +1 TO R1-Lines-Written.
+
+verdict:
+why:
+
+====================================================================
+042  WRITE_NO_EXCEPTION
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/ws162e.cbl:637
+     WRITE to RPTFILE has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     634 |            MOVE "Number of Insurance Types: " TO
+     635 |               R1-Footer-Print-Message
+     636 |            MOVE R1-Footer-Print-Message TO R1-Print-Line
+ >   637 |            WRITE R1-Print-Line
+     638 |               AFTER ADVANCING 1 LINES.
+     639 | 
+     640 |            MOVE SPACES TO R1-Footer-Type-Print-Line.
+
+verdict:
+why:
+
+====================================================================
+043  WRITE_NO_EXCEPTION
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/ws172a.cbl:366
+     WRITE to RPTFILE has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     363 |            MOVE 2 TO R1-Line-Count.
+     364 | 
+     365 |        6120-Write-R1-Detail.
+ >   366 |            WRITE R1-Print-Line
+     367 |               AFTER ADVANCING R1-Line-Advance LINES.
+     368 |            ADD R1-Line-Advance TO R1-Line-Count.
+     369 |            ADD +1 TO R1-Lines-Written.
+
+verdict:
+why:
+
+====================================================================
+044  WRITE_NO_EXCEPTION
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/ws172a.cbl:387
+     WRITE to RPTFILE has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     384 |            WRITE R1-Print-Line
+     385 |               AFTER ADVANCING 1 LINES.
+     386 |            MOVE R1-Footer4 TO R1-Print-Line.
+ >   387 |            WRITE R1-Print-Line
+     388 |               AFTER ADVANCING 1 LINES.
+     389 | 
+     390 | 
+
+verdict:
+why:
+
+====================================================================
+045  WRITE_NO_EXCEPTION
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/ws182.cbl:377
+     WRITE to RPTFILE has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     374 |            WRITE FD-Report-Record AFTER ADVANCING 1 LINES.
+     375 | 
+     376 |            MOVE R1-Footer3 TO FD-Report-Record.
+ >   377 |            WRITE FD-Report-Record AFTER ADVANCING 1 LINES.
+     378 | 
+     379 |            MOVE R1-Footer4 TO FD-Report-Record.
+     380 |            WRITE FD-Report-Record AFTER ADVANCING 1 LINES.
+
+verdict:
+why:
+
+====================================================================
+046  WRITE_NO_EXCEPTION
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/ws81e.cbl:651
+     WRITE to PROPRPT has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     648 |            MOVE R1-Page-Count TO R1-HDR-Page-Count.
+     649 |            WRITE Print-Line FROM R1-Page-Header
+     650 |               AFTER ADVANCING PAGE.
+ >   651 |            WRITE Print-Line FROM R1-Column-Header1
+     652 |               AFTER ADVANCING 2.
+     653 |            WRITE Print-Line FROM R1-Column-Header2
+     654 |               AFTER ADVANCING 1.
+
+verdict:
+why:
+
+====================================================================
+047  WRITE_NO_EXCEPTION
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/ws81e.cbl:655
+     WRITE to PROPRPT has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     652 |               AFTER ADVANCING 2.
+     653 |            WRITE Print-Line FROM R1-Column-Header2
+     654 |               AFTER ADVANCING 1.
+ >   655 |            WRITE Print-Line FROM R1-Column-Header3
+     656 |               AFTER ADVANCING 1.
+     657 |            MOVE 5 TO R1-Line-Count.
+     658 | 
+
+verdict:
+why:
+
+====================================================================
+048  WRITE_NO_EXCEPTION
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/ws81e.cbl:661
+     WRITE to PROPRPT has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     658 | 
+     659 |        6120-Write-R1-Detail.
+     660 |            MOVE R1-Detail-Line TO Print-Line.
+ >   661 |            WRITE Print-Line
+     662 |               AFTER ADVANCING R1-Line-Advance LINES.
+     663 |            ADD R1-Line-Advance TO R1-Line-Count.
+     664 |            ADD +1 TO R1-Lines-Written.
+
+verdict:
+why:
+
+====================================================================
+049  WRITE_NO_EXCEPTION
+     dscobol/GnuCOBOL/Tutorials/ECBAP/cbl/ws81e.cbl:671
+     WRITE to PROPRPT has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     668 |               PERFORM 6110-Write-R1-Page-Header
+     669 |            END-IF.
+     670 |            MOVE R1-Footer1 TO Print-Line.
+ >   671 |            WRITE Print-Line
+     672 |               AFTER ADVANCING 2 LINES.
+     673 |            MOVE R1-Footer2 TO Print-Line.
+     674 |            WRITE Print-Line
+
+verdict:
+why:
+
+====================================================================
+050  WRITE_NO_EXCEPTION
+     dscobol/Mainframe/DB2/Basic/cbl/DBCBEX16.cbl:248
+     WRITE to EMPRPT has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     245 |        6110-Write-R1-Page-Header.
+     246 |            ADD +1 TO R1-Page-Count.
+     247 |            MOVE R1-Page-Count TO R1-HDR-Page-Count.
+ >   248 |            WRITE Print-Line FROM R1-Page-Header
+     249 |               AFTER ADVANCING PAGE.
+     250 |            WRITE Print-Line FROM R1-Column-Header1
+     251 |               AFTER ADVANCING 2.
+
+verdict:
+why:
+
+====================================================================
+051  WRITE_NO_EXCEPTION
+     dscobol/Mainframe/Tutorials/ECBAP/cbl/WS120.cbl:347
+     WRITE to INSRPT has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     344 |        6110-Write-R1-Page-Header.
+     345 |            ADD +1 TO R1-Page-Count.
+     346 |            MOVE R1-Page-Count TO R1-HDR-Page-Count.
+ >   347 |            WRITE Print-Line FROM R1-Page-Header
+     348 |               AFTER ADVANCING PAGE.
+     349 |            WRITE Print-Line FROM R1-Page-Header2
+     350 |               AFTER ADVANCING 1.
+
+verdict:
+why:
+
+====================================================================
+052  WRITE_NO_EXCEPTION
+     dscobol/Mainframe/Tutorials/ECBAP/cbl/WS120.cbl:353
+     WRITE to INSRPT has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     350 |               AFTER ADVANCING 1.
+     351 |            WRITE Print-Line FROM R1-Column-Header1
+     352 |               AFTER ADVANCING 2.
+ >   353 |            WRITE Print-Line FROM R1-Column-Header2
+     354 |               AFTER ADVANCING 1.
+     355 |            WRITE Print-Line FROM R1-Column-Header3
+     356 |               AFTER ADVANCING 1.
+
+verdict:
+why:
+
+====================================================================
+053  WRITE_NO_EXCEPTION
+     dscobol/Mainframe/Tutorials/ECBAP/cbl/WS120.cbl:371
+     WRITE to INSRPT has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     368 |               PERFORM 6110-Write-R1-Page-Header
+     369 |            END-IF.
+     370 |            MOVE R1-Footer1 TO Print-Line.
+ >   371 |            WRITE Print-Line
+     372 |               AFTER ADVANCING 2 LINES.
+     373 |            MOVE R1-Footer2 TO Print-Line.
+     374 |            WRITE Print-Line
+
+verdict:
+why:
+
+====================================================================
+054  WRITE_NO_EXCEPTION
+     dscobol/Mainframe/Tutorials/ECBAP/cbl/WS162E.cbl:580
+     WRITE to RPTFILE has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     577 |            MOVE R1-Page-Count TO R1-HDR-Page-Count.
+     578 |            WRITE R1-Print-Line FROM R1-Page-Header
+     579 |               AFTER ADVANCING PAGE.
+ >   580 |            WRITE R1-Print-Line FROM R1-Column-Header1
+     581 |               AFTER ADVANCING 2.
+     582 |            WRITE R1-Print-Line FROM R1-Column-Header2
+     583 |               AFTER ADVANCING 1.
+
+verdict:
+why:
+
+====================================================================
+055  WRITE_NO_EXCEPTION
+     dscobol/Mainframe/Tutorials/ECBAP/cbl/WS162E.cbl:613
+     WRITE to RPTFILE has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     610 |               AFTER ADVANCING 2 LINES.
+     611 | 
+     612 |            MOVE R1-Footer2 TO R1-Print-Line.
+ >   613 |            WRITE R1-Print-Line
+     614 |               AFTER ADVANCING 1 LINES.
+     615 | 
+     616 |            MOVE R1-Footer3 TO R1-Print-Line.
+
+verdict:
+why:
+
+====================================================================
+056  WRITE_NO_EXCEPTION
+     dscobol/Mainframe/Tutorials/ECBAP/cbl/WS162E.cbl:627
+     WRITE to RPTFILE has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     624 |               AFTER ADVANCING 1 LINES.
+     625 | 
+     626 |            MOVE R1-Footer4 TO R1-Print-Line.
+ >   627 |            WRITE R1-Print-Line
+     628 |               AFTER ADVANCING 1 LINES.
+     629 | 
+     630 |            MOVE R1-Footer5 TO R1-Print-Line.
+
+verdict:
+why:
+
+====================================================================
+057  WRITE_NO_EXCEPTION
+     dscobol/Mainframe/Tutorials/ECBAP/cbl/WS162E.cbl:644
+     WRITE to RPTFILE has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     641 |            PERFORM 6135-Display-Ins-Type-Messages.
+     642 | 
+     643 |            MOVE R1-Footer6 TO R1-Print-Line.
+ >   644 |            WRITE R1-Print-Line
+     645 |               AFTER ADVANCING 2 LINES.
+     646 | 
+     647 |            PERFORM 6140-Display-EOJ-Messages.
+
+verdict:
+why:
+
+====================================================================
+058  WRITE_NO_EXCEPTION
+     dscobol/Mainframe/Tutorials/ECBAP/cbl/WS172A.cbl:362
+     WRITE to RPTFILE has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     359 |            MOVE R1-Page-Count TO R1-HDR-Page-Count.
+     360 |            WRITE R1-Print-Line FROM R1-Page-Header
+     361 |               AFTER ADVANCING PAGE.
+ >   362 |            WRITE R1-Print-Line FROM R1-Column-Header1
+     363 |               AFTER ADVANCING 1.
+     364 |       *    Remember to double-check this number.
+     365 |            MOVE 2 TO R1-Line-Count.
+
+verdict:
+why:
+
+====================================================================
+059  WRITE_NO_EXCEPTION
+     dscobol/Mainframe/Tutorials/ECBAP/cbl/WS172A.cbl:386
+     WRITE to RPTFILE has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     383 |            WRITE R1-Print-Line
+     384 |               AFTER ADVANCING 1 LINES.
+     385 |            MOVE R1-Footer3 TO R1-Print-Line.
+ >   386 |            WRITE R1-Print-Line
+     387 |               AFTER ADVANCING 1 LINES.
+     388 |            MOVE R1-Footer4 TO R1-Print-Line.
+     389 |            WRITE R1-Print-Line
+
+verdict:
+why:
+
+====================================================================
+060  WRITE_NO_EXCEPTION
+     dscobol/Mainframe/Tutorials/ECBAP/cbl/WS182.cbl:342
+     WRITE to RPTFILE has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     339 |            ADD +1 TO R1-Page-Count.
+     340 |            MOVE R1-Page-Count TO R1-HDR-Page-Count.
+     341 |            MOVE R1-Page-Header TO FD-Report-Record.
+ >   342 |            WRITE FD-Report-Record AFTER ADVANCING PAGE.
+     343 |            MOVE R1-Column-Header1 TO FD-Report-Record.
+     344 |            WRITE FD-Report-Record AFTER ADVANCING 2 LINES.
+     345 |            MOVE R1-Column-Header2 TO FD-Report-Record.
+
+verdict:
+why:
+
+====================================================================
+061  WRITE_NO_EXCEPTION
+     dscobol/Mainframe/Tutorials/ECBAP/cbl/WS182.cbl:346
+     WRITE to RPTFILE has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     343 |            MOVE R1-Column-Header1 TO FD-Report-Record.
+     344 |            WRITE FD-Report-Record AFTER ADVANCING 2 LINES.
+     345 |            MOVE R1-Column-Header2 TO FD-Report-Record.
+ >   346 |            WRITE FD-Report-Record AFTER ADVANCING 1 LINES.
+     347 |       *    Remember to double-check this number.
+     348 |            MOVE 4 TO R1-Line-Count.
+     349 | 
+
+verdict:
+why:
+
+====================================================================
+062  WRITE_NO_EXCEPTION
+     dscobol/Mainframe/Tutorials/ECBAP/cbl/WS193.cbl:351
+     WRITE to INSRPT has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     348 |               AFTER ADVANCING PAGE.
+     349 |            WRITE Print-Line FROM R1-Page-Header2
+     350 |               AFTER ADVANCING 1.
+ >   351 |            WRITE Print-Line FROM R1-Column-Header1
+     352 |               AFTER ADVANCING 2.
+     353 |            WRITE Print-Line FROM R1-Column-Header2
+     354 |               AFTER ADVANCING 1.
+
+verdict:
+why:
+
+====================================================================
+063  WRITE_NO_EXCEPTION
+     dscobol/Mainframe/Tutorials/ECBAP/cbl/WS193.cbl:361
+     WRITE to INSRPT has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     358 | 
+     359 |        6120-Write-R1-Detail.
+     360 |            MOVE R1-Detail-Line TO Print-Line.
+ >   361 |            WRITE Print-Line
+     362 |               AFTER ADVANCING R1-Line-Advance LINES.
+     363 |            ADD R1-Line-Advance TO R1-Line-Count.
+     364 |            ADD +1 TO R1-Lines-Written.
+
+verdict:
+why:
+
+====================================================================
+064  WRITE_NO_EXCEPTION
+     dscobol/Mainframe/Tutorials/ECBAP/cbl/WS193.cbl:377
+     WRITE to INSRPT has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     374 |            WRITE Print-Line
+     375 |               AFTER ADVANCING 1 LINES.
+     376 |            MOVE R1-Footer3 TO Print-Line.
+ >   377 |            WRITE Print-Line
+     378 |               AFTER ADVANCING 1 LINES.
+     379 |            PERFORM 6140-Display-EOJ-Messages.
+     380 | 
+
+verdict:
+why:
+
+====================================================================
+065  WRITE_NO_EXCEPTION
+     dscobol/Mainframe/Tutorials/ECBAP/cbl/WS81E.cbl:663
+     WRITE to PROPRPT has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     660 |               PERFORM 6110-Write-R1-Page-Header
+     661 |            END-IF.
+     662 |            MOVE R1-Footer1 TO Print-Line.
+ >   663 |            WRITE Print-Line
+     664 |               AFTER ADVANCING 2 LINES.
+     665 |            MOVE R1-Footer2 TO Print-Line.
+     666 |            WRITE Print-Line
+
+verdict:
+why:
+
+====================================================================
+066  WRITE_NO_EXCEPTION
+     dscobol/Mainframe/Tutorials/ECBAP/cbl/WS81E.cbl:669
+     WRITE to PROPRPT has no INVALID KEY and no FILE STATUS test. A
+     duplicate key on a KSDS, or a disk-full condition, is silently
+     ignored and the record is not written.
+
+     666 |            WRITE Print-Line
+     667 |               AFTER ADVANCING 1 LINES.
+     668 |            MOVE R1-Footer3 TO Print-Line.
+ >   669 |            WRITE Print-Line
+     670 |               AFTER ADVANCING 1 LINES.
+     671 |            MOVE R1-Footer4 TO Print-Line.
+     672 |            WRITE Print-Line
+
+verdict:
+why:

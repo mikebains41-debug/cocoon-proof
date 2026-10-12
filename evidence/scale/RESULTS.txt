@@ -1,0 +1,138 @@
+==============================================================================
+scale  2026-10-10 17:27  Cocoon 6fc670a
+  ~/cobol_corpora/cbsa-src               66 source files     26609 lines  (29 programs, 24940 lines)
+  ~/cobol_corpora/cardemo               106 source files     40826 lines  (44 programs, 30175 lines)
+  ~/cobol_corpora/nist-cobol85          537 source files    359584 lines  (486 programs, 357511 lines)
+  ~/cobol_corpora/dscobol               150 source files     27318 lines  (130 programs, 26618 lines)
+  ~/cms/cobol                            61 source files    100153 lines  (61 programs, 100153 lines)
+  one set: 920 source files, 554490 lines; 750 programs, 539397 lines; 1324 other files not counted
+  2m tree: 4 copies, 2217960 lines, in ~/scale/2m
+  5m tree: 10 copies, 5544900 lines, in ~/scale/5m
+
+--- the analyser: cocoonctl audit, one run per tree
+cobol_corpora/cbsa-src         26609 lines      0.1 min    3563 lines/s      35 findings across    11 programs, 0 problems  (peak memory of any run so far 33 MB)
+cobol_corpora/cardemo          40826 lines      0.1 min    4694 lines/s     304 findings across    46 programs, 0 problems  (peak memory of any run so far 33 MB)
+cobol_corpora/nist-cobol85    359584 lines      1.4 min    4427 lines/s     699 findings across   187 programs, 0 problems  (peak memory of any run so far 54 MB)
+cobol_corpora/dscobol          27318 lines      0.1 min    7825 lines/s     505 findings across    87 programs, 0 problems  (peak memory of any run so far 54 MB)
+cms/cobol                     100153 lines      0.2 min    8698 lines/s     179 findings across    41 programs, 0 problems  (peak memory of any run so far 54 MB)
+one set                       554490 lines      1.9 min    4933 lines/s    1722 findings, 0 problems
+2m                           2217960 lines     18.7 min    1978 lines/s    1722 findings across   372 programs, 0 problems  (peak memory of any run so far 88 MB)
+           4 copies x 1722 findings = 6888 expected; differs by -5166 - copies share program names, so whole-estate checks can see them; to examine
+           speed 40% of one set's - SLOWER AS IT GROWS: something here is worse than linear
+==============================================================================
+scale  2026-10-10 19:00  Cocoon 4f4b6ac
+  ~/cobol_corpora/cbsa-src               66 source files     26609 lines  (29 programs, 24940 lines)
+  ~/cobol_corpora/cardemo               106 source files     40826 lines  (44 programs, 30175 lines)
+  ~/cobol_corpora/nist-cobol85          537 source files    359584 lines  (486 programs, 357511 lines)
+  ~/cobol_corpora/dscobol               150 source files     27318 lines  (130 programs, 26618 lines)
+  ~/cms/cobol                            61 source files    100153 lines  (61 programs, 100153 lines)
+  one set: 920 source files, 554490 lines; 750 programs, 539397 lines; 1324 other files not counted
+  2m tree: 4 real copies, 2217960 lines, 1155 MB, in ~/scale/2m
+  5m tree: 10 real copies, 5544900 lines, 2888 MB, in ~/scale/5m
+
+--- the analyser: cocoonctl audit, one run per tree
+cobol_corpora/cbsa-src         26609 lines      0.2 min    2492 lines/s      35 findings across    11 programs, 0 problems  (peak memory of any run so far 32 MB)
+cobol_corpora/cardemo          40826 lines      0.4 min    1888 lines/s     304 findings across    46 programs, 0 problems  (peak memory of any run so far 32 MB)
+cobol_corpora/nist-cobol85    359584 lines      2.2 min    2736 lines/s     699 findings across   187 programs, 0 problems  (peak memory of any run so far 54 MB)
+cobol_corpora/dscobol          27318 lines      0.1 min    3183 lines/s     505 findings across    87 programs, 0 problems  (peak memory of any run so far 54 MB)
+cms/cobol                     100153 lines      0.4 min    3774 lines/s     179 findings across    41 programs, 0 problems  (peak memory of any run so far 54 MB)
+one set                       554490 lines      3.3 min    2789 lines/s    1722 findings, 0 problems
+2m                           2217960 lines     26.4 min    1402 lines/s    3960 findings across   888 programs, 0 problems  (peak memory of any run so far 89 MB)
+           4 copies x 1722 findings = 6888 expected; DIFFERS by -2928 - the copies are real files, so this is a fault to find
+           speed 50% of one set's - SLOWER AS IT GROWS: something here is worse than linear
+==============================================================================
+scale  2026-10-10 21:47  Cocoon d82d143
+  ~/cobol_corpora/cbsa-src               66 source files     26609 lines  (29 programs, 24940 lines)
+  ~/cobol_corpora/cardemo               106 source files     40826 lines  (44 programs, 30175 lines)
+  ~/cobol_corpora/nist-cobol85          537 source files    359584 lines  (486 programs, 357511 lines)
+  ~/cobol_corpora/dscobol               150 source files     27318 lines  (130 programs, 26618 lines)
+  ~/cms/cobol                            61 source files    100153 lines  (61 programs, 100153 lines)
+  one set: 920 source files, 554490 lines; 750 programs, 539397 lines; 1324 other files not counted
+  2m tree: 4 real copies, 2217960 lines, 1155 MB, in ~/scale/2m
+  5m tree: 10 real copies, 5544900 lines, 2888 MB, in ~/scale/5m
+
+--- the analyser: cocoonctl audit, one run per tree
+cobol_corpora/cbsa-src         26609 lines      0.1 min    4469 lines/s      44 findings across    13 programs, 0 problems  (peak memory of any run so far 29 MB)
+cobol_corpora/cardemo          40826 lines      0.2 min    4050 lines/s     340 findings across    46 programs, 0 problems  (peak memory of any run so far 32 MB)
+cobol_corpora/nist-cobol85    359584 lines      2.1 min    2915 lines/s    2716 findings across   421 programs, 0 problems  (peak memory of any run so far 54 MB)
+cobol_corpora/dscobol          27318 lines      0.1 min    3450 lines/s     633 findings across    93 programs, 0 problems  (peak memory of any run so far 54 MB)
+cms/cobol                     100153 lines      0.3 min    4924 lines/s     712 findings across    55 programs, 0 problems  (peak memory of any run so far 54 MB)
+one set                       554490 lines      2.8 min    3308 lines/s    4445 findings, 0 problems
+==============================================================================
+scale  2026-10-10 22:09  Cocoon 1130629
+  ~/cobol_corpora/cbsa-src               66 source files     26609 lines  (29 programs, 24940 lines)
+  ~/cobol_corpora/cardemo               106 source files     40826 lines  (44 programs, 30175 lines)
+  ~/cobol_corpora/nist-cobol85          537 source files    359584 lines  (486 programs, 357511 lines)
+  ~/cobol_corpora/dscobol               150 source files     27318 lines  (130 programs, 26618 lines)
+  ~/cms/cobol                            61 source files    100153 lines  (61 programs, 100153 lines)
+  one set: 920 source files, 554490 lines; 750 programs, 539397 lines; 1324 other files not counted
+  2m tree: 4 real copies, 2217960 lines, 1155 MB, in ~/scale/2m
+  5m tree: 10 real copies, 5544900 lines, 2888 MB, in ~/scale/5m
+
+--- the analyser: cocoonctl audit, one run per tree
+cobol_corpora/cbsa-src         26609 lines      0.1 min    3962 lines/s      44 findings across    13 programs, 0 problems  (peak memory of any run so far 33 MB)
+cobol_corpora/cardemo          40826 lines      0.3 min    2405 lines/s     340 findings across    46 programs, 0 problems  (peak memory of any run so far 33 MB)
+cobol_corpora/nist-cobol85    359584 lines      2.7 min    2234 lines/s    2716 findings across   421 programs, 0 problems  (peak memory of any run so far 54 MB)
+cobol_corpora/dscobol          27318 lines      0.1 min    3418 lines/s     633 findings across    93 programs, 0 problems  (peak memory of any run so far 54 MB)
+cms/cobol                     100153 lines      0.4 min    4216 lines/s     712 findings across    55 programs, 0 problems  (peak memory of any run so far 54 MB)
+one set                       554490 lines      3.6 min    2562 lines/s    4445 findings, 0 problems
+2m                           2217960 lines     15.0 min    2457 lines/s   17780 findings across  2512 programs, 0 problems  (peak memory of any run so far 91 MB)
+           4 copies x 4445 findings = 17780 expected; EXACT
+           speed 96% of one set's
+5m                           5544900 lines     36.1 min    2564 lines/s   44450 findings across  6280 programs, 0 problems  (peak memory of any run so far 92 MB)
+           10 copies x 4445 findings = 44450 expected; EXACT
+           speed 100% of one set's
+
+done. Results in ~/scale/RESULTS.txt
+==============================================================================
+scale  2026-10-11 14:22  Cocoon 314d2e6
+  ~/cobol_corpora/cbsa-src               66 source files     26609 lines  (29 programs, 24940 lines)
+  ~/cobol_corpora/cardemo               106 source files     40826 lines  (44 programs, 30175 lines)
+  ~/cobol_corpora/nist-cobol85          537 source files    359584 lines  (486 programs, 357511 lines)
+  ~/cobol_corpora/dscobol               150 source files     27318 lines  (130 programs, 26618 lines)
+  ~/cms/cobol                            61 source files    100153 lines  (61 programs, 100153 lines)
+  one set: 920 source files, 554490 lines; 750 programs, 539397 lines; 1324 other files not counted
+  2m tree: 4 real copies, 2217960 lines, 1155 MB, in ~/scale/2m
+  5m tree: 10 real copies, 5544900 lines, 2888 MB, in ~/scale/5m
+
+--- the analyser: cocoonctl audit, one run per tree
+cobol_corpora/cbsa-src         26609 lines      0.0 min    9876 lines/s      44 findings across    13 programs, 0 problems  (peak memory of any run so far 33 MB)
+cobol_corpora/cardemo          40826 lines      0.1 min    7416 lines/s     227 findings across    46 programs, 0 problems  (peak memory of any run so far 33 MB)
+cobol_corpora/nist-cobol85    359584 lines      1.3 min    4631 lines/s    2716 findings across   421 programs, 0 problems  (peak memory of any run so far 54 MB)
+cobol_corpora/dscobol          27318 lines      0.1 min    3359 lines/s     439 findings across    73 programs, 0 problems  (peak memory of any run so far 54 MB)
+cms/cobol                     100153 lines      0.2 min    9036 lines/s     712 findings across    55 programs, 0 problems  (peak memory of any run so far 54 MB)
+one set                       554490 lines      1.8 min    5281 lines/s    4138 findings, 0 problems
+2m                           2217960 lines      6.6 min    5606 lines/s   16584 findings across  2440 programs, 0 problems  (peak memory of any run so far 90 MB)
+           4 copies x 4138 findings = 16552 expected; DIFFERS by +32 - the copies are real files, so this is a fault to find
+           speed 106% of one set's
+5m                           5544900 lines     19.4 min    4765 lines/s   41460 findings across  6100 programs, 0 problems  (peak memory of any run so far 92 MB)
+           10 copies x 4138 findings = 41380 expected; DIFFERS by +80 - the copies are real files, so this is a fault to find
+           speed 90% of one set's
+
+done. Results in ~/scale/RESULTS.txt
+==============================================================================
+scale  2026-10-11 15:51  Cocoon f8e3aec
+  ~/cobol_corpora/cbsa-src               66 source files     26609 lines  (29 programs, 24940 lines)
+  ~/cobol_corpora/cardemo               106 source files     40826 lines  (44 programs, 30175 lines)
+  ~/cobol_corpora/nist-cobol85          537 source files    359584 lines  (486 programs, 357511 lines)
+  ~/cobol_corpora/dscobol               150 source files     27318 lines  (130 programs, 26618 lines)
+  ~/cms/cobol                            61 source files    100153 lines  (61 programs, 100153 lines)
+  one set: 920 source files, 554490 lines; 750 programs, 539397 lines; 1324 other files not counted
+  2m tree: 4 real copies, 2217960 lines, 1155 MB, in ~/scale/2m
+  5m tree: 10 real copies, 5544900 lines, 2888 MB, in ~/scale/5m
+
+--- the analyser: cocoonctl audit, one run per tree
+cobol_corpora/cbsa-src         26609 lines      0.0 min    9422 lines/s      44 findings across    13 programs, 0 problems  (peak memory of any run so far 33 MB)
+cobol_corpora/cardemo          40826 lines      0.1 min    7253 lines/s     227 findings across    46 programs, 0 problems  (peak memory of any run so far 33 MB)
+cobol_corpora/nist-cobol85    359584 lines      2.2 min    2734 lines/s    2716 findings across   421 programs, 0 problems  (peak memory of any run so far 54 MB)
+cobol_corpora/dscobol          27318 lines      0.2 min    2375 lines/s     439 findings across    73 programs, 0 problems  (peak memory of any run so far 54 MB)
+cms/cobol                     100153 lines      0.6 min    2912 lines/s     712 findings across    55 programs, 0 problems  (peak memory of any run so far 54 MB)
+one set                       554490 lines      3.1 min    2984 lines/s    4138 findings, 0 problems
+2m                           2217960 lines      8.5 min    4335 lines/s   16552 findings across  2432 programs, 0 problems  (peak memory of any run so far 90 MB)
+           4 copies x 4138 findings = 16552 expected; EXACT
+           speed 145% of one set's
+5m                           5544900 lines     19.5 min    4739 lines/s   41380 findings across  6080 programs, 0 problems  (peak memory of any run so far 92 MB)
+           10 copies x 4138 findings = 41380 expected; EXACT
+           speed 159% of one set's
+
+done. Results in ~/scale/RESULTS.txt

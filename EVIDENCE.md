@@ -1,0 +1,151 @@
+# Cocoon: what is proven, what is not, and how to check
+
+> **In this repository,** `verify.sh` reproduces the Home Health result below with no Cocoon software at all. The analyser figures are reproduced with Cocoon itself, which is available for evaluation; their raw records are in `evidence/` and `analysis/`. Commit hashes refer to Cocoon's private development repository.
+
+As of 11 October 2026. Every figure below comes from a run anyone can repeat,
+and names the commit that produced it. Where something has not been
+measured, this page says so.
+
+Cocoon has two parts: a static analyser for COBOL, and a transformer that
+turns COBOL into Java.
+
+## Proven: the transformer
+
+**One CMS pricer, end to end.** CMS's Home Health calculator, HHCAL213
+(CY2021.3), translated to Java by Cocoon, leaves exactly the same bytes as the
+COBOL itself, compiled with GnuCOBOL 3.2, in every record passed to it:
+
+| Input | Calls | Records compared | Differences |
+|---|---:|---:|---:|
+| CMS's own 21 test claims | 21 | 126 | 0 |
+| Claims generated from the calculator's own conditions, run through CMS's whole chain | 1,759 | 10,554 | 0 |
+| Record sets driven straight into the calculator | 9,950 | 59,700 | 0 |
+| CMS's 21 claims reversed, shuffled and repeated | 147 | 882 | 0 |
+
+The 21 claims are re-run by every installer that touches shared code, most
+recently at `c5373a2`.
+
+**Coverage.** Those calls execute 337 of HHCAL213's 341 statements. The other
+four (lines 1531-1540, the RAP payment rules) cannot be reached by any input:
+every RAP leaves the calculator at line 431 with return code 03, before them.
+
+**Storage.** Working-storage records start with exactly the bytes GnuCOBOL
+gives them: 859 records compared directly (823 in 56 CMS pricers, 36 in the
+Home Health calculator). The generated Java reproduces that layout for all
+1,013 records in 62 programs.
+
+**Control flow and searching.** Probe programs covering fall-through, every
+form of GO TO and PERFORM, GOBACK from depth, SEARCH and SEARCH ALL
+(including on an unsorted table) and date functions leave the same bytes
+under GnuCOBOL and as Java.
+
+**Conformance probe.** 90 cases of COBOL semantics - edited pictures such as
+ZZ9.99, class tests, MULTIPLY and DIVIDE in all their forms, MOVE ALL, point
+literals - all equal to GnuCOBOL.
+
+**CMS's 61 pricers** all translate to Java that compiles with 0 errors. 2,385
+statements are refused - visibly, never translated in part - so none of the
+61 is complete except the Home Health calculator.
+
+## Proven: the analyser
+
+**It scales linearly, with exact counts.** Run by `scale.py` on real copies
+of five public corpora - CBSA, CardDemo, NIST COBOL-85, dscobol and the 61
+CMS pricers, 554,490 lines per set - on a Samsung Galaxy S25 Ultra, at
+`f8e3aec`. Raw records of every run: `evidence/scale/`.
+
+| Tree | Lines | Findings | Expected | Problems | Time | Throughput | Peak memory |
+|---|---:|---:|---|---:|---:|---:|---:|
+| one set | 554,490 | 4,138 | - | 0 | 3.1 min | 2,984 lines/s | 54 MB |
+| 2M | 2,217,960 | 16,552 | 4 x 4,138, exact | 0 | 8.5 min | 4,335 lines/s | 90 MB |
+| 5M | 5,544,900 | 41,380 | 10 x 4,138, exact | 0 | 19.5 min | 4,739 lines/s | 92 MB |
+
+Throughput does not fall as the tree grows. It is measured in one session,
+and the phone's speed varies with its temperature, so the ratio to one set
+differs from run to run; it is the flat line that matters. The trees are
+copies of public code, not 5.5 million distinct lines.
+
+The test has found three faults, each fixed before the run above:
+identical statements in different copies deduplicated before checking,
+which gave wrong counts (apply_80); copy-member lookup slowing as the tree
+grew, to 40% and then 50% of the one-set rate (apply_81, apply_82); and,
+with several projects in one tree, a program taking a copybook from another
+project that has one of the same name, eight extra findings per copy
+(apply_88). "0 problems" means the audit re-read every finding against the
+line it names: the verb is there, the handler it says is missing is
+missing, the fields it names are declared.
+
+**Precision, measured and published with its labels.** Findings were sampled
+by class from the five corpora and each judged real or noise; the worksheets,
+with every verdict and reason, are in `analysis/`.
+
+| Report | Precision | Measured on | Commit |
+|---|---:|---|---|
+| All findings, October baseline | 10% | 265 judged, 35 classes | `263b650` |
+| All findings, today | 11% | the same labels, rescored | `c5373a2` |
+| **Default report (defect tier)** | **99%** | a fresh sample of 70 | `c5373a2` |
+
+The defect tier (`cocoon_tiers.py`) holds the classes the labels found real
+nearly every time: ALTER, CICS length overruns, PERFORM recursion, unbounded
+units of work, and READ and WRITE on files whose declared status nothing
+checks. Every other finding is reported for review; none is hidden. The fresh
+sample first measured 95%; it exposed three faults, fixed in apply_86 and
+apply_87, and two verdicts were corrected when evidence contradicted them.
+The one false positive left is a NIST compiler test. An earlier figure, 40%
+of a sample of 281 in September, was drawn and weighted differently and is
+superseded.
+
+How the labels were made, plainly: 12 of October's verdicts were given by
+hand; the rest were accepted from written readings by an AI assistant
+(Claude), each marked so in the worksheets. Labels from an independent COBOL
+engineer, on a new defect-tier sample with no readings in it
+(`analysis/fp_worksheet_defect_independent.txt`), are pending. Until then
+99% is the developer's own measurement. For comparison, from the literature:
+Google's Tricorder disabled analyses above 10% false positives; SonarQube has
+been measured at 18% precision, Coverity at 37%.
+
+## Not proven
+
+- **Equivalence against IBM Enterprise COBOL on z/OS.** The reference here is
+  GnuCOBOL 3.2. IBM's results can differ with compiler options (ARITH, TRUNC,
+  NUMPROC) and with EBCDIC collation, where 'A' sorts before '1'.
+- **Agreement with CMS's official answers.** CMS's own Java Home Health
+  pricer is to be run on the same claims as an independent check.
+- **The other 60 CMS pricers, end to end**; COMP-5 byte order; invalid
+  numeric data (S0C7).
+- **Independent precision labels** (pending, above), and the review tier:
+  most of its findings are noise today, chiefly running totals real data
+  cannot overflow and MOVEs that cut report text.
+- **Results off this one machine.** Everything above ran on one Android phone
+  under Termux; the same runs in CI are planned.
+- **Speed of the translated Java at batch volume**, and any saving in time or
+  cost. Not measured, and not claimed.
+
+## Check it yourself
+
+You need GnuCOBOL 3.2, Java 17 or later with `ecj`, Python 3, and CMS's
+CY2021 Home Health pricer COBOL, which CMS publishes in its PC Pricer and
+COBOL Text File Archive. The scripts expect this repository at `~/Cocoon`;
+copy `verify/hh/*` into the directory holding CMS's pricer files, then:
+
+```
+./rebuild_baseline.sh     # the COBOL baseline from CMS's source
+./equiv.sh                # CMS's 21 claims: CALLS=21 RECORDS=126 EQUAL=126 EXCEPTIONS=0
+python3 coverage.py       # which statements the 21 claims execute
+python3 hh_fuzz.py        # generated claims through CMS's whole chain
+python3 hh_direct2.py     # the calculator driven directly, with coverage
+python3 hh_order.py       # the 21 claims in other orders
+cd ~/Cocoon && python3 cocoon_conform.py   # conformance against GnuCOBOL
+```
+
+For the analyser, with the five corpora in place:
+
+```
+python3 scale.py audit                                    # the scale test
+python3 cocoon_benchmark.py rescore analysis/fp_worksheet_2026-10.txt <corpora>
+python3 cocoon_benchmark.py precision analysis/fp_worksheet_defect_2026-10.txt
+```
+
+Each transformer script compares Cocoon's Java with GnuCOBOL byte for byte and
+prints any difference it finds. A difference is a bug in Cocoon; a statement
+Cocoon cannot translate is reported as refused, never translated in part.
