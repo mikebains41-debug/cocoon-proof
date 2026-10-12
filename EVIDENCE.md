@@ -116,8 +116,10 @@ been measured at 18% precision, Coverity at 37%.
 - **Independent precision labels** (pending, above), and the review tier:
   most of its findings are noise today, chiefly running totals real data
   cannot overflow and MOVEs that cut report text.
-- **Results off this one machine.** Everything above ran on one Android phone
-  under Termux; the same runs in CI are planned.
+- **Results off this one machine, for the analyser.** Its figures ran on one
+  Android phone under Termux. The Home Health proof no longer depends on it:
+  GitHub runs it on a fresh Ubuntu machine, with GnuCOBOL 3.2 built from GNU's
+  release, on every change (github.com/mikebains41-debug/cocoon-proof).
 - **Speed of the translated Java at batch volume**, and any saving in time or
   cost. Not measured, and not claimed.
 
