@@ -1,5 +1,9 @@
 # Cocoon proof
 
+[![verify](https://github.com/mikebains41-debug/cocoon-proof/actions/workflows/verify.yml/badge.svg)](https://github.com/mikebains41-debug/cocoon-proof/actions/workflows/verify.yml)
+
+GitHub runs `verify.sh` on a fresh Ubuntu machine, with GnuCOBOL 3.2 built from GNU's release, on every change and every week. The badge shows the latest result; the run's full log is one click away.
+
 Cocoon translates COBOL into Java. This repository lets you check, on your
 own machine, that its Java for a real Medicare pricing program leaves
 exactly the same bytes as the COBOL it came from.

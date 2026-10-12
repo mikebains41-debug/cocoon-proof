@@ -1,0 +1,61 @@
+name: verify
+
+# Runs verify.sh on a fresh Ubuntu machine: GnuCOBOL 3.2 built from GNU's
+# release (its checksum checked), Java from Eclipse Temurin, and nothing
+# from Cocoon.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 6 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Libraries GnuCOBOL needs
+        run: sudo apt-get update -q && sudo apt-get install -y -q libgmp-dev libncurses-dev
+
+      - name: GnuCOBOL 3.2, from the cache when it is there
+        id: cobol
+        uses: actions/cache@v4
+        with:
+          path: ~/gnucobol
+          key: gnucobol-3.2-ubuntu-24.04-v1
+
+      - name: Build GnuCOBOL 3.2 from GNU's release
+        if: steps.cobol.outputs.cache-hit != 'true'
+        run: |
+          curl -fsSL -o gnucobol-3.2.tar.xz https://ftp.gnu.org/gnu/gnucobol/gnucobol-3.2.tar.xz \
+            || curl -fsSL -o gnucobol-3.2.tar.xz https://mirrors.kernel.org/gnu/gnucobol/gnucobol-3.2.tar.xz
+          echo "3bb48af46ced4779facf41fdc2ee60e4ccb86eaa99d010b36685315df39c2ee2  gnucobol-3.2.tar.xz" | sha256sum -c -
+          tar xf gnucobol-3.2.tar.xz
+          cd gnucobol-3.2
+          ./configure --prefix="$HOME/gnucobol" --without-db
+          make -j"$(nproc)"
+          make install
+
+      - name: GnuCOBOL on the path
+        run: |
+          echo "$HOME/gnucobol/bin" >> "$GITHUB_PATH"
+          echo "LD_LIBRARY_PATH=$HOME/gnucobol/lib" >> "$GITHUB_ENV"
+
+      - name: Versions
+        run: |
+          cobc --version | head -1
+          javac -version
+          java -version
+
+      - name: verify.sh
+        run: sh verify.sh
