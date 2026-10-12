@@ -2,7 +2,7 @@
 
 [![verify](https://github.com/mikebains41-debug/cocoon-proof/actions/workflows/verify.yml/badge.svg)](https://github.com/mikebains41-debug/cocoon-proof/actions/workflows/verify.yml)
 
-GitHub runs `verify.sh` on a fresh Ubuntu machine, with GnuCOBOL 3.2 built from GNU's release, on every change and every week. The badge shows the latest result; the run's full log is one click away.
+GitHub runs `verify.sh` and `verify_more.sh` on a fresh Ubuntu machine, with GnuCOBOL 3.2 built from GNU's release, on every change and every week. The badge shows the latest result; the run's full log is one click away.
 
 Cocoon translates COBOL into Java. This repository lets you check, on your
 own machine, that its Java for a real Medicare pricing program leaves
@@ -32,6 +32,20 @@ CALLS=21 RECORDS=126 EQUAL=126 EXCEPTIONS=0
 exception from the Java. Any difference is printed by call and record, and
 the script exits with a failure.
 
+## More runs
+
+`sh verify_more.sh` checks HHCAL213 the same way on 11,856 more calls: CMS's 21
+claims in other orders (147), claims generated from the calculator's own
+conditions and run through CMS's whole chain (1,759), and record sets driven
+straight into the calculator (9,950), which reach checks CMS's driver never
+calls it for. Its last line should read:
+
+```
+ALL: CALLS=11856 RECORDS=71136 EQUAL=71136 EXCEPTIONS=0
+```
+
+The inputs, and how each set was made, are in `more/`.
+
 ## What it does
 
 1. Copies CMS's files into `work/` and makes two build-only changes to the
@@ -53,7 +67,8 @@ the script exits with a failure.
 | `cms/` | CMS's files, unmodified: the COBOL, its copybooks, the test claims and tables (see NOTICE) |
 | `cocoon/` | Cocoon's output: the Java for HHCAL213, the harness that feeds it, the tapped driver, and the runtime as a compiled jar |
 | `expected/` | the pricer's output file as GnuCOBOL 3.2 produced it |
-| `verify.sh`, `compare.awk` | the check, readable before it runs |
+| `verify.sh`, `verify_more.sh`, `compare.awk` | the checks, readable before they run |
+| `more/` | the inputs of the larger runs, and how each was made |
 | `EVIDENCE.md`, `evidence/`, `analysis/` | the wider evidence, with its raw records |
 
 Cocoon's own source is not here, and nothing in `verify.sh` needs it.
