@@ -1,0 +1,75 @@
+  613             PERFORM 5000-CALC-COMP-RATE-FACTORS
+  980          IF COMORBID-CWF-RETURN-CODE  =  '10'  THEN
+  981             MOVE 1.000                  TO
+  983             MOVE '10'                   TO PPS-2011-COMORBID-PAY
+  985             IF COMORBID-CWF-RETURN-CODE  =  '20'  THEN
+  986                MOVE CM-GI-BLEED         TO
+  988                MOVE '20'                TO PPS-2011-COMORBID-PAY
+  990                IF COMORBID-CWF-RETURN-CODE  =  '30'  THEN
+  991                   MOVE CM-PNEUMONIA     TO
+  993                   MOVE '30'             TO PPS-2011-COMORBID-PAY
+  995                   IF COMORBID-CWF-RETURN-CODE  =  '40'  THEN
+  996                      MOVE CM-PERICARDITIS TO
+  998                      MOVE '40'          TO PPS-2011-COMORBID-PAY
+ 1097             COMPUTE PPS-LOW-VOL-AMT  ROUNDED =
+ 1277          IF COMORBID-CWF-RETURN-CODE  =  '10'  THEN
+ 1278             MOVE 1.000                  TO
+ 1281             IF COMORBID-CWF-RETURN-CODE  =  '20'  THEN
+ 1282                MOVE SB-GI-BLEED         TO
+ 1285                IF COMORBID-CWF-RETURN-CODE  =  '30'  THEN
+ 1286                   MOVE SB-PNEUMONIA     TO
+ 1289                   IF COMORBID-CWF-RETURN-CODE  =  '40'  THEN
+ 1290                      MOVE SB-PERICARDITIS TO
+ 1526          COMPUTE H-LV-OUT-CM-ADJ-PREDICT-M-TRT  ROUNDED  =
+ 1528          MOVE ADJ-AVG-MAP-AMT-LT-18     TO  H-OUT-ADJ-AVG-MAP-AMT
+ 1542          COMPUTE H-LV-OUT-PREDICTED-MAP  ROUNDED  =
+ 1544          MOVE FIX-DOLLAR-LOSS-LT-18     TO H-OUT-FIX-DOLLAR-LOSS
+ 1545          IF H-OUT-IMPUTED-MAP  >  H-LV-OUT-PREDICTED-MAP  THEN
+ 1546             COMPUTE H-LV-OUT-PAYMENT  ROUNDED  =
+ 1549             MOVE LOSS-SHARING-PCT-LT-18 TO H-OUT-LOSS-SHARING-PCT
+ 1551             MOVE ZERO                   TO H-LV-OUT-PAYMENT
+ 1552             MOVE ZERO                   TO H-OUT-LOSS-SHARING-PCT
+ 1581       IF H-PATIENT-AGE < 18  THEN
+ 1582          MOVE CR-AGE-LT-18              TO H-AGE-FACTOR
+ 1584          IF H-PATIENT-AGE < 45  THEN
+ 1585             MOVE CR-AGE-18-44           TO H-AGE-FACTOR
+ 1587             IF H-PATIENT-AGE < 60  THEN
+ 1588                MOVE CR-AGE-45-59        TO H-AGE-FACTOR
+ 1590                IF H-PATIENT-AGE < 70  THEN
+ 1591                   MOVE CR-AGE-60-69     TO H-AGE-FACTOR
+ 1593                   IF H-PATIENT-AGE < 80  THEN
+ 1594                      MOVE CR-AGE-70-79  TO H-AGE-FACTOR
+ 1596                      MOVE CR-AGE-80-PLUS
+ 1607       COMPUTE H-BSA  ROUNDED = (.007184 *
+ 1610       IF H-PATIENT-AGE > 17  THEN
+ 1611          COMPUTE H-BSA-FACTOR  ROUNDED =
+ 1614          MOVE 1.000                     TO H-BSA-FACTOR
+ 1620       COMPUTE H-BMI  ROUNDED = (B-PATIENT-WGT /
+ 1623       IF (H-PATIENT-AGE > 17) AND (H-BMI < 18.5)  THEN
+ 1624          MOVE CR-BMI-LT-18-5            TO H-BMI-FACTOR
+ 1626          MOVE 1.000                     TO H-BMI-FACTOR
+ 1640       IF P-ESRD-RATE  =  ZERO  THEN
+ 1641          MOVE BASE-PAYMENT-RATE         TO  H-PAYMENT-RATE
+ 1643          MOVE P-ESRD-RATE               TO  H-PAYMENT-RATE
+ 1646       COMPUTE H-WAGE-ADJ-PYMT-AMT ROUNDED =
+ 1651       COMPUTE H-PYMT-AMT ROUNDED = (H-WAGE-ADJ-PYMT-AMT *
+ 1655       MOVE H-PYMT-AMT                   TO CASE-MIX-FCTR-ADJ-RATE.
+ 1660       MOVE SPACES                       TO COND-CD-73.
+ 1663       IF (B-COND-CODE = '73') AND (B-REV-CODE = '0821' OR '0831'
+ 1665          COMPUTE H-PYMT-AMT = H-PYMT-AMT + HEMO-PERI-CCPD-AMT
+ 1666          MOVE 'A'                       TO AMT-INDIC
+ 1667          MOVE HEMO-PERI-CCPD-AMT        TO BLOOD-DOLLAR
+ 1670          IF (B-COND-CODE = '73')  AND  (B-REV-CODE = '0841')  THEN
+ 1671             COMPUTE H-PYMT-AMT = H-PYMT-AMT + CAPD-AMT
+ 1672             MOVE 'A'                    TO AMT-INDIC
+ 1673             MOVE CAPD-AMT               TO BLOOD-DOLLAR
+ 1676             IF (B-COND-CODE = '74')  AND
+ 1678                COMPUTE H-PYMT-AMT ROUNDED = H-PYMT-AMT *
+ 1680                MOVE CAPD-OR-CCPD-FACTOR TO HEMO-CCPD-CAPD
+ 1682                MOVE 'A'                 TO AMT-INDIC
+ 1683                MOVE ZERO                TO BLOOD-DOLLAR
+ 1915             COMPUTE PPS-2011-BLEND-COMP-RATE    ROUNDED =
+ 1917             COMPUTE PPS-2011-BLEND-PPS-RATE     ROUNDED =
+ 1919             COMPUTE PPS-2011-BLEND-OUTLIER-RATE ROUNDED =
+ 1969             MOVE COM-CBSA-BLEND-PCT     TO COM-CBSA-PCT-BLEND
+ 1970             MOVE BUN-CBSA-BLEND-PCT     TO BUN-CBSA-PCT-BLEND

@@ -9,3 +9,11 @@ makes its two build-only changes to copies in work/.
 cocoon/hhdrv213_tap.cbl is CMS's driver, hhdrv213.cbl, with Cocoon's tap
 added: statements that print, as hex, every record passed to HHCAL213
 before and after each call.
+
+cms/esrd/ holds files from the CMS ESRD mainframe pricing programs for
+calendar year 2021 (CY2021.2), as CMS publishes them: the 20 calculators
+ESCAL056 to ESCAL212 and the copybooks they use (BILLCPY, RTCCPY, WAGECPY). They are CMS's, unmodified.
+
+cocoon/esrd/<PROGRAM>_direct_tap.cbl is a short driver written by Cocoon's
+harness for that calculator, not a CMS file, with Cocoon's tap added; the
+untapped driver is more/esrd/<PROGRAM>_direct.cbl.

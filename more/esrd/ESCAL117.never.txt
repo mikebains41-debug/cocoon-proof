@@ -1,0 +1,20 @@
+  799          IF COMORBID-CWF-RETURN-CODE  =  '10'  THEN
+  800             MOVE 1.000                  TO
+  802             MOVE '10'                   TO PPS-2011-COMORBID-PAY
+  804             IF COMORBID-CWF-RETURN-CODE  =  '20'  THEN
+  805                MOVE CM-GI-BLEED         TO
+  807                MOVE '20'                TO PPS-2011-COMORBID-PAY
+  809                IF COMORBID-CWF-RETURN-CODE  =  '30'  THEN
+  810                   MOVE CM-PNEUMONIA     TO
+  812                   MOVE '30'             TO PPS-2011-COMORBID-PAY
+  814                   IF COMORBID-CWF-RETURN-CODE  =  '40'  THEN
+  815                      MOVE CM-PERICARDITIS TO
+  817                      MOVE '40'          TO PPS-2011-COMORBID-PAY
+ 1074          IF COMORBID-CWF-RETURN-CODE  =  '10'  THEN
+ 1075             MOVE 1.000                  TO
+ 1078             IF COMORBID-CWF-RETURN-CODE  =  '20'  THEN
+ 1079                MOVE SB-GI-BLEED         TO
+ 1082                IF COMORBID-CWF-RETURN-CODE  =  '30'  THEN
+ 1083                   MOVE SB-PNEUMONIA     TO
+ 1086                   IF COMORBID-CWF-RETURN-CODE  =  '40'  THEN
+ 1087                      MOVE SB-PERICARDITIS TO

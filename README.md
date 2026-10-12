@@ -2,7 +2,7 @@
 
 [![verify](https://github.com/mikebains41-debug/cocoon-proof/actions/workflows/verify.yml/badge.svg)](https://github.com/mikebains41-debug/cocoon-proof/actions/workflows/verify.yml)
 
-GitHub runs `verify.sh` and `verify_more.sh` on a fresh Ubuntu machine, with GnuCOBOL 3.2 built from GNU's release, on every change and every week. The badge shows the latest result; the run's full log is one click away.
+GitHub runs `verify.sh`, `verify_more.sh` and `verify_esrd.sh` on a fresh Ubuntu machine, with GnuCOBOL 3.2 built from GNU's release, on every change and every week. The badge shows the latest result; the run's full log is one click away.
 
 Cocoon translates COBOL into Java. This repository lets you check, on your
 own machine, that its Java for a real Medicare pricing program leaves
@@ -46,6 +46,23 @@ ALL: CALLS=11856 RECORDS=71136 EQUAL=71136 EXCEPTIONS=0
 
 The inputs, and how each set was made, are in `more/`.
 
+## The ESRD calculators
+
+`sh verify_esrd.sh` checks CMS's 20 ESRD calculators, ESCAL056 to ESCAL212 from the
+CY2021.2 mainframe package, the same way. CMS ships no test claims for them,
+so each is driven directly: a short driver reads record sets made from the
+calculator's own conditions, 3,000 per calculator, and calls it with them under
+GnuCOBOL with Cocoon's tap; the Java is run on the same records; every record
+is compared byte for byte. Its last line should read:
+
+```
+ALL: CALLS=60000 RECORDS=276000 EQUAL=276000 EXCEPTIONS=0
+```
+
+The calculators are built as the recorded run built them, with
+`-frelax-syntax-checks -frelax-level-hierarchy` and without `-debug`.
+None of them needs a build-only change: GnuCOBOL compiles every file as CMS ships it. The inputs, and how they were made, are in `more/esrd/`.
+
 ## What it does
 
 1. Copies CMS's files into `work/` and makes two build-only changes to the
@@ -69,9 +86,13 @@ The inputs, and how each set was made, are in `more/`.
 | `expected/` | the pricer's output file as GnuCOBOL 3.2 produced it |
 | `verify.sh`, `verify_more.sh`, `compare.awk` | the checks, readable before they run |
 | `more/` | the inputs of the larger runs, and how each was made |
+| `cms/esrd/` | CMS's 20 ESRD calculators and their copybooks, unmodified |
+| `cocoon/esrd/` | Cocoon's output for them: the Java for each, and each tapped driver |
+| `more/esrd/` | each one's record sets, driver, how the kept sets were made, what was never reached |
 | `EVIDENCE.md`, `evidence/`, `analysis/` | the wider evidence, with its raw records |
 
-Cocoon's own source is not here, and nothing in `verify.sh` needs it.
+Cocoon's own source is not here, and nothing in `verify.sh`, `verify_more.sh`
+or `verify_esrd.sh` needs it.
 
 ## What this does not show
 
@@ -80,7 +101,7 @@ Cocoon's own source is not here, and nothing in `verify.sh` needs it.
   EBCDIC collation.
 - Agreement with CMS's published payment amounts, beyond what CMS's own
   COBOL computes.
-- Anything about CMS's other pricers, or about speed.
+- Anything about CMS's other 40 pricers, or about speed.
 
 `EVIDENCE.md` sets out what else has been measured, and what has not.
 

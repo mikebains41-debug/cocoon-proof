@@ -1,6 +1,6 @@
 # Cocoon: what is proven, what is not, and how to check
 
-> **In this repository,** `verify.sh` reproduces the Home Health result below with no Cocoon software at all. The analyser figures are reproduced with Cocoon itself, which is available for evaluation; their raw records are in `evidence/` and `analysis/`. Commit hashes refer to Cocoon's private development repository.
+> **In this repository,** `verify.sh` and `verify_esrd.sh` reproduce the Home Health and ESRD results below with no Cocoon software at all. The analyser figures are reproduced with Cocoon itself, which is available for evaluation; their raw records are in `evidence/` and `analysis/`. Commit hashes refer to Cocoon's private development repository.
 
 As of 11 October 2026. Every figure below comes from a run anyone can repeat,
 and names the commit that produced it. Where something has not been
@@ -25,6 +25,40 @@ COBOL itself, compiled with GnuCOBOL 3.2, in every record passed to it:
 The 21 claims are re-run by every installer that touches shared code, most
 recently at `c5373a2`.
 
+**20 ESRD calculators, driven directly.** CMS's ESRD calculators ESCAL056 to
+ESCAL212, from its CY2021.2 mainframe package, each translated to Java by Cocoon
+at `f20bfab` with no statement refused, leave exactly the same bytes as the COBOL
+compiled with GnuCOBOL 3.2 in every record of every call. CMS ships no test
+claims for them, so each is driven directly on record sets made from its own
+conditions (`more/esrd/README.md` says how). `verify_esrd.sh` reproduces the
+calls, records and differences below; GitHub runs it on every change.
+
+| Calculator | Calls | Records compared | Differences | Statements reached |
+|---|---:|---:|---:|---:|
+| ESCAL056 | 3,000 | 9,000 | 0 | 137 of 137 |
+| ESCAL062 | 3,000 | 12,000 | 0 | 139 of 139 |
+| ESCAL070 | 3,000 | 12,000 | 0 | 139 of 139 |
+| ESCAL071 | 3,000 | 12,000 | 0 | 141 of 141 |
+| ESCAL080 | 3,000 | 12,000 | 0 | 142 of 142 |
+| ESCAL091 | 3,000 | 12,000 | 0 | 135 of 135 |
+| ESCAL100 | 3,000 | 12,000 | 0 | 134 of 134 |
+| ESCAL117 | 3,000 | 15,000 | 0 | 511 of 531 |
+| ESCAL122 | 3,000 | 15,000 | 0 | 565 of 594 |
+| ESCAL130 | 3,000 | 15,000 | 0 | 565 of 594 |
+| ESCAL140 | 3,000 | 15,000 | 0 | 520 of 595 |
+| ESCAL151 | 3,000 | 15,000 | 0 | 520 of 595 |
+| ESCAL160 | 3,000 | 15,000 | 0 | 496 of 567 |
+| ESCAL170 | 3,000 | 15,000 | 0 | 505 of 535 |
+| ESCAL171 | 3,000 | 15,000 | 0 | 505 of 536 |
+| ESCAL180 | 3,000 | 15,000 | 0 | 500 of 540 |
+| ESCAL191 | 3,000 | 15,000 | 0 | 500 of 540 |
+| ESCAL200 | 3,000 | 15,000 | 0 | 500 of 540 |
+| ESCAL202 | 3,000 | 15,000 | 0 | 522 of 553 |
+| ESCAL212 | 3,000 | 15,000 | 0 | 533 of 563 |
+| **all 20** | **60,000** | **276,000** | **0** | |
+
+Statements reached is the harness's count when the sets were made, on the phone; across the 20 it runs from 87% to 100%; where any statement was never reached, `more/esrd/<PROGRAM>.never.txt` lists them with their source.
+
 **Coverage.** Those calls execute 337 of HHCAL213's 341 statements. The other
 four (lines 1531-1540, the RAP payment rules) cannot be reached by any input:
 every RAP leaves the calculator at line 431 with return code 03, before them.
@@ -43,9 +77,10 @@ under GnuCOBOL and as Java.
 ZZ9.99, class tests, MULTIPLY and DIVIDE in all their forms, MOVE ALL, point
 literals - all equal to GnuCOBOL.
 
-**CMS's 61 pricers** all translate to Java that compiles with 0 errors. 2,385
-statements are refused - visibly, never translated in part - so none of the
-61 is complete except the Home Health calculator.
+**CMS's 61 pricers** all translate to Java that compiles with 0 errors. Since
+copy members CMS ships without an extension are found (`c9d9a56`), 373
+statements are refused - visibly, never translated in part - and 32 of the 61
+translate whole, the 20 ESRD calculators among them.
 
 ## Proven: the analyser
 
@@ -111,7 +146,7 @@ been measured at 18% precision, Coverity at 37%.
   NUMPROC) and with EBCDIC collation, where 'A' sorts before '1'.
 - **Agreement with CMS's official answers.** CMS's own Java Home Health
   pricer is to be run on the same claims as an independent check.
-- **The other 60 CMS pricers, end to end**; COMP-5 byte order; invalid
+- **The other 40 CMS pricers, end to end**; COMP-5 byte order; invalid
   numeric data (S0C7).
 - **Independent precision labels** (pending, above), and the review tier:
   most of its findings are noise today, chiefly running totals real data

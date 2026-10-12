@@ -62,3 +62,6 @@ jobs:
 
       - name: verify_more.sh
         run: sh verify_more.sh
+
+      - name: verify_esrd.sh
+        run: sh verify_esrd.sh

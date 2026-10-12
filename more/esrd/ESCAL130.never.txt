@@ -1,0 +1,29 @@
+  901          IF COMORBID-CWF-RETURN-CODE  =  '10'  THEN
+  902             MOVE 1.000                  TO
+  904             MOVE '10'                   TO PPS-2011-COMORBID-PAY
+  906             IF COMORBID-CWF-RETURN-CODE  =  '20'  THEN
+  907                MOVE CM-GI-BLEED         TO
+  909                MOVE '20'                TO PPS-2011-COMORBID-PAY
+  911                IF COMORBID-CWF-RETURN-CODE  =  '30'  THEN
+  912                   MOVE CM-PNEUMONIA     TO
+  914                   MOVE '30'             TO PPS-2011-COMORBID-PAY
+  916                   IF COMORBID-CWF-RETURN-CODE  =  '40'  THEN
+  917                      MOVE CM-PERICARDITIS TO
+  919                      MOVE '40'          TO PPS-2011-COMORBID-PAY
+ 1198          IF COMORBID-CWF-RETURN-CODE  =  '10'  THEN
+ 1199             MOVE 1.000                  TO
+ 1202             IF COMORBID-CWF-RETURN-CODE  =  '20'  THEN
+ 1203                MOVE SB-GI-BLEED         TO
+ 1206                IF COMORBID-CWF-RETURN-CODE  =  '30'  THEN
+ 1207                   MOVE SB-PNEUMONIA     TO
+ 1210                   IF COMORBID-CWF-RETURN-CODE  =  '40'  THEN
+ 1211                      MOVE SB-PERICARDITIS TO
+ 1447          COMPUTE H-LV-OUT-CM-ADJ-PREDICT-M-TRT  ROUNDED  =
+ 1449          MOVE ADJ-AVG-MAP-AMT-LT-18     TO  H-OUT-ADJ-AVG-MAP-AMT
+ 1463          COMPUTE H-LV-OUT-PREDICTED-MAP  ROUNDED  =
+ 1465          MOVE FIX-DOLLAR-LOSS-LT-18     TO H-OUT-FIX-DOLLAR-LOSS
+ 1466          IF H-OUT-IMPUTED-MAP  >  H-LV-OUT-PREDICTED-MAP  THEN
+ 1467             COMPUTE H-LV-OUT-PAYMENT  ROUNDED  =
+ 1470             MOVE LOSS-SHARING-PCT-LT-18 TO H-OUT-LOSS-SHARING-PCT
+ 1472             MOVE ZERO                   TO H-LV-OUT-PAYMENT
+ 1473             MOVE ZERO                   TO H-OUT-LOSS-SHARING-PCT
