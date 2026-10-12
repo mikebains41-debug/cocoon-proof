@@ -84,7 +84,7 @@ None of them needs a build-only change: GnuCOBOL compiles every file as CMS ship
 | `cms/` | CMS's files, unmodified: the COBOL, its copybooks, the test claims and tables (see NOTICE) |
 | `cocoon/` | Cocoon's output: the Java for HHCAL213, the harness that feeds it, the tapped driver, and the runtime as a compiled jar |
 | `expected/` | the pricer's output file as GnuCOBOL 3.2 produced it |
-| `verify.sh`, `verify_more.sh`, `compare.awk` | the checks, readable before they run |
+| `verify.sh`, `verify_more.sh`, `verify_esrd.sh`, `compare.awk` | the checks, readable before they run |
 | `more/` | the inputs of the larger runs, and how each was made |
 | `cms/esrd/` | CMS's 20 ESRD calculators and their copybooks, unmodified |
 | `cocoon/esrd/` | Cocoon's output for them: the Java for each, and each tapped driver |
@@ -101,6 +101,8 @@ or `verify_esrd.sh` needs it.
   EBCDIC collation.
 - Agreement with CMS's published payment amounts, beyond what CMS's own
   COBOL computes.
+- The ESRD calculators called through CMS's own driver, ESDRV212, as a claim
+  would reach them: here they are driven directly.
 - Anything about CMS's other 40 pricers, or about speed.
 
 `EVIDENCE.md` sets out what else has been measured, and what has not.

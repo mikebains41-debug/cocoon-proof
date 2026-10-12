@@ -25,6 +25,10 @@ COBOL itself, compiled with GnuCOBOL 3.2, in every record passed to it:
 The 21 claims are re-run by every installer that touches shared code, most
 recently at `c5373a2`.
 
+**Coverage.** Those calls execute 337 of HHCAL213's 341 statements. The other
+four (lines 1531-1540, the RAP payment rules) cannot be reached by any input:
+every RAP leaves the calculator at line 431 with return code 03, before them.
+
 **20 ESRD calculators, driven directly.** CMS's ESRD calculators ESCAL056 to
 ESCAL212, from its CY2021.2 mainframe package, each translated to Java by Cocoon
 at `f20bfab` with no statement refused, leave exactly the same bytes as the COBOL
@@ -58,10 +62,6 @@ calls, records and differences below; GitHub runs it on every change.
 | **all 20** | **60,000** | **276,000** | **0** | |
 
 Statements reached is the harness's count when the sets were made, on the phone; across the 20 it runs from 87% to 100%; where any statement was never reached, `more/esrd/<PROGRAM>.never.txt` lists them with their source.
-
-**Coverage.** Those calls execute 337 of HHCAL213's 341 statements. The other
-four (lines 1531-1540, the RAP payment rules) cannot be reached by any input:
-every RAP leaves the calculator at line 431 with return code 03, before them.
 
 **Storage.** Working-storage records start with exactly the bytes GnuCOBOL
 gives them: 859 records compared directly (823 in 56 CMS pricers, 36 in the
@@ -146,15 +146,19 @@ been measured at 18% precision, Coverity at 37%.
   NUMPROC) and with EBCDIC collation, where 'A' sorts before '1'.
 - **Agreement with CMS's official answers.** CMS's own Java Home Health
   pricer is to be run on the same claims as an independent check.
-- **The other 40 CMS pricers, end to end**; COMP-5 byte order; invalid
-  numeric data (S0C7).
+- **The other 40 CMS pricers**; COMP-5 byte order; invalid numeric data
+  (S0C7).
+- **The ESRD calculators through CMS's own driver.** They are proven driven
+  directly, on record sets made from their own conditions; not yet called
+  through CMS's driver, ESDRV212, as a claim would reach them.
 - **Independent precision labels** (pending, above), and the review tier:
   most of its findings are noise today, chiefly running totals real data
   cannot overflow and MOVEs that cut report text.
 - **Results off this one machine, for the analyser.** Its figures ran on one
-  Android phone under Termux. The Home Health proof no longer depends on it:
-  GitHub runs it on a fresh Ubuntu machine, with GnuCOBOL 3.2 built from GNU's
-  release, on every change (github.com/mikebains41-debug/cocoon-proof).
+  Android phone under Termux. The Home Health and ESRD proofs no longer
+  depend on it: GitHub runs them on a fresh Ubuntu machine, with GnuCOBOL 3.2
+  built from GNU's release and the Java compiled by javac where the phone
+  uses ecj, on every change (github.com/mikebains41-debug/cocoon-proof).
 - **Speed of the translated Java at batch volume**, and any saving in time or
   cost. Not measured, and not claimed.
 
