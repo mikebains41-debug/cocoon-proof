@@ -1,0 +1,2 @@
+  670             MOVE 74 TO PPS-RTC
+  671             GO TO 2000-EXIT

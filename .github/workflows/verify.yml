@@ -65,3 +65,6 @@ jobs:
 
       - name: verify_esrd.sh
         run: sh verify_esrd.sh
+
+      - name: verify_ltch.sh
+        run: sh verify_ltch.sh

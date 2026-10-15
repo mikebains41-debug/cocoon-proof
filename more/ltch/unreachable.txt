@@ -1,0 +1,179 @@
+# The 172 statements in CMS's 28 LTCH calculators that the record sets in this
+# folder never reach, each proven unreachable from CMS's own source. One per line:
+#   PROGRAM  LINE  PATTERN  | the statement | why no input can run it
+# Lines are numbered as in cms/ltch/<PROGRAM>.cbl. 170 follow from nine patterns:
+#   DSH-ZERO 42, DRG-FOUND 30, DRG-NUMERIC 30, DSH-CAP 21, RTC-NEVER 15, PMT-TYPE 12, SHADOWED 12, IPPS-WI 4, SSRFBN 4;
+# LTCAL212 2401 and 2406 rest on the thirteen facts in LTCAL212_2401_2406.txt.
+
+LTCAL063    635 SHADOWED       | MOVE 74 TO PPS-RTC | every P-NEW-FY-BEGIN-DATE this WHEN covers is taken first by the WHENs at lines 625
+LTCAL063    636 SHADOWED       | GO TO 2000-EXIT | every P-NEW-FY-BEGIN-DATE this WHEN covers is taken first by the WHENs at lines 625
+LTCAL064    670 SHADOWED       | MOVE 74 TO PPS-RTC | every P-NEW-FY-BEGIN-DATE this WHEN covers is taken first by the WHENs at lines 660
+LTCAL064    671 SHADOWED       | GO TO 2000-EXIT | every P-NEW-FY-BEGIN-DATE this WHEN covers is taken first by the WHENs at lines 660
+LTCAL072    728 DRG-NUMERIC    | MOVE 54 TO PPS-RTC | 1800 runs only with PPS-RTC 00 after 1700 found the code among 518 WWM-DRG keys, all three digits
+LTCAL072    729 DRG-NUMERIC    | GO TO 1800-EXIT | 1800 runs only with PPS-RTC 00 after 1700 found the code among 518 WWM-DRG keys, all three digits
+LTCAL072    869 SHADOWED       | MOVE 74 TO PPS-RTC | every P-NEW-FY-BEGIN-DATE this WHEN covers is taken first by the WHENs at lines 859
+LTCAL072    870 SHADOWED       | GO TO 2000-EXIT | every P-NEW-FY-BEGIN-DATE this WHEN covers is taken first by the WHENs at lines 859
+LTCAL072   1259 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1214, 1222), every path assigns a class, and this ELSE needs it below .15
+LTCAL072   1270 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL072   1280 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1206, 1230), every path assigns a class, and this ELSE needs it below .15
+LTCAL075    742 DRG-NUMERIC    | MOVE 54 TO PPS-RTC | 1800 runs only with PPS-RTC 00 after 1700 found the code among 530 WWM-DRG keys, all three digits
+LTCAL075    743 DRG-NUMERIC    | GO TO 1800-EXIT | 1800 runs only with PPS-RTC 00 after 1700 found the code among 530 WWM-DRG keys, all three digits
+LTCAL075    883 SHADOWED       | MOVE 74 TO PPS-RTC | every P-NEW-FY-BEGIN-DATE this WHEN covers is taken first by the WHENs at lines 873
+LTCAL075    884 SHADOWED       | GO TO 2000-EXIT | every P-NEW-FY-BEGIN-DATE this WHEN covers is taken first by the WHENs at lines 873
+LTCAL075   1274 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1229, 1237), every path assigns a class, and this ELSE needs it below .15
+LTCAL075   1285 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL075   1295 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1221, 1245), every path assigns a class, and this ELSE needs it below .15
+LTCAL080    751 DRG-NUMERIC    | MOVE 54 TO PPS-RTC | 1800 runs only with PPS-RTC 00 after 1700 found the code among 530 WWM-DRG keys, all three digits
+LTCAL080    752 DRG-NUMERIC    | GO TO 1800-EXIT | 1800 runs only with PPS-RTC 00 after 1700 found the code among 530 WWM-DRG keys, all three digits
+LTCAL080    841 SHADOWED       | MOVE 74 TO PPS-RTC | every P-NEW-FY-BEGIN-DATE this WHEN covers is taken first by the WHENs at lines 831
+LTCAL080    842 SHADOWED       | GO TO 2000-EXIT | every P-NEW-FY-BEGIN-DATE this WHEN covers is taken first by the WHENs at lines 831
+LTCAL080   1303 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1258, 1266), every path assigns a class, and this ELSE needs it below .15
+LTCAL080   1314 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL080   1324 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1250, 1274), every path assigns a class, and this ELSE needs it below .15
+LTCAL087    768 DRG-NUMERIC    | MOVE 54 TO PPS-RTC | 1800 runs only with PPS-RTC 00 after 1700 found the code among 735 WWM-DRG keys, all three digits
+LTCAL087    769 DRG-NUMERIC    | GO TO 1800-EXIT | 1800 runs only with PPS-RTC 00 after 1700 found the code among 735 WWM-DRG keys, all three digits
+LTCAL087    858 SHADOWED       | MOVE 74 TO PPS-RTC | every P-NEW-FY-BEGIN-DATE this WHEN covers is taken first by the WHENs at lines 848
+LTCAL087    859 SHADOWED       | GO TO 2000-EXIT | every P-NEW-FY-BEGIN-DATE this WHEN covers is taken first by the WHENs at lines 848
+LTCAL087   1329 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1284, 1292), every path assigns a class, and this ELSE needs it below .15
+LTCAL087   1340 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL087   1350 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1276, 1300), every path assigns a class, and this ELSE needs it below .15
+LTCAL091    754 DRG-NUMERIC    | MOVE 54 TO PPS-RTC | 1800 runs only with PPS-RTC 00 after 1700 found the code among 735 WWM-DRG keys, all three digits
+LTCAL091    755 DRG-NUMERIC    | GO TO 1800-EXIT | 1800 runs only with PPS-RTC 00 after 1700 found the code among 735 WWM-DRG keys, all three digits
+LTCAL091   1237 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1192, 1200), every path assigns a class, and this ELSE needs it below .15
+LTCAL091   1248 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL091   1258 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1184, 1208), every path assigns a class, and this ELSE needs it below .15
+LTCAL091   1493 RTC-NEVER      | MOVE 27 TO PPS-RTC. | no statement stores 26 into PPS-RTC before this test runs (literals: 01 20 21 22 24 25 27 50 51 52 53 54 55 56 58 61 62 65 67 72 74)
+LTCAL094    776 DRG-NUMERIC    | MOVE 54 TO PPS-RTC | 1800 runs only with PPS-RTC 00 after 1700 found the code among 736 WWM-DRG keys, all three digits
+LTCAL094    777 DRG-NUMERIC    | GO TO 1800-EXIT | 1800 runs only with PPS-RTC 00 after 1700 found the code among 736 WWM-DRG keys, all three digits
+LTCAL094   1310 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1265, 1273), every path assigns a class, and this ELSE needs it below .15
+LTCAL094   1321 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL094   1331 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1257, 1281), every path assigns a class, and this ELSE needs it below .15
+LTCAL094   1566 RTC-NEVER      | MOVE 27 TO PPS-RTC. | no statement stores 26 into PPS-RTC before this test runs (literals: 01 20 21 22 24 25 27 50 51 52 53 54 55 56 58 61 62 65 67 68 72 74)
+LTCAL095    776 DRG-NUMERIC    | MOVE 54 TO PPS-RTC | 1800 runs only with PPS-RTC 00 after 1700 found the code among 736 WWM-DRG keys, all three digits
+LTCAL095    777 DRG-NUMERIC    | GO TO 1800-EXIT | 1800 runs only with PPS-RTC 00 after 1700 found the code among 736 WWM-DRG keys, all three digits
+LTCAL095   1310 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1265, 1273), every path assigns a class, and this ELSE needs it below .15
+LTCAL095   1321 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL095   1331 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1257, 1281), every path assigns a class, and this ELSE needs it below .15
+LTCAL095   1566 RTC-NEVER      | MOVE 27 TO PPS-RTC. | no statement stores 26 into PPS-RTC before this test runs (literals: 01 20 21 22 24 25 27 50 51 52 53 54 55 56 58 61 62 65 67 68 72 74)
+LTCAL103    776 DRG-NUMERIC    | MOVE 54 TO PPS-RTC | 1800 runs only with PPS-RTC 00 after 1700 found the code among 736 WWM-DRG keys, all three digits
+LTCAL103    777 DRG-NUMERIC    | GO TO 1800-EXIT | 1800 runs only with PPS-RTC 00 after 1700 found the code among 736 WWM-DRG keys, all three digits
+LTCAL103   1310 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1265, 1273), every path assigns a class, and this ELSE needs it below .15
+LTCAL103   1321 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL103   1331 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1257, 1281), every path assigns a class, and this ELSE needs it below .15
+LTCAL103   1566 RTC-NEVER      | MOVE 27 TO PPS-RTC. | no statement stores 26 into PPS-RTC before this test runs (literals: 01 20 21 22 24 25 27 50 51 52 53 54 55 56 58 61 62 65 67 68 72 74)
+LTCAL105    776 DRG-NUMERIC    | MOVE 54 TO PPS-RTC | 1800 runs only with PPS-RTC 00 after 1700 found the code among 736 WWM-DRG keys, all three digits
+LTCAL105    777 DRG-NUMERIC    | GO TO 1800-EXIT | 1800 runs only with PPS-RTC 00 after 1700 found the code among 736 WWM-DRG keys, all three digits
+LTCAL105   1310 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1265, 1273), every path assigns a class, and this ELSE needs it below .15
+LTCAL105   1321 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL105   1331 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1257, 1281), every path assigns a class, and this ELSE needs it below .15
+LTCAL105   1566 RTC-NEVER      | MOVE 27 TO PPS-RTC. | no statement stores 26 into PPS-RTC before this test runs (literals: 01 20 21 22 24 25 27 50 51 52 53 54 55 56 58 61 62 65 67 68 72 74)
+LTCAL111    552 SSRFBN         | GO TO 0100-EXIT | PPS-RTC is zeroed at line 537 and 1900-APPLY-SSRFBN stores nothing in it
+LTCAL111    776 DRG-NUMERIC    | MOVE 54 TO PPS-RTC | 1800 runs only with PPS-RTC 00 after 1700 found the code among 737 WWM-DRG keys, all three digits
+LTCAL111    777 DRG-NUMERIC    | GO TO 1800-EXIT | 1800 runs only with PPS-RTC 00 after 1700 found the code among 737 WWM-DRG keys, all three digits
+LTCAL111   1310 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1265, 1273), every path assigns a class, and this ELSE needs it below .15
+LTCAL111   1321 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL111   1331 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1257, 1281), every path assigns a class, and this ELSE needs it below .15
+LTCAL111   1566 RTC-NEVER      | MOVE 27 TO PPS-RTC. | no statement stores 26 into PPS-RTC before this test runs (literals: 01 20 21 22 24 25 27 50 51 52 53 54 55 56 58 61 62 65 67 72 74)
+LTCAL123    552 SSRFBN         | GO TO 0100-EXIT | PPS-RTC is zeroed at line 537 and 1900-APPLY-SSRFBN stores nothing in it
+LTCAL123    776 DRG-NUMERIC    | MOVE 54 TO PPS-RTC | 1800 runs only with PPS-RTC 00 after 1700 found the code among 742 WWM-DRG keys, all three digits
+LTCAL123    777 DRG-NUMERIC    | GO TO 1800-EXIT | 1800 runs only with PPS-RTC 00 after 1700 found the code among 742 WWM-DRG keys, all three digits
+LTCAL123   1310 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1265, 1273), every path assigns a class, and this ELSE needs it below .15
+LTCAL123   1321 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL123   1331 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1257, 1281), every path assigns a class, and this ELSE needs it below .15
+LTCAL123   1566 RTC-NEVER      | MOVE 27 TO PPS-RTC. | no statement stores 26 into PPS-RTC before this test runs (literals: 01 20 21 22 24 25 27 50 51 52 53 54 55 56 58 61 62 65 67 72 74)
+LTCAL130    555 SSRFBN         | GO TO 0100-EXIT | PPS-RTC is zeroed at line 540 and 1900-APPLY-SSRFBN stores nothing in it
+LTCAL130    782 DRG-NUMERIC    | MOVE 54 TO PPS-RTC | 1800 runs only with PPS-RTC 00 after 1700 found the code among 741 WWM-DRG keys, all three digits
+LTCAL130    783 DRG-NUMERIC    | GO TO 1800-EXIT | 1800 runs only with PPS-RTC 00 after 1700 found the code among 741 WWM-DRG keys, all three digits
+LTCAL130   1352 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1307, 1315), every path assigns a class, and this ELSE needs it below .15
+LTCAL130   1363 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL130   1373 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1299, 1323), every path assigns a class, and this ELSE needs it below .15
+LTCAL141    687 SSRFBN         | GO TO 0100-EXIT | PPS-RTC is zeroed at line 672 and 1900-APPLY-SSRFBN stores nothing in it
+LTCAL141    924 DRG-NUMERIC    | MOVE 54 TO PPS-RTC | 1800 runs only with PPS-RTC 00 after 1700 found the code among 741 WWM-DRG keys, all three digits
+LTCAL141    925 DRG-NUMERIC    | GO TO 1800-EXIT | 1800 runs only with PPS-RTC 00 after 1700 found the code among 741 WWM-DRG keys, all three digits
+LTCAL141    939 DRG-FOUND      | MOVE ' NO DRG CODE FOUND' TO HLDDRG-DESC | every one of the 741 WWM-DRG codes is among the 751 entries of WK-DRG-DRGX
+LTCAL141    940 DRG-FOUND      | MOVE 'I' TO HLDDRG-VALID | every one of the 741 WWM-DRG codes is among the 751 entries of WK-DRG-DRGX
+LTCAL141   1518 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1473, 1481), every path assigns a class, and this ELSE needs it below .15
+LTCAL141   1529 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL141   1539 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1465, 1489), every path assigns a class, and this ELSE needs it below .15
+LTCAL152    935 DRG-NUMERIC    | MOVE 54 TO PPS-RTC | 1800 runs only with PPS-RTC 00 after 1700 found the code among 741 WWM-DRG keys, all three digits
+LTCAL152    936 DRG-NUMERIC    | GO TO 1800-EXIT | 1800 runs only with PPS-RTC 00 after 1700 found the code among 741 WWM-DRG keys, all three digits
+LTCAL152    950 DRG-FOUND      | MOVE ' NO DRG CODE FOUND' TO HLDDRG-DESC | every one of the 741 WWM-DRG codes is among the 753 entries of WK-DRG-DRGX
+LTCAL152    951 DRG-FOUND      | MOVE 'I' TO HLDDRG-VALID | every one of the 741 WWM-DRG codes is among the 753 entries of WK-DRG-DRGX
+LTCAL152   1312 IPPS-WI        | MOVE 52 TO PPS-RTC | the test at line 1002 sets 52 for the same condition, and nothing stores into H-IPPS-WAGE-INDEX after it
+LTCAL152   1313 IPPS-WI        | GO TO 3400-SHORT-STAY-EXIT. | the test at line 1002 sets 52 for the same condition, and nothing stores into H-IPPS-WAGE-INDEX after it
+LTCAL152   1569 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1524, 1532), every path assigns a class, and this ELSE needs it below .15
+LTCAL152   1580 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL152   1590 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1516, 1540), every path assigns a class, and this ELSE needs it below .15
+LTCAL154    960 DRG-NUMERIC    | MOVE 54 TO PPS-RTC | 1800 runs only with PPS-RTC 00 after 1700 found the code among 741 WWM-DRG keys, all three digits
+LTCAL154    961 DRG-NUMERIC    | GO TO 1800-EXIT | 1800 runs only with PPS-RTC 00 after 1700 found the code among 741 WWM-DRG keys, all three digits
+LTCAL154    975 DRG-FOUND      | MOVE ' NO DRG CODE FOUND' TO HLDDRG-DESC | every one of the 741 WWM-DRG codes is among the 753 entries of WK-DRG-DRGX
+LTCAL154    976 DRG-FOUND      | MOVE 'I' TO HLDDRG-VALID | every one of the 741 WWM-DRG codes is among the 753 entries of WK-DRG-DRGX
+LTCAL154   1337 IPPS-WI        | MOVE 52 TO PPS-RTC | the test at line 1027 sets 52 for the same condition, and nothing stores into H-IPPS-WAGE-INDEX after it
+LTCAL154   1338 IPPS-WI        | GO TO 3400-SHORT-STAY-EXIT. | the test at line 1027 sets 52 for the same condition, and nothing stores into H-IPPS-WAGE-INDEX after it
+LTCAL154   1594 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1549, 1557), every path assigns a class, and this ELSE needs it below .15
+LTCAL154   1605 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL154   1615 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1541, 1565), every path assigns a class, and this ELSE needs it below .15
+LTCAL162   1028 DRG-FOUND      | MOVE ' NO DRG CODE FOUND' TO HLDDRG-DESC | every one of the 748 WWM-DRG codes is among the 758 entries of WK-DRG-DRGX
+LTCAL162   1029 DRG-FOUND      | MOVE 'I' TO HLDDRG-VALID | every one of the 748 WWM-DRG codes is among the 758 entries of WK-DRG-DRGX
+LTCAL162   1030 DRG-FOUND      | MOVE '54' TO PPS-RTC | every one of the 748 WWM-DRG codes is among the 758 entries of WK-DRG-DRGX
+LTCAL162   1031 DRG-FOUND      | GO TO 1800-EXIT | every one of the 748 WWM-DRG codes is among the 758 entries of WK-DRG-DRGX
+LTCAL162   1154 PMT-TYPE       | GO TO 3000-EXIT | the edits limit the review code to 00-08 and the blend year to 6-8 for codes 01-08, and 3100 gives a type to every such code (01 with and without PSYCH-REHAB-DRG) and blend year
+LTCAL162   1258 PMT-TYPE       | MOVE '72' TO PPS-RTC | the edits limit the review code to 00-08 and the blend year to 6-8 for codes 01-08, and 3100 gives a type to every such code (01 with and without PSYCH-REHAB-DRG) and blend year
+LTCAL162   1709 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1664, 1672), every path assigns a class, and this ELSE needs it below .15
+LTCAL162   1720 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL162   1730 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1656, 1680), every path assigns a class, and this ELSE needs it below .15
+LTCAL170   1009 DRG-FOUND      | MOVE ' NO DRG CODE FOUND' TO HLDDRG-DESC | every one of the 747 WWM-DRG codes is among the 757 entries of WK-DRG-DRGX
+LTCAL170   1010 DRG-FOUND      | MOVE 'I' TO HLDDRG-VALID | every one of the 747 WWM-DRG codes is among the 757 entries of WK-DRG-DRGX
+LTCAL170   1011 DRG-FOUND      | MOVE '54' TO PPS-RTC | every one of the 747 WWM-DRG codes is among the 757 entries of WK-DRG-DRGX
+LTCAL170   1012 DRG-FOUND      | GO TO 1800-EXIT | every one of the 747 WWM-DRG codes is among the 757 entries of WK-DRG-DRGX
+LTCAL170   1135 PMT-TYPE       | GO TO 3000-EXIT | the edits limit the review code to 00-08 and the blend year to 6-8 for codes 01-08, and 3100 gives a type to every such code (01 with and without PSYCH-REHAB-DRG) and blend year
+LTCAL170   1239 PMT-TYPE       | MOVE '72' TO PPS-RTC | the edits limit the review code to 00-08 and the blend year to 6-8 for codes 01-08, and 3100 gives a type to every such code (01 with and without PSYCH-REHAB-DRG) and blend year
+LTCAL170   1690 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1645, 1653), every path assigns a class, and this ELSE needs it below .15
+LTCAL170   1701 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL170   1711 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1637, 1661), every path assigns a class, and this ELSE needs it below .15
+LTCAL183   1164 DRG-FOUND      | MOVE ' NO DRG CODE FOUND' TO HLDDRG-DESC | every one of the 744 WWM-DRG codes is among the 754 entries of WK-DRG-DRGX
+LTCAL183   1165 DRG-FOUND      | MOVE 'I' TO HLDDRG-VALID | every one of the 744 WWM-DRG codes is among the 754 entries of WK-DRG-DRGX
+LTCAL183   1166 DRG-FOUND      | MOVE '54' TO PPS-RTC | every one of the 744 WWM-DRG codes is among the 754 entries of WK-DRG-DRGX
+LTCAL183   1167 DRG-FOUND      | GO TO 1800-EXIT | every one of the 744 WWM-DRG codes is among the 754 entries of WK-DRG-DRGX
+LTCAL183   1290 PMT-TYPE       | GO TO 3000-EXIT | the edits limit the review code to 00-08 and the blend year to 6-8 for codes 01-08, and 3100 gives a type to every such code (01 with and without PSYCH-REHAB-DRG) and blend year
+LTCAL183   1400 PMT-TYPE       | MOVE '72' TO PPS-RTC | the edits limit the review code to 00-08 and the blend year to 6-8 for codes 01-08, and 3100 gives a type to every such code (01 with and without PSYCH-REHAB-DRG) and blend year
+LTCAL183   1736 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1691, 1699), every path assigns a class, and this ELSE needs it below .15
+LTCAL183   1747 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL183   1757 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1683, 1707), every path assigns a class, and this ELSE needs it below .15
+LTCAL183   2165 RTC-NEVER      | MOVE '24' TO PPS-RTC. | no statement stores 21 into PPS-RTC before this test runs (literals: 00 01 02 03 04 05 06 07 22 24 25 27 50 51 52 53 54 55 56 58 61 62 65 67 72 74; overlaid by PPS-RTC-1, PPS-RTC-2)
+LTCAL183   2171 RTC-NEVER      | MOVE '27' TO PPS-RTC. | no statement stores 26 into PPS-RTC before this test runs (literals: 00 01 02 03 04 05 06 07 22 24 25 27 50 51 52 53 54 55 56 58 61 62 65 67 72 74; overlaid by PPS-RTC-1, PPS-RTC-2)
+LTCAL190   1117 DRG-FOUND      | MOVE ' NO DRG CODE FOUND' TO HLDDRG-DESC | every one of the 751 WWM-DRG codes is among the 761 entries of WK-DRG-DRGX
+LTCAL190   1118 DRG-FOUND      | MOVE 'I' TO HLDDRG-VALID | every one of the 751 WWM-DRG codes is among the 761 entries of WK-DRG-DRGX
+LTCAL190   1119 DRG-FOUND      | MOVE '54' TO PPS-RTC | every one of the 751 WWM-DRG codes is among the 761 entries of WK-DRG-DRGX
+LTCAL190   1120 DRG-FOUND      | GO TO 1800-EXIT | every one of the 751 WWM-DRG codes is among the 761 entries of WK-DRG-DRGX
+LTCAL190   1243 PMT-TYPE       | GO TO 3000-EXIT | the edits limit the review code to 00-08 and the blend year to 6-8 for codes 01-08, and 3100 gives a type to every such code (01 with and without PSYCH-REHAB-DRG) and blend year
+LTCAL190   1353 PMT-TYPE       | MOVE '72' TO PPS-RTC | the edits limit the review code to 00-08 and the blend year to 6-8 for codes 01-08, and 3100 gives a type to every such code (01 with and without PSYCH-REHAB-DRG) and blend year
+LTCAL190   1689 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1644, 1652), every path assigns a class, and this ELSE needs it below .15
+LTCAL190   1700 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL190   1710 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1636, 1660), every path assigns a class, and this ELSE needs it below .15
+LTCAL190   2118 RTC-NEVER      | MOVE '24' TO PPS-RTC. | no statement stores 21 into PPS-RTC before this test runs (literals: 00 01 02 03 04 05 06 07 22 24 25 27 50 51 52 53 54 55 56 58 61 62 65 67 72 74; overlaid by PPS-RTC-1, PPS-RTC-2)
+LTCAL190   2124 RTC-NEVER      | MOVE '27' TO PPS-RTC. | no statement stores 26 into PPS-RTC before this test runs (literals: 00 01 02 03 04 05 06 07 22 24 25 27 50 51 52 53 54 55 56 58 61 62 65 67 72 74; overlaid by PPS-RTC-1, PPS-RTC-2)
+LTCAL202   1161 DRG-FOUND      | MOVE ' NO DRG CODE FOUND' TO HLDDRG-DESC | every one of the 751 WWM-DRG codes is among the 761 entries of WK-DRG-DRGX
+LTCAL202   1162 DRG-FOUND      | MOVE 'I' TO HLDDRG-VALID | every one of the 751 WWM-DRG codes is among the 761 entries of WK-DRG-DRGX
+LTCAL202   1163 DRG-FOUND      | MOVE '54' TO PPS-RTC | every one of the 751 WWM-DRG codes is among the 761 entries of WK-DRG-DRGX
+LTCAL202   1164 DRG-FOUND      | GO TO 1800-EXIT | every one of the 751 WWM-DRG codes is among the 761 entries of WK-DRG-DRGX
+LTCAL202   1289 PMT-TYPE       | GO TO 3000-EXIT | the edits limit the review code to 00-08 and the blend year to 6-8 for codes 01-08, and 3100 gives a type to every such code (01 with and without PSYCH-REHAB-DRG) and blend year
+LTCAL202   1418 PMT-TYPE       | MOVE '72' TO PPS-RTC | the edits limit the review code to 00-08 and the blend year to 6-8 for codes 01-08, and 3100 gives a type to every such code (01 with and without PSYCH-REHAB-DRG) and blend year
+LTCAL202   1787 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1742, 1750), every path assigns a class, and this ELSE needs it below .15
+LTCAL202   1798 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL202   1808 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1734, 1758), every path assigns a class, and this ELSE needs it below .15
+LTCAL202   2216 RTC-NEVER      | MOVE '24' TO PPS-RTC. | no statement stores 21 into PPS-RTC before this test runs (literals: 00 01 02 03 04 05 06 07 22 24 25 27 50 51 52 53 54 55 56 58 61 62 65 67 72 74; overlaid by PPS-RTC-1, PPS-RTC-2)
+LTCAL202   2222 RTC-NEVER      | MOVE '27' TO PPS-RTC. | no statement stores 26 into PPS-RTC before this test runs (literals: 00 01 02 03 04 05 06 07 22 24 25 27 50 51 52 53 54 55 56 58 61 62 65 67 72 74; overlaid by PPS-RTC-1, PPS-RTC-2)
+LTCAL212   1259 DRG-FOUND      | MOVE ' NO DRG CODE FOUND' TO HLDDRG-DESC | every one of the 754 WWM-DRG codes is among the 767 entries of WK-DRG-DRGX
+LTCAL212   1260 DRG-FOUND      | MOVE 'I' TO HLDDRG-VALID | every one of the 754 WWM-DRG codes is among the 767 entries of WK-DRG-DRGX
+LTCAL212   1261 DRG-FOUND      | MOVE '54' TO PPS-RTC | every one of the 754 WWM-DRG codes is among the 767 entries of WK-DRG-DRGX
+LTCAL212   1262 DRG-FOUND      | GO TO 1800-EXIT | every one of the 754 WWM-DRG codes is among the 767 entries of WK-DRG-DRGX
+LTCAL212   1395 PMT-TYPE       | GO TO 3000-EXIT | the edits limit the review code to 00-08 and the blend year to 6-8 for codes 01-08, and 3100 gives a type to every such code (01 with and without PSYCH-REHAB-DRG) and blend year
+LTCAL212   1524 PMT-TYPE       | MOVE '72' TO PPS-RTC | the edits limit the review code to 00-08 and the blend year to 6-8 for codes 01-08, and 3100 gives a type to every such code (01 with and without PSYCH-REHAB-DRG) and blend year
+LTCAL212   1893 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 2 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1848, 1856), every path assigns a class, and this ELSE needs it below .15
+LTCAL212   1904 DSH-CAP        | MOVE .12 TO H-OPER-DSH | with the percentage at most .202, ((pct - .15) * .65) + .025 is at most .0588
+LTCAL212   1914 DSH-ZERO       | MOVE ZEROS TO H-OPER-DSH | class 3 is assigned only when H-OPER-DSH-PCT >= .15 (lines 1840, 1864), every path assigns a class, and this ELSE needs it below .15
+LTCAL212   2322 RTC-NEVER      | MOVE '24' TO PPS-RTC. | no statement stores 21 into PPS-RTC before this test runs (literals: 00 01 02 03 04 05 06 07 22 24 25 27 50 51 52 53 54 55 56 58 61 62 65 67 72 74; overlaid by PPS-RTC-1, PPS-RTC-2)
+LTCAL212   2328 RTC-NEVER      | MOVE '27' TO PPS-RTC. | no statement stores 26 into PPS-RTC before this test runs (literals: 00 01 02 03 04 05 06 07 22 24 25 27 50 51 52 53 54 55 56 58 61 62 65 67 72 74; overlaid by PPS-RTC-1, PPS-RTC-2)
+LTCAL212   2401 BLEND-SSO-COST | MOVE '2' TO PPS-RTC-2 | the thirteen facts in LTCAL212_2401_2406.txt
+LTCAL212   2406 BLEND-SSO-COST | MOVE '3' TO PPS-RTC-2 | the thirteen facts in LTCAL212_2401_2406.txt

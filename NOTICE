@@ -17,3 +17,13 @@ ESCAL056 to ESCAL212 and the copybooks they use (BILLCPY, RTCCPY, WAGECPY). They
 cocoon/esrd/<PROGRAM>_direct_tap.cbl is a short driver written by Cocoon's
 harness for that calculator, not a CMS file, with Cocoon's tap added; the
 untapped driver is more/esrd/<PROGRAM>_direct.cbl.
+
+cms/ltch/ holds files from the CMS LTCH mainframe pricing programs for
+fiscal year 2021 (FY2021.2), as CMS publishes them: the 28 calculators
+LTCAL032 to LTCAL212 and the copybooks they use (BLEND152, IPDRG063, IPDRG071, IPDRG080, IPDRG090, IPDRG104, IPDRG110, IPDRG123, IPDRG130, IPDRG141, IPDRG152, IPDRG160, IPDRG170, IPDRG181, IPDRG190, IPDRG200, IPDRG211, IRFBN091, IRFBN102, IRFBN105, LTDRG031, LTDRG041, LTDRG057, LTDRG062, LTDRG075, LTDRG080, LTDRG086, LTDRG093, LTDRG095, LTDRG100, LTDRG110, LTDRG123, LTDRG130, LTDRG141, LTDRG152, LTDRG160, LTDRG170, LTDRG181, LTDRG190, LTDRG200, LTDRG210). They are CMS's, unmodified, each
+identical byte for byte to its member of CMS's fy20212-ltch-mainframe-pricing-programs.zip; cms/ltch/build/ holds build-only copies of the 23 calculators from
+LTCAL063 on, with REDEFINES clauses changed as the README says.
+
+cocoon/ltch/<PROGRAM>_direct_tap.cbl is a short driver written by Cocoon's
+harness for that calculator, not a CMS file, with Cocoon's tap added; the
+untapped driver is more/ltch/<PROGRAM>_direct.cbl.

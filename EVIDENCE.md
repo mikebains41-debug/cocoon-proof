@@ -1,8 +1,8 @@
 # Cocoon: what is proven, what is not, and how to check
 
-> **In this repository,** `verify.sh` and `verify_esrd.sh` reproduce the Home Health and ESRD results below with no Cocoon software at all. The analyser figures are reproduced with Cocoon itself, which is available for evaluation; their raw records are in `evidence/` and `analysis/`. Commit hashes refer to Cocoon's private development repository.
+> **In this repository,** `verify.sh`, `verify_esrd.sh` and `verify_ltch.sh` reproduce the Home Health, ESRD and LTCH results below with no Cocoon software at all. The analyser figures are reproduced with Cocoon itself, which is available for evaluation; their raw records are in `evidence/` and `analysis/`. Commit hashes refer to Cocoon's private development repository.
 
-As of 11 October 2026. Every figure below comes from a run anyone can repeat,
+As of 15 October 2026. Every figure below comes from a run anyone can repeat,
 and names the commit that produced it. Where something has not been
 measured, this page says so.
 
@@ -63,6 +63,54 @@ calls, records and differences below; GitHub runs it on every change.
 
 Statements reached is the harness's count when the sets were made, on the phone; across the 20 it runs from 87% to 100%; where any statement was never reached, `more/esrd/<PROGRAM>.never.txt` lists them with their source.
 
+**28 LTCH calculators, driven directly, every statement accounted for.** CMS's
+LTCH calculators LTCAL032 to LTCAL212, from its FY2021.2 mainframe package, each
+translated to Java by Cocoon at `6c25895` with no statement refused, leave exactly
+the same bytes as the COBOL compiled with GnuCOBOL 3.2 in every record of
+every call. CMS ships no test claims for them, so each is driven directly on
+record sets made from its own conditions (`more/ltch/README.md` says how).
+`verify_ltch.sh` reproduces the calls, records and differences below; GitHub
+runs it on every change.
+
+| Calculator | Calls | Records compared | Differences | Statements reached | Proven unreachable |
+|---|---:|---:|---:|---:|---:|
+| LTCAL032 | 3,000 | 15,000 | 0 | 150 of 150 | 0 |
+| LTCAL042 | 3,000 | 15,000 | 0 | 169 of 169 | 0 |
+| LTCAL043 | 3,000 | 15,000 | 0 | 169 of 169 | 0 |
+| LTCAL058 | 3,000 | 15,000 | 0 | 185 of 185 | 0 |
+| LTCAL059 | 3,000 | 15,000 | 0 | 194 of 194 | 0 |
+| LTCAL063 | 3,000 | 18,000 | 0 | 199 of 201 | 2 |
+| LTCAL064 | 3,000 | 18,000 | 0 | 199 of 201 | 2 |
+| LTCAL072 | 3,000 | 21,000 | 0 | 331 of 338 | 7 |
+| LTCAL075 | 3,000 | 21,000 | 0 | 339 of 346 | 7 |
+| LTCAL080 | 3,000 | 21,000 | 0 | 340 of 347 | 7 |
+| LTCAL087 | 3,000 | 21,000 | 0 | 346 of 353 | 7 |
+| LTCAL091 | 3,000 | 21,000 | 0 | 325 of 331 | 6 |
+| LTCAL094 | 3,000 | 21,000 | 0 | 339 of 345 | 6 |
+| LTCAL095 | 3,000 | 21,000 | 0 | 339 of 345 | 6 |
+| LTCAL103 | 3,000 | 21,000 | 0 | 339 of 345 | 6 |
+| LTCAL105 | 3,000 | 21,000 | 0 | 339 of 345 | 6 |
+| LTCAL111 | 3,000 | 21,000 | 0 | 327 of 334 | 7 |
+| LTCAL123 | 3,000 | 21,000 | 0 | 327 of 334 | 7 |
+| LTCAL130 | 3,000 | 21,000 | 0 | 349 of 355 | 6 |
+| LTCAL141 | 3,000 | 21,000 | 0 | 360 of 368 | 8 |
+| LTCAL152 | 3,000 | 21,000 | 0 | 358 of 367 | 9 |
+| LTCAL154 | 3,000 | 21,000 | 0 | 366 of 375 | 9 |
+| LTCAL162 | 3,000 | 24,000 | 0 | 500 of 509 | 9 |
+| LTCAL170 | 3,000 | 24,000 | 0 | 460 of 469 | 9 |
+| LTCAL183 | 3,000 | 24,000 | 0 | 397 of 408 | 11 |
+| LTCAL190 | 3,000 | 24,000 | 0 | 397 of 408 | 11 |
+| LTCAL202 | 3,000 | 24,000 | 0 | 413 of 424 | 11 |
+| LTCAL212 | 3,000 | 24,000 | 0 | 414 of 427 | 13 |
+| **all 28** | **84,000** | **570,000** | **0** | **8,970 of 9,142** | **172** |
+
+Statements reached is the harness's count on these record sets, on the phone.
+Every statement they never reach is proven unreachable from CMS's own source:
+`more/ltch/unreachable.txt` gives each, with its reason. 170 follow from nine
+patterns the prover checks; the last two, LTCAL212 lines 2401 and 2406, rest on
+thirteen facts checked against LTCAL212's source and tables
+(`more/ltch/LTCAL212_2401_2406.txt`).
+
 **Storage.** Working-storage records start with exactly the bytes GnuCOBOL
 gives them: 859 records compared directly (823 in 56 CMS pricers, 36 in the
 Home Health calculator). The generated Java reproduces that layout for all
@@ -77,10 +125,14 @@ under GnuCOBOL and as Java.
 ZZ9.99, class tests, MULTIPLY and DIVIDE in all their forms, MOVE ALL, point
 literals - all equal to GnuCOBOL.
 
-**CMS's 61 pricers** all translate to Java that compiles with 0 errors. Since
-copy members CMS ships without an extension are found (`c9d9a56`), 373
-statements are refused - visibly, never translated in part - and 32 of the 61
-translate whole, the 20 ESRD calculators among them.
+**CMS's 61 pricers** all translate to Java that compiles with 0 errors. At
+`6c25895`, 300 statements are refused - visibly, never translated in part - and 48
+of the 61 translate whole: the 20 ESRD calculators and the 28 LTCH
+calculators. That count looks up each copy member by the name its COPY
+statement gives, in CMS's folders. HHCAL213's two copy members, ADDONTBL and ADXONTBL,
+are there as `addontbl.txt` and `adxontbl.txt`, so there it refuses the two `SEARCH ALL`
+statements on their tables; with the members named as in `cms/`, it
+translates whole.
 
 ## Proven: the analyser
 
@@ -146,17 +198,18 @@ been measured at 18% precision, Coverity at 37%.
   NUMPROC) and with EBCDIC collation, where 'A' sorts before '1'.
 - **Agreement with CMS's official answers.** CMS's own Java Home Health
   pricer is to be run on the same claims as an independent check.
-- **The other 40 CMS pricers**; COMP-5 byte order; invalid numeric data
+- **The other 12 CMS pricers**; COMP-5 byte order; invalid numeric data
   (S0C7).
-- **The ESRD calculators through CMS's own driver.** They are proven driven
-  directly, on record sets made from their own conditions; not yet called
-  through CMS's driver, ESDRV212, as a claim would reach them.
+- **The ESRD and LTCH calculators through CMS's own drivers.** They are proven
+  driven directly, on record sets made from their own conditions; not yet
+  called through CMS's drivers, ESDRV212 and LTDRV212, as a claim would reach
+  them.
 - **Independent precision labels** (pending, above), and the review tier:
   most of its findings are noise today, chiefly running totals real data
   cannot overflow and MOVEs that cut report text.
 - **Results off this one machine, for the analyser.** Its figures ran on one
-  Android phone under Termux. The Home Health and ESRD proofs no longer
-  depend on it: GitHub runs them on a fresh Ubuntu machine, with GnuCOBOL 3.2
+  Android phone under Termux. The Home Health, ESRD and LTCH proofs no
+  longer depend on it: GitHub runs them on a fresh Ubuntu machine, with GnuCOBOL 3.2
   built from GNU's release and the Java compiled by javac where the phone
   uses ecj, on every change (github.com/mikebains41-debug/cocoon-proof).
 - **Speed of the translated Java at batch volume**, and any saving in time or

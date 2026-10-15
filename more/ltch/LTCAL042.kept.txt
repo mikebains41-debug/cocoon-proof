@@ -1,0 +1,52 @@
+1 every field empty
+2 from the corpus
+3 from the corpus
+4 from the corpus
+5 from the corpus
+6 from the corpus
+7 from the corpus
+8 from the corpus
+9 from the corpus
+10 from the corpus
+11 from the corpus
+12 from the corpus
+13 from the corpus
+14 from the corpus
+15 from the corpus
+16 from the corpus
+17 from the corpus
+18 from the corpus
+19 from the corpus
+20 from the corpus
+21 from the corpus
+22 from the corpus
+23 from the corpus
+24 from the corpus
+25 from the corpus
+26 from the corpus
+27 from the corpus
+28 from the corpus
+29 from the corpus
+30 from the corpus
+31 from the corpus
+32 from the corpus
+33 from the corpus; B-COV-DAYS := 100
+34 from the corpus; B-LTR-DAYS := 0
+35 from the corpus; B-LTR-DAYS := 1
+36 from the corpus; W-WAGE-INDEX1 := 1
+37 from the corpus; W-WAGE-INDEX1 := 10
+38 from the corpus; W-WAGE-INDEX1 := 0.5000
+39 from the corpus; B-LTR-DAYS := 1
+40 from the corpus; B-COV-DAYS := 100
+41 from the corpus; B-LTR-DAYS := 1
+42 from the corpus; B-LTR-DAYS := 60
+43 from the corpus; B-LTR-DAYS := 59
+44 from the corpus; B-LTR-DAYS := 10
+45 from the corpus; B-LTR-DAYS := 1; W-WAGE-INDEX1 := 1; B-COV-DAYS := 100; PPS-NAT-NONLABOR-PCT := 0.50000
+46 from the corpus; B-LTR-DAYS := 1; dates: claim 2021-12-15, start 100 days before, age 30; PPS-FINAL-PAY-AMT := 1000000; B-COV-DAYS := 100
+47 from the corpus; B-COV-DAYS := 100; B-LOS := 100
+48 from the corpus; W-WAGE-INDEX1 := 1; P-NEW-OPER-CSTCHG-RATIO := spaces (not numeric)
+49 from the corpus; W-WAGE-INDEX1 := 10; P-NEW-OPER-CSTCHG-RATIO := spaces (not numeric)
+50 from the corpus; W-WAGE-INDEX1 := 0.5000; P-NEW-OPER-CSTCHG-RATIO := spaces (not numeric)
+51 from the corpus; B-LTR-DAYS := 1; W-WAGE-INDEX1 := 1; B-COV-DAYS := 100; PPS-NAT-NONLABOR-PCT := 0.50000; B-LOS := 100
+52 from the corpus; B-LTR-DAYS := 1; dates: claim 2021-12-15, start 100 days before, age 30; PPS-FINAL-PAY-AMT := 1000000; B-COV-DAYS := 100; B-LOS := 100

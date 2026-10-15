@@ -1,0 +1,173 @@
+       01  PPS-SSRFBN-TABLE.
+           02  WK-SSRFBN-DATA.
+               05  FILLER   PIC X(57)  VALUE
+           '01  099835  01 ALABAMA                                   '.
+               05  FILLER   PIC X(57)  VALUE
+           '02  099835  02 ALASKA                                    '.
+               05  FILLER   PIC X(57)  VALUE
+           '03  099835  03 ARIZONA                                   '.
+               05  FILLER   PIC X(57)  VALUE
+           '04  099835  04 ARKANSAS                                  '.
+               05  FILLER   PIC X(57)  VALUE
+           '05  099317  05 CALIFORNIA                                '.
+                05  FILLER  PIC X(57)  VALUE
+           '06  099413  06 COLORADO                                  '.
+               05  FILLER   PIC X(57)  VALUE
+           '07  098016  07 CONNECTICUT                               '.
+               05  FILLER   PIC X(57)  VALUE
+           '08  099835  08 DELAWARE                                  '.
+               05  FILLER   PIC X(57)  VALUE
+           '09  099835  09 DISTRICT OF CO                            '.
+               05  FILLER   PIC X(57)  VALUE
+           '10  099756  10 FLORIDA                                   '.
+               05  FILLER   PIC X(57)  VALUE
+           '11  099835  11 GEORGIA                                   '.
+               05  FILLER   PIC X(57)  VALUE
+           '12  099835  12 HAWAII                                    '.
+               05  FILLER   PIC X(57)  VALUE
+           '13  099835  13 IDAHO                                     '.
+               05  FILLER   PIC X(57)  VALUE
+           '14  099835  14 ILLINOIS                                  '.
+               05  FILLER   PIC X(57)  VALUE
+           '15  099813  15 INDIANA                                   '.
+               05  FILLER   PIC X(57)  VALUE
+           '16  099783  16 IOWA                                      '.
+               05  FILLER   PIC X(57)  VALUE
+           '17  099827  17 KANSAS                                    '.
+               05  FILLER   PIC X(57)  VALUE
+           '18  099835  18 KENTUCKY                                  '.
+               05  FILLER   PIC X(57)  VALUE
+           '19  099834  19 LOUISIANA                                 '.
+               05  FILLER   PIC X(57)  VALUE
+           '20  099835  20 MAINE                                     '.
+               05  FILLER   PIC X(57)  VALUE
+           '21  100000  21 MARYLAND                                  '.
+               05  FILLER   PIC X(57)  VALUE
+           '22  099834  22 MASSACHUSETTS                             '.
+               05  FILLER   PIC X(57)  VALUE
+           '23  099833  23 MICHIGAN                                  '.
+               05  FILLER   PIC X(57)  VALUE
+           '24  099835  24 MINNESOTA                                 '.
+               05  FILLER   PIC X(57)  VALUE
+           '25  099834  25 MISSISSIPPI                               '.
+               05  FILLER   PIC X(57)  VALUE
+           '26  099835  26 MISSOURI                                  '.
+               05  FILLER   PIC X(57)  VALUE
+           '27  099835  27 MONTANA                                   '.
+               05  FILLER   PIC X(57)  VALUE
+           '28  099835  28 NEBRASKA                                  '.
+               05  FILLER   PIC X(57)  VALUE
+           '29  099835  29 NEVADA                                    '.
+               05  FILLER   PIC X(57)  VALUE
+           '30  099699  30 NEW HAMPSHIRE                             '.
+               05  FILLER   PIC X(57)  VALUE
+           '31  098587  31 NEW JERSEY                                '.
+               05  FILLER   PIC X(57)  VALUE
+           '32  099577  32 NEW MEXICO                                '.
+               05  FILLER   PIC X(57)  VALUE
+           '33  099835  33 NEW YORK                                  '.
+               05  FILLER   PIC X(57)  VALUE
+           '34  099834  34 NORTH CAROLINA                            '.
+               05  FILLER   PIC X(57)  VALUE
+           '35  099833  35 NORTH DAKOTA                              '.
+               05  FILLER   PIC X(57)  VALUE
+           '36  099784  36 OHIO                                      '.
+               05  FILLER   PIC X(57)  VALUE
+           '37  099835  37 OKLAHOMA                                  '.
+               05  FILLER   PIC X(57)  VALUE
+           '38  099708  38 OREGON                                    '.
+               05  FILLER   PIC X(57)  VALUE
+           '39  099834  39 PENNSYLVANIA                              '.
+               05  FILLER   PIC X(57)  VALUE
+           '40  099835  40 PUERTO RICO                               '.
+               05  FILLER   PIC X(57)  VALUE
+           '41  099835  41 RHODE ISLAND                              '.
+               05  FILLER   PIC X(57)  VALUE
+           '42  099779  42 SOUTH CAROLINA                            '.
+               05  FILLER   PIC X(57)  VALUE
+           '43  099834  43 SOUTH DAKOTA                              '.
+               05  FILLER   PIC X(57)  VALUE
+           '44  099690  44 TENNESSEE                                 '.
+               05  FILLER   PIC X(57)  VALUE
+           '45  099832  45 TEXAS                                     '.
+               05  FILLER   PIC X(57)  VALUE
+           '46  099835  46 UTAH                                      '.
+               05  FILLER   PIC X(57)  VALUE
+           '47  099835  47 VERMONT                                   '.
+               05  FILLER   PIC X(57)  VALUE
+           '48  100000  48 VIRGIN ISLANDS                            '.
+               05  FILLER   PIC X(57)  VALUE
+           '49  099835  49 VIRGINIA                                  '.
+               05  FILLER   PIC X(57)  VALUE
+           '50  099792  50 WASHINGTON                                '.
+               05  FILLER   PIC X(57)  VALUE
+           '51  099712  51 WEST VIRGINIA                             '.
+               05  FILLER   PIC X(57)  VALUE
+           '52  099816  52 WISCONSIN                                 '.
+               05  FILLER   PIC X(57)  VALUE
+           '53  099835  53 WYOMING                                   '.
+               05  FILLER   PIC X(57)  VALUE
+           '55  099317  55 CALIFORNIA                                '.
+               05  FILLER   PIC X(57)  VALUE
+           '56  100000  56 CANADA                                    '.
+               05  FILLER   PIC X(57)  VALUE
+           '59  100000  59 MEXICO                                    '.
+               05  FILLER   PIC X(57)  VALUE
+           '64  100000  64 AMERICAN SAMOA                            '.
+               05  FILLER   PIC X(57)  VALUE
+           '65  100000  65 GUAM                                      '.
+               05  FILLER   PIC X(57)  VALUE
+           '66  100000  66 MARIANAS ISLANDS                          '.
+               05  FILLER   PIC X(57)  VALUE
+           '67  099832  67 TEXAS                                     '.
+               05  FILLER   PIC X(57)  VALUE
+           '68  099756  68 FLORIDA                                   '.
+               05  FILLER   PIC X(57)  VALUE
+           '69  099756  69 FLORIDA                                   '.
+               05  FILLER   PIC X(57)  VALUE
+           '70  099827  70 KANSAS                                    '.
+               05  FILLER   PIC X(57)  VALUE
+           '71  099834  71 LOUISIANA                                 '.
+               05  FILLER   PIC X(57)  VALUE
+           '72  099784  72 OHIO                                      '.
+               05  FILLER   PIC X(57)  VALUE
+           '73  099834  73 PENNSYLVANIA                              '.
+               05  FILLER   PIC X(57)  VALUE
+           '74  099832  74 TEXAS                                     '.
+               05  FILLER   PIC X(57)  VALUE
+           '75  099317  75 CALIFORNIA                                '.
+               05  FILLER   PIC X(57)  VALUE
+           '76  099783  76 IOWA                                      '.
+               05  FILLER   PIC X(57)  VALUE
+           '77  099835  77 MINNESOTA                                 '.
+               05  FILLER   PIC X(57)  VALUE
+           '78  099835  78 ILLINOIS                                  '.
+               05  FILLER   PIC X(57)  VALUE
+           '80  100000  80 MARYLAND                                  '.
+            02  WK-SSRFBN-DATA2 REDEFINES WK-SSRFBN-DATA.
+               05  SSRFBN-TAB OCCURS 72 ASCENDING KEY IS WK-SSRFBN-STATE
+                                     INDEXED BY SSRFBN-IDX.
+                 10  WK-SSRFBN-REASON-ALL.
+                    15 WK-SSRFBN-STATE  PIC 99.
+                    15 FILLER           PIC XX.
+                    15 WK-SSRFBN-RATE   PIC 9(1)V9(5).
+                    15 FILLER           PIC XX.
+                    15 WK-SSRFBN-CODE2  PIC 99.
+                    15 FILLER           PIC X.
+                    15 WK-SSRFBN-STNAM  PIC X(20).
+                    15 WK-SSRFBN-REST   PIC X(22).
+
+       01  MES-ADD-PROV                   PIC X(53) VALUE SPACES.
+       01  MES-CHG-PROV                   PIC X(53) VALUE SPACES.
+       01  MES-PPS-STATE                  PIC X(02).
+       01  MES-INTRO                      PIC X(53) VALUE SPACES.
+       01  MES-TOT-PAY                    PIC 9(07)V9(02) VALUE 0.
+       01  MES-SSRFBN.
+           05 MES-SSRFBN-STATE PIC 99.
+           05 FILLER           PIC XX.
+           05 MES-SSRFBN-RATE  PIC 9(1)V9(5).
+           05 FILLER           PIC XX.
+           05 MES-SSRFBN-CODE2 PIC 99.
+           05 FILLER           PIC X.
+           05 MES-SSRFBN-STNAM PIC X(20).
+           05 MES-SSRFBN-REST  PIC X(22).

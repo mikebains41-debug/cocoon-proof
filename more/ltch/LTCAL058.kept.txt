@@ -1,0 +1,67 @@
+1 every field empty
+2 from the corpus
+3 from the corpus
+4 from the corpus
+5 from the corpus
+6 from the corpus
+7 from the corpus
+8 from the corpus
+9 from the corpus
+10 from the corpus
+11 from the corpus
+12 from the corpus
+13 from the corpus
+14 from the corpus
+15 from the corpus
+16 from the corpus
+17 from the corpus
+18 from the corpus
+19 from the corpus
+20 from the corpus
+21 from the corpus
+22 from the corpus
+23 from the corpus
+24 from the corpus
+25 from the corpus
+26 from the corpus
+27 from the corpus
+28 from the corpus
+29 from the corpus
+30 from the corpus
+31 from the corpus
+32 from the corpus
+33 from the corpus
+34 from the corpus
+35 from the corpus
+36 from the corpus
+37 from the corpus
+38 from the corpus
+39 from the corpus
+40 from the corpus
+41 from the corpus
+42 from the corpus; B-SPEC-PAY-IND := '1'
+43 from the corpus; B-LOS := 1
+44 from the corpus; PPS-COT-IND := '9' (none listed)
+45 from the corpus; B-COV-CHARGES := 1
+46 from the corpus; B-COV-CHARGES := 0.50
+47 from the corpus; PPS-WAGE-INDEX := 1; dates: claim 2021-12-15, start 1200 days before, age 75; B-SPEC-PAY-IND := '1'
+48 from the corpus; W-WAGE-INDEX2 := 1
+49 from the corpus; W-WAGE-INDEX2 := 10
+50 from the corpus; W-WAGE-INDEX2 := 0.5000
+51 from the corpus; dates: claim 2021-01-15, start 30 days before, age 30; PPS-COT-IND := '9' (none listed); dates: claim 2021-01-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 85
+52 from the corpus; P-NEW-TERMINATION-DATE := 00000000; PPS-STD-FED-RATE := 1; B-LTR-DAYS := 59; PPS-BLEND-YEAR := 4
+53 from the corpus; P-NEW-FY-BEGIN-DATE := 19400101
+54 from the corpus; B-LOS := 1; P-NEW-PROVIDER-NO := '332006'
+55 from the corpus; W-WAGE-INDEX2 := 1; P-NEW-OPER-CSTCHG-RATIO := spaces (not numeric)
+56 from the corpus; W-WAGE-INDEX2 := 1; PPS-BLEND-YEAR := 6; P-NEW-OPER-CSTCHG-RATIO := 1; P-NEW-OPER-CSTCHG-RATIO := spaces (not numeric)
+57 from the corpus; W-WAGE-INDEX2 := 1; PPS-BLEND-YEAR := 3; PPS-DRG-ADJ-PAY-AMT := 1; P-NEW-OPER-CSTCHG-RATIO := spaces (not numeric)
+58 from the corpus; W-WAGE-INDEX2 := 10; P-NEW-OPER-CSTCHG-RATIO := spaces (not numeric)
+59 from the corpus; W-WAGE-INDEX2 := 0.5000; P-NEW-OPER-CSTCHG-RATIO := spaces (not numeric)
+60 from the corpus; W-WAGE-INDEX2 := 0.5000; P-NEW-OPER-CSTCHG-RATIO := spaces (not numeric); B-DISCHARGE-DATE := 19550615; PPS-LOS := 100
+61 from the corpus; dates: claim 2021-01-15, start 30 days before, age 30; PPS-COT-IND := '9' (none listed); dates: claim 2021-01-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 85; B-SPEC-PAY-IND := '1'
+62 from the corpus; dates: claim 2021-01-15, start 30 days before, age 30; PPS-COT-IND := '9' (none listed); dates: claim 2021-01-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 85; B-SPEC-PAY-IND := '1'; PPS-COLA := 1; PPS-FAC-COSTS := PPS-OUTLIER-THRESHOLD +1
+63 from the corpus; P-NEW-TERMINATION-DATE := 00000000; PPS-STD-FED-RATE := 1; B-LTR-DAYS := 59; PPS-BLEND-YEAR := 4; P-NEW-TERMINATION-DATE := '99999999' (none listed)
+64 from the corpus; P-NEW-TERMINATION-DATE := 00000000; PPS-STD-FED-RATE := 1; B-LTR-DAYS := 59; PPS-BLEND-YEAR := 4; P-NEW-TERMINATION-DATE := 20150101
+65 from the corpus; P-NEW-TERMINATION-DATE := 00000000; PPS-STD-FED-RATE := 1; B-LTR-DAYS := 59; PPS-BLEND-YEAR := 4; P-NEW-TERMINATION-DATE := 20201231
+66 from the corpus; B-LOS := 1; P-NEW-PROVIDER-NO := '332006'; B-DISCHARGE-DATE := 20040101
+67 from the corpus; B-LOS := 1; P-NEW-PROVIDER-NO := '332006'; B-DISCHARGE-DATE := 20030701

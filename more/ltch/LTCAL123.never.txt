@@ -1,0 +1,7 @@
+  552          GO TO 0100-EXIT
+  776          MOVE 54 TO PPS-RTC
+  777          GO TO 1800-EXIT
+ 1310                  MOVE ZEROS TO H-OPER-DSH
+ 1321                  MOVE .12 TO H-OPER-DSH
+ 1331                 MOVE ZEROS TO H-OPER-DSH
+ 1566          MOVE 27 TO PPS-RTC.

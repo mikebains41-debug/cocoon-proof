@@ -1,0 +1,64 @@
+1 every field empty
+2 from the corpus
+3 from the corpus
+4 from the corpus
+5 from the corpus
+6 from the corpus
+7 from the corpus
+8 from the corpus
+9 from the corpus
+10 from the corpus
+11 from the corpus
+12 from the corpus
+13 from the corpus
+14 from the corpus
+15 from the corpus
+16 from the corpus
+17 from the corpus
+18 from the corpus
+19 from the corpus
+20 from the corpus
+21 from the corpus
+22 from the corpus
+23 from the corpus
+24 from the corpus
+25 from the corpus
+26 from the corpus
+27 from the corpus
+28 from the corpus
+29 from the corpus
+30 from the corpus
+31 from the corpus
+32 from the corpus
+33 from the corpus
+34 from the corpus
+35 from the corpus; dates: claim 2021-12-15, start 100 days before, age 85; W-WAGE-INDEX2 := 1; P-NEW-TERMINATION-DATE := '99999999' (none listed); PPS-OUTLIER-PAY-AMT := 0.50
+36 from the corpus; P-NEW-FY-BEGIN-DATE := '99999999' (none listed)
+37 from the corpus; W-WAGE-INDEX2 := 1
+38 from the corpus; P-NEW-FY-BEGIN-DATE := 19400101
+39 from the corpus; P-NEW-FY-BEGIN-DATE := 19550615
+40 from the corpus; P-NEW-FY-BEGIN-DATE := 19700101
+41 from the corpus; P-NEW-FY-BEGIN-DATE := 19850615
+42 from the corpus; P-NEW-FY-BEGIN-DATE := 20000101
+43 from the corpus; P-NEW-FY-BEGIN-DATE := 20210615
+44 from the corpus; P-NEW-FY-BEGIN-DATE := 20211231
+45 from the corpus; W-WAGE-INDEX2 := 10
+46 from the corpus; W-WAGE-INDEX2 := 0.5000
+47 from the corpus; dates: claim 2021-12-15, start 100 days before, age 85; W-WAGE-INDEX2 := 1; P-NEW-TERMINATION-DATE := '99999999' (none listed); PPS-OUTLIER-PAY-AMT := 0.50; B-COV-DAYS := 1
+48 from the corpus; dates: claim 2021-12-15, start 100 days before, age 85; W-WAGE-INDEX2 := 1; P-NEW-TERMINATION-DATE := '99999999' (none listed); PPS-OUTLIER-PAY-AMT := 0.50; B-COV-DAYS := 100
+49 from the corpus; P-NEW-FY-BEGIN-DATE := '99999999' (none listed); P-NEW-OPER-CSTCHG-RATIO := spaces (not numeric)
+50 from the corpus; W-WAGE-INDEX2 := 1; P-NEW-OPER-CSTCHG-RATIO := spaces (not numeric)
+51 from the corpus; P-NEW-FY-BEGIN-DATE := 19400101; P-NEW-OPER-CSTCHG-RATIO := spaces (not numeric)
+52 from the corpus; P-NEW-FY-BEGIN-DATE := 19550615; P-NEW-OPER-CSTCHG-RATIO := spaces (not numeric)
+53 from the corpus; P-NEW-FY-BEGIN-DATE := 19700101; P-NEW-OPER-CSTCHG-RATIO := spaces (not numeric)
+54 from the corpus; P-NEW-FY-BEGIN-DATE := 19850615; P-NEW-OPER-CSTCHG-RATIO := spaces (not numeric)
+55 from the corpus; P-NEW-FY-BEGIN-DATE := 20000101; P-NEW-OPER-CSTCHG-RATIO := spaces (not numeric)
+56 from the corpus; P-NEW-FY-BEGIN-DATE := 20210615; P-NEW-OPER-CSTCHG-RATIO := spaces (not numeric)
+57 from the corpus; P-NEW-FY-BEGIN-DATE := 20211231; P-NEW-OPER-CSTCHG-RATIO := spaces (not numeric)
+58 from the corpus; W-WAGE-INDEX2 := 10; P-NEW-OPER-CSTCHG-RATIO := spaces (not numeric)
+59 from the corpus; dates: claim 2021-12-15, start 100 days before, age 85; W-WAGE-INDEX2 := 1; P-NEW-TERMINATION-DATE := '99999999' (none listed); PPS-OUTLIER-PAY-AMT := 0.50; B-COV-DAYS := 100; B-LTR-DAYS := 1
+60 from the corpus; dates: claim 2021-12-15, start 100 days before, age 85; W-WAGE-INDEX2 := 1; P-NEW-TERMINATION-DATE := '99999999' (none listed); PPS-OUTLIER-PAY-AMT := 0.50; B-COV-DAYS := 100; B-LTR-DAYS := 60
+61 from the corpus; dates: claim 2021-12-15, start 100 days before, age 85; W-WAGE-INDEX2 := 1; P-NEW-TERMINATION-DATE := '99999999' (none listed); PPS-OUTLIER-PAY-AMT := 0.50; B-COV-DAYS := 100; B-LTR-DAYS := 59
+62 from the corpus; dates: claim 2021-12-15, start 100 days before, age 85; W-WAGE-INDEX2 := 1; P-NEW-TERMINATION-DATE := '99999999' (none listed); PPS-OUTLIER-PAY-AMT := 0.50; B-COV-DAYS := 100; B-LTR-DAYS := 10
+63 from the corpus; dates: claim 2021-12-15, start 100 days before, age 85; W-WAGE-INDEX2 := 1; P-NEW-TERMINATION-DATE := '99999999' (none listed); PPS-OUTLIER-PAY-AMT := 0.50; B-COV-DAYS := 100; P-NEW-FY-BEGIN-DATE := 20150101; B-LTR-DAYS := 10
+64 from the corpus; dates: claim 2021-12-15, start 100 days before, age 85; W-WAGE-INDEX2 := 1; P-NEW-TERMINATION-DATE := '99999999' (none listed); PPS-OUTLIER-PAY-AMT := 0.50; B-COV-DAYS := 100; PPS-NEW-FAC-SPEC-RATE := 1; B-LTR-DAYS := 1; PRICER-OPTION-SW := 'A'; W-WAGE-INDEX1 := 1

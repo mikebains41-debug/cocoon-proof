@@ -2,7 +2,7 @@
 
 [![verify](https://github.com/mikebains41-debug/cocoon-proof/actions/workflows/verify.yml/badge.svg)](https://github.com/mikebains41-debug/cocoon-proof/actions/workflows/verify.yml)
 
-GitHub runs `verify.sh`, `verify_more.sh` and `verify_esrd.sh` on a fresh Ubuntu machine, with GnuCOBOL 3.2 built from GNU's release, on every change and every week. The badge shows the latest result; the run's full log is one click away.
+GitHub runs `verify.sh`, `verify_more.sh`, `verify_esrd.sh` and `verify_ltch.sh` on a fresh Ubuntu machine, with GnuCOBOL 3.2 built from GNU's release, on every change and every week. The badge shows the latest result; the run's full log is one click away.
 
 Cocoon translates COBOL into Java. This repository lets you check, on your
 own machine, that its Java for a real Medicare pricing program leaves
@@ -63,6 +63,28 @@ The calculators are built as the recorded run built them, with
 `-frelax-syntax-checks -frelax-level-hierarchy` and without `-debug`.
 None of them needs a build-only change: GnuCOBOL compiles every file as CMS ships it. The inputs, and how they were made, are in `more/esrd/`.
 
+## The LTCH calculators
+
+`sh verify_ltch.sh` checks CMS's 28 LTCH calculators, LTCAL032 to LTCAL212 from the
+FY2021.2 mainframe package, the same way. CMS ships no test claims for them,
+so each is driven directly: a short driver reads record sets made from the
+calculator's own conditions, 3,000 per calculator, and calls it with them under
+GnuCOBOL with Cocoon's tap; the Java is run on the same records; every record
+is compared byte for byte. Its last line should read:
+
+```
+ALL: CALLS=84000 RECORDS=570000 EQUAL=570000 EXCEPTIONS=0
+```
+
+The record sets reach 8,970 of the 9,142 statements in the 28; each of the other
+172 is proven unreachable, with its reason, in `more/ltch/unreachable.txt`.
+
+The calculators are built as the recorded run built them, with
+`-frelax-syntax-checks -frelax-level-hierarchy` and without `-debug`.
+For the 23 calculators from LTCAL063 on, GnuCOBOL 3.2 refuses a `REDEFINES` that names a redefinition ("is not the original definition"), even with those switches; IBM's compiler takes it to mean the original item.
+`cms/ltch/build/` holds a copy of each of the 23 with those clauses made to name the original - the same bytes -
+and nothing else changed, and the script builds those copies. CMS's own files are in `cms/ltch/` untouched. The inputs, and how they were made, are in `more/ltch/`.
+
 ## What it does
 
 1. Copies CMS's files into `work/` and makes two build-only changes to the
@@ -84,15 +106,18 @@ None of them needs a build-only change: GnuCOBOL compiles every file as CMS ship
 | `cms/` | CMS's files, unmodified: the COBOL, its copybooks, the test claims and tables (see NOTICE) |
 | `cocoon/` | Cocoon's output: the Java for HHCAL213, the harness that feeds it, the tapped driver, and the runtime as a compiled jar |
 | `expected/` | the pricer's output file as GnuCOBOL 3.2 produced it |
-| `verify.sh`, `verify_more.sh`, `verify_esrd.sh`, `compare.awk` | the checks, readable before they run |
+| `verify.sh`, `verify_more.sh`, `verify_esrd.sh`, `verify_ltch.sh`, `compare.awk` | the checks, readable before they run |
 | `more/` | the inputs of the larger runs, and how each was made |
 | `cms/esrd/` | CMS's 20 ESRD calculators and their copybooks, unmodified |
 | `cocoon/esrd/` | Cocoon's output for them: the Java for each, and each tapped driver |
 | `more/esrd/` | each one's record sets, driver, how the kept sets were made, what was never reached |
+| `cms/ltch/` | CMS's 28 LTCH calculators and their copybooks, unmodified (`build/`: see above) |
+| `cocoon/ltch/` | Cocoon's output for them: the Java for each, and each tapped driver |
+| `more/ltch/` | each one's record sets, driver, how the kept sets were made, what was never reached, and why |
 | `EVIDENCE.md`, `evidence/`, `analysis/` | the wider evidence, with its raw records |
 
-Cocoon's own source is not here, and nothing in `verify.sh`, `verify_more.sh`
-or `verify_esrd.sh` needs it.
+Cocoon's own source is not here, and nothing in `verify.sh`, `verify_more.sh`,
+`verify_esrd.sh` or `verify_ltch.sh` needs it.
 
 ## What this does not show
 
@@ -103,7 +128,9 @@ or `verify_esrd.sh` needs it.
   COBOL computes.
 - The ESRD calculators called through CMS's own driver, ESDRV212, as a claim
   would reach them: here they are driven directly.
-- Anything about CMS's other 40 pricers, or about speed.
+- The LTCH calculators called through CMS's own driver, LTDRV212, as a claim
+  would reach them: here they are driven directly.
+- Anything about CMS's other 12 pricers, or about speed.
 
 `EVIDENCE.md` sets out what else has been measured, and what has not.
 

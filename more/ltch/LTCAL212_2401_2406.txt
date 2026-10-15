@@ -1,0 +1,45 @@
+# LTCAL212 lines 2401 and 2406 (MOVE '2' and MOVE '3' TO PPS-RTC-2) can never run.
+# Each fact below is checked against LTCAL212's own source and tables, as
+# cms/ltch/ holds them, by ltch_212proof.py in Cocoon's private repository;
+# PASS means it holds. Its output, as run for this commit:
+
+PASS  F1 every SET PMT-BLEND lies in the ELSE of IF H-ADMISSION-DATE > 20200126 (its THEN ends with GO TO 3100-EXIT)
+          IF at [1481]; SET PMT-BLEND at [1508], branch ['ELSE']; GO TO 3100-EXIT in the THEN at [1483]
+PASS  F2 the admission is computed as the discharge date less B-LOS
+          COMPUTE H-ADMISS-DATE-INT = FUNCTION INTEGER-OF-DATE (H-DISCHARGE-DATE) - B-LOS COMPUTE H-ADMISSION-DATE =
+PASS  F3 a short stay needs H-LOS <= H-SSOT, and H-SSOT is at most 46 (the table's longest average stay is 54.8)
+PASS  F4 the latest such discharge, 2020-03-12, is before WK-DRGX-EFF-DATE 20201001 (IPDRG211)
+PASS  F5 HLDDRG-DATA is stored only under IF B-DISCHARGE-DATE NOT < WK-DRGX-EFF-DATE, and cleared unconditionally in 0100
+          search IF at [1255]; stores [1264]; INITIALIZE at [981] in 0100-INITIAL-ROUTINE
+PASS  F6 H-IPPS-DRG-WGT and H-IPPS-DRG-ALOS are stored only from HLDDRG-WEIGHT and HLDDRG-GMALOS
+          stores at [1269, 1271]
+PASS  F7 every COMPUTE of H-STAND-AMT-OPER-PMT and H-CAPI-PMT reads H-IPPS-DRG-WGT (check each is a product)
+          H-STAND-AMT-OPER-PMT 1952: COMPUTE H-STAND-AMT-OPER-PMT ROUNDED = ( (H-IPPS-NAT-LABOR-SHR * H-IPPS-WAGE-INDEX) + (H-IPPS-NAT-NONLABOR-SHR * H-OPER-COLA) ) * H-IPPS-DRG-WGT * (1 + H-OPER-I
+          H-CAPI-PMT 1977: COMPUTE H-CAPI-PMT ROUNDED = H-IPPS-CAPI-STD-FED-RATE * H-IPPS-DRG-WGT * H-CAPI-GAF * H-LRGURB-ADD-ON * H-CAPI-COLA * (1 + H-CAPI-IME-TEACH + H-CAPI-DSH)
+PASS  F8 H-IPPS-PER-DIEM is stored only as (H-IPPS-PAY-AMT / H-IPPS-DRG-ALOS) * H-LOS or capped at H-IPPS-PAY-AMT, and lies in HOLD-PPS-COMPONENTS, cleared in 0100
+          stores at [1993, 1997]; in HOLD-PPS-COMPONENTS: True
+PASS  F9 cost-based needs PPS-FAC-COSTS < 0.954 x (H-IPPS-PER-DIEM + 0.954 x outlier), the outlier being .8 x (costs - threshold), threshold unsigned
+          comparison at [1641]
+          H-SN-COST-4COMPARISON stored only by: [1628] ok
+          H-SN-IPPS-4COMPARISON stored only by: [1633] ok
+          adjustment only 0.954: True; PPS-OUTLIER-THRESHOLD unsigned: True
+          6000 runs 2077-2219; PERFORMs inside it: [(2215, 'PERFORM 6100-CALC-CHARGE-THRESHOLD')]
+          plain 2118: COMPUTE PPS-OUTLIER-PAY-AMT ROUNDED = (PPS-FAC-COSTS - PPS-OUTLIER-THRESHOLD) * .8.   [under: IF PPS-FAC-COSTS > PPS-OUTLIER-THRESHOLD / IF NOT PMT-BLEND AND NOT (PMT-SITE-NEUTRAL AND PMT-SITE-NEUT-COST)]
+          blend, F10-F11 2196: COMPUTE PPS-OUTLIER-PAY-AMT ROUNDED = H-OUTLIER-PAY-AMT-STD + (H-OUTLIER-PAY-AMT-SNT * H-SITE-NEUTRAL-IPPS-ADJ).   [under: IF PMT-BLEND]
+          zero 2209: MOVE 0 TO PPS-OUTLIER-PAY-AMT.   [under: IF B-SPEC-PAY-IND = '1']
+PASS  F10 the blend outlier's two parts are (costs - payment - fixed loss) x .8 x their blend share, every store; all amounts unsigned
+          H-OUTLIER-PAY-AMT-STD 2173: COMPUTE H-OUTLIER-PAY-AMT-STD ROUNDED = (PPS-FAC-COSTS - H-OUTLIER-THRESHOLD-STD) * .8 * H-BLEND-STD.
+          H-OUTLIER-PAY-AMT-SNT 2185: COMPUTE H-OUTLIER-PAY-AMT-SNT ROUNDED = (((PPS-FAC-COSTS - PPS-OUTLIER-THRESHOLD) * .8) * H-BLEND-SNT).
+          H-OUTLIER-THRESHOLD-STD 2150: COMPUTE H-OUTLIER-THRESHOLD-STD ROUNDED = PPS-STANDARD-FULL-PMT + H-FIXED-LOSS-AMT-STD.
+          H-OUTLIER-THRESHOLD-STD 2153: COMPUTE H-OUTLIER-THRESHOLD-STD ROUNDED = PPS-STANDARD-SSO-PMT + H-FIXED-LOSS-AMT-STD.
+PASS  F11 on the blend path the shares are H-BLEND-STD 0.5 and H-BLEND-SNT 0.5 (set right after SET PMT-BLEND), so the IPPS side is at most 0.711 of the cost
+          after SET PMT-BLEND 1508: ['MOVE .5 TO H-BLEND-STD.', 'MOVE .5 TO H-BLEND-SNT.']
+          1336 MOVE 0 TO H-BLEND-SNT. in 2000-ASSEMBLE-PPS-VARIABLES, performed at [945]
+          1337 MOVE 1 TO H-BLEND-STD. in 2000-ASSEMBLE-PPS-VARIABLES, performed at [945]
+PASS  F12 both fixed losses are set only to literals of at least 1 (smallest 27195.0 and 29064.0), so an outlier needs costs above 1
+PASS  F13 H-OUTLIER-IPPS-COMPARABLE is stored only as the 6000 outlier times 0.954
+          stores at [1614]: ['MOVE PPS-OUTLIER-PAY-AMT TO H-OUTLIER-IPPS-COMPARABLE.']
+
+PROVEN: with every fact above, a blend short stay has H-IPPS-PER-DIEM = 0, so the IPPS side is at most the F11 fraction of the cost, and cost < IPPS never holds.
+(the bound uses GnuCOBOL's rule, which the harness tests against: a zero divisor stores nothing; IBM's compiler leaves that case undefined)
+DONE

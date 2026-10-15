@@ -1,0 +1,82 @@
+1 every field empty
+2 from the corpus
+3 from the corpus
+4 from the corpus
+5 from the corpus
+6 from the corpus
+7 from the corpus
+8 from the corpus
+9 from the corpus
+10 from the corpus
+11 from the corpus
+12 from the corpus
+13 from the corpus
+14 from the corpus
+15 from the corpus
+16 from the corpus
+17 from the corpus
+18 from the corpus
+19 from the corpus
+20 from the corpus
+21 from the corpus
+22 from the corpus
+23 from the corpus
+24 from the corpus
+25 from the corpus
+26 from the corpus
+27 from the corpus
+28 from the corpus
+29 from the corpus
+30 from the corpus
+31 from the corpus
+32 from the corpus
+33 from the corpus
+34 from the corpus
+35 from the corpus
+36 from the corpus
+37 from the corpus
+38 from the corpus
+39 from the corpus
+40 from the corpus
+41 from the corpus
+42 from the corpus
+43 from the corpus
+44 from the corpus
+45 from the corpus
+46 from the corpus
+47 from the corpus
+48 from the corpus
+49 from the corpus
+50 from the corpus
+51 from the corpus
+52 from the corpus
+53 from the corpus
+54 from the corpus
+55 from the corpus
+56 from the corpus
+57 from the corpus
+58 from the corpus
+59 from the corpus
+60 from the corpus
+61 from the corpus
+62 from the corpus
+63 from the corpus
+64 from the corpus
+65 from the corpus; P-NEW-STATE := 40
+66 from the corpus; P-NEW-STATE := 40; B-COV-DAYS := 1
+67 from the corpus; PPS-LOS := 100; P-NEW-STATE := 40; P-NEW-OPER-CSTCHG-RATIO := 0; PPS-BLEND-YEAR := 3
+68 from the corpus; P-NEW-PROVIDER-NO := '999999' (none listed)
+69 from the corpus; P-NEW-STATE := 02
+70 from the corpus; P-NEW-STATE := 3
+71 from the corpus; P-NEW-STATE := 1
+72 from the corpus; P-NEW-STATE := 12
+73 from the corpus; P-NEW-STATE := 13
+74 from the corpus; P-NEW-STATE := 11
+75 from the corpus; P-NEW-STATE := 41
+76 from the corpus; P-NEW-STATE := 39
+77 from the corpus; P-NEW-PROVIDER-NO := '999999' (none listed); P-NEW-STATE := 40
+78 from the corpus; PPS-LOS := 100; P-NEW-STATE := 40; P-NEW-OPER-CSTCHG-RATIO := 0; PPS-BLEND-YEAR := 3; P-NEW-OPER-CSTCHG-RATIO := 1
+79 from the corpus; PPS-LOS := 100; P-NEW-STATE := 40; P-NEW-OPER-CSTCHG-RATIO := 0; PPS-BLEND-YEAR := 3; P-NEW-OPER-CSTCHG-RATIO := 0.500
+80 from the corpus; P-NEW-STATE := 40; B-COV-DAYS := 1; B-LTR-DAYS := 0
+81 from the corpus; P-NEW-STATE := 1; PPS-RTC := 25; P-NEW-PROVIDER-NO := '999999' (none listed); PPS-BLEND-YEAR := 1; PPS-BLEND-YEAR := 2
+82 from the corpus; P-NEW-STATE := 1; PPS-RTC := 25; P-NEW-PROVIDER-NO := '999999' (none listed); PPS-BLEND-YEAR := 1; PPS-BLEND-YEAR := 2; P-NEW-STATE := 40

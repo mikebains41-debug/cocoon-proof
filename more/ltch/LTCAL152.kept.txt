@@ -1,0 +1,80 @@
+1 every field empty
+2 from the corpus
+3 from the corpus
+4 from the corpus
+5 from the corpus
+6 from the corpus
+7 from the corpus
+8 from the corpus
+9 from the corpus
+10 from the corpus
+11 from the corpus
+12 from the corpus
+13 from the corpus
+14 from the corpus
+15 from the corpus
+16 from the corpus
+17 from the corpus
+18 from the corpus
+19 from the corpus
+20 from the corpus
+21 from the corpus
+22 from the corpus
+23 from the corpus
+24 from the corpus
+25 from the corpus
+26 from the corpus
+27 from the corpus
+28 from the corpus
+29 from the corpus
+30 from the corpus
+31 from the corpus
+32 from the corpus
+33 from the corpus
+34 from the corpus
+35 from the corpus
+36 from the corpus
+37 from the corpus
+38 from the corpus
+39 from the corpus
+40 from the corpus
+41 from the corpus
+42 from the corpus
+43 from the corpus
+44 from the corpus
+45 from the corpus
+46 from the corpus
+47 from the corpus
+48 from the corpus
+49 from the corpus
+50 from the corpus
+51 from the corpus
+52 from the corpus
+53 from the corpus
+54 from the corpus
+55 from the corpus
+56 from the corpus
+57 from the corpus; P-NEW-EFF-DATE := 19400101; P-NEW-STATE := 11; dates: claim 2021-01-15, start 100 days before, age 30; P-NEW-EFF-DATE := 20000101
+58 from the corpus; B-DISCHARGE-DATE := 20150101
+59 from the corpus; B-DISCHARGE-DATE := 20201231
+60 from the corpus; B-DISCHARGE-DATE := 20210101
+61 from the corpus; B-DISCHARGE-DATE := 20210615
+62 from the corpus; dates: claim 2021-01-15, start 30 days before, age 5
+63 from the corpus; dates: claim 2021-01-15, start 100 days before, age 5
+64 from the corpus; dates: claim 2021-01-15, start 200 days before, age 5
+65 from the corpus; dates: claim 2021-01-15, start 1200 days before, age 5
+66 from the corpus; dates: claim 2021-06-15, start 30 days before, age 5
+67 from the corpus; dates: claim 2021-06-15, start 100 days before, age 5
+68 from the corpus; dates: claim 2021-06-15, start 200 days before, age 5
+69 from the corpus; B-DISCHARGE-DATE := 20150101; P-NEW-STATE := 40
+70 from the corpus; B-DISCHARGE-DATE := 20201231; P-NEW-STATE := 40
+71 from the corpus; B-DISCHARGE-DATE := 20210101; P-NEW-STATE := 40
+72 from the corpus; B-DISCHARGE-DATE := 20210615; P-NEW-STATE := 40
+73 from the corpus; dates: claim 2021-01-15, start 30 days before, age 5; P-NEW-STATE := 40
+74 from the corpus; dates: claim 2021-01-15, start 100 days before, age 5; P-NEW-STATE := 40
+75 from the corpus; dates: claim 2021-01-15, start 200 days before, age 5; P-NEW-STATE := 40
+76 from the corpus; dates: claim 2021-01-15, start 1200 days before, age 5; P-NEW-STATE := 40
+77 from the corpus; dates: claim 2021-06-15, start 30 days before, age 5; P-NEW-STATE := 40
+78 from the corpus; dates: claim 2021-06-15, start 100 days before, age 5; P-NEW-STATE := 40
+79 from the corpus; dates: claim 2021-06-15, start 100 days before, age 5; P-NEW-STATE := 40; P-NEW-FY-BEGIN-DATE := 20211231; B-LTR-DAYS := 61; B-LTR-DAYS := 1
+80 from the corpus; dates: claim 2021-06-15, start 200 days before, age 5; P-NEW-STATE := 40

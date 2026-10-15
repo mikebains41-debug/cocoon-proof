@@ -1,0 +1,13 @@
+ 1259             MOVE ' NO DRG CODE    FOUND' TO HLDDRG-DESC
+ 1260             MOVE 'I' TO  HLDDRG-VALID
+ 1261             MOVE '54' TO PPS-RTC
+ 1262             GO TO 1800-EXIT
+ 1395          GO TO 3000-EXIT
+ 1524          MOVE '72' TO PPS-RTC
+ 1893                  MOVE ZEROS TO H-OPER-DSH
+ 1904                  MOVE .12 TO H-OPER-DSH
+ 1914                 MOVE ZEROS TO H-OPER-DSH
+ 2322          MOVE '24' TO PPS-RTC.
+ 2328          MOVE '27' TO PPS-RTC.
+ 2401             MOVE '2' TO PPS-RTC-2
+ 2406             MOVE '3' TO PPS-RTC-2

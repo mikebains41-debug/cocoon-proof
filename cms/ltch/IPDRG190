@@ -1,0 +1,1549 @@
+      ***************************************************************
+      *  TABLE 5 FROM ANNUAL IPPS FINAL RULE
+      ***************************************************************
+       01  WK-DRGX-EFF-DATE      PIC X(08) VALUE '20181001'.
+       01  PPS-DRG-TABLE.
+           02  WK-DRG-DATA.
+      ****** 07/10/2018 **********
+               05  FILLER   PIC X(57)  VALUE
+           '001 264106 291       375       HEART TRANSPLANT OR IMPLAN'.
+               05  FILLER   PIC X(57)  VALUE
+           '002 134227 151       180       HEART TRANSPLANT OR IMPLAN'.
+               05  FILLER   PIC X(57)  VALUE
+           '003 182974 234       301  Y    ECMO OR TRACH W MV >96 HRS'.
+               05  FILLER   PIC X(57)  VALUE
+           '004 114192 195       236  Y    TRACH W MV >96 HRS OR PDX '.
+               05  FILLER   PIC X(57)  VALUE
+           '005 102545 146       200       LIVER TRANSPLANT W MCC OR '.
+               05  FILLER   PIC X(57)  VALUE
+           '006 048655 079       086       LIVER TRANSPLANT W/O MCC  '.
+               05  FILLER   PIC X(57)  VALUE
+           '007 106510 167       202       LUNG TRANSPLANT           '.
+               05  FILLER   PIC X(57)  VALUE
+           '008 052490 089       101       SIMULTANEOUS PANCREAS/KIDN'.
+               05  FILLER   PIC X(57)  VALUE
+           '010 045139 078       085       PANCREAS TRANSPLANT       '.
+               05  FILLER   PIC X(57)  VALUE
+           '011 049124 109       134       TRACHEOSTOMY FOR FACE, MOU'.
+               05  FILLER   PIC X(57)  VALUE
+           '012 038137 087       098       TRACHEOSTOMY FOR FACE, MOU'.
+               05  FILLER   PIC X(57)  VALUE
+           '013 023265 059       067       TRACHEOSTOMY FOR FACE, MOU'.
+               05  FILLER   PIC X(57)  VALUE
+           '014 119503 241       274       ALLOGENEIC BONE MARROW TRA'.
+               05  FILLER   PIC X(57)  VALUE
+           '016 065394 171       184       AUTOLOGOUS BONE MARROW TRA'.
+               05  FILLER   PIC X(57)  VALUE
+           '017 043811 079       107       AUTOLOGOUS BONE MARROW TRA'.
+               05  FILLER   PIC X(57)  VALUE
+           '020 104253 136       165       INTRACRANIAL VASCULAR PROC'.
+               05  FILLER   PIC X(57)  VALUE
+           '021 079056 121       137       INTRACRANIAL VASCULAR PROC'.
+               05  FILLER   PIC X(57)  VALUE
+           '022 051575 063       081       INTRACRANIAL VASCULAR PROC'.
+               05  FILLER   PIC X(57)  VALUE
+           '023 054601 073       102  Y Y  CRANIOTOMY W MAJOR DEVICE '.
+               05  FILLER   PIC X(57)  VALUE
+           '024 039194 043       057  Y Y  CRANIO W MAJOR DEV IMPL/AC'.
+               05  FILLER   PIC X(57)  VALUE
+           '025 042775 067       088  Y    CRANIOTOMY & ENDOVASCULAR '.
+               05  FILLER   PIC X(57)  VALUE
+           '026 030157 043       057  Y    CRANIOTOMY & ENDOVASCULAR '.
+               05  FILLER   PIC X(57)  VALUE
+           '027 024057 021       027  Y    CRANIOTOMY & ENDOVASCULAR '.
+               05  FILLER   PIC X(57)  VALUE
+           '028 053748 090       118  Y Y  SPINAL PROCEDURES W MCC   '.
+               05  FILLER   PIC X(57)  VALUE
+           '029 031557 044       058  Y Y  SPINAL PROCEDURES W CC OR '.
+               05  FILLER   PIC X(57)  VALUE
+           '030 021757 023       030  Y Y  SPINAL PROCEDURES W/O CC/M'.
+               05  FILLER   PIC X(57)  VALUE
+           '031 041829 072       101  Y    VENTRICULAR SHUNT PROCEDUR'.
+               05  FILLER   PIC X(57)  VALUE
+           '032 023021 033       048  Y    VENTRICULAR SHUNT PROCEDUR'.
+               05  FILLER   PIC X(57)  VALUE
+           '033 016877 018       023  Y    VENTRICULAR SHUNT PROCEDUR'.
+               05  FILLER   PIC X(57)  VALUE
+           '034 035998 047       068       CAROTID ARTERY STENT PROCE'.
+               05  FILLER   PIC X(57)  VALUE
+           '035 022203 021       030       CAROTID ARTERY STENT PROCE'.
+               05  FILLER   PIC X(57)  VALUE
+           '036 017260 012       014       CAROTID ARTERY STENT PROCE'.
+               05  FILLER   PIC X(57)  VALUE
+           '037 032098 051       074       EXTRACRANIAL PROCEDURES W '.
+               05  FILLER   PIC X(57)  VALUE
+           '038 016717 022       031       EXTRACRANIAL PROCEDURES W '.
+               05  FILLER   PIC X(57)  VALUE
+           '039 011324 013       015       EXTRACRANIAL PROCEDURES W/'.
+               05  FILLER   PIC X(57)  VALUE
+           '040 039282 076       107  Y Y  PERIPH/CRANIAL NERVE & OTH'.
+               05  FILLER   PIC X(57)  VALUE
+           '041 023584 042       053  Y Y  PERIPH/CRANIAL NERVE & OTH'.
+               05  FILLER   PIC X(57)  VALUE
+           '042 018715 025       031  Y Y  PERIPH/CRANIAL NERVE & OTH'.
+               05  FILLER   PIC X(57)  VALUE
+           '052 017004 041       058       SPINAL DISORDERS & INJURIE'.
+               05  FILLER   PIC X(57)  VALUE
+           '053 009141 027       033       SPINAL DISORDERS & INJURIE'.
+               05  FILLER   PIC X(57)  VALUE
+           '054 013166 038       051  Y    NERVOUS SYSTEM NEOPLASMS W'.
+               05  FILLER   PIC X(57)  VALUE
+           '055 010472 031       044  Y    NERVOUS SYSTEM NEOPLASMS W'.
+               05  FILLER   PIC X(57)  VALUE
+           '056 021245 055       081  Y    DEGENERATIVE NERVOUS SYSTE'.
+               05  FILLER   PIC X(57)  VALUE
+           '057 012089 039       056  Y    DEGENERATIVE NERVOUS SYSTE'.
+               05  FILLER   PIC X(57)  VALUE
+           '058 017596 050       069       MULTIPLE SCLEROSIS & CEREB'.
+               05  FILLER   PIC X(57)  VALUE
+           '059 010993 037       045       MULTIPLE SCLEROSIS & CEREB'.
+               05  FILLER   PIC X(57)  VALUE
+           '060 008327 030       035       MULTIPLE SCLEROSIS & CEREB'.
+               05  FILLER   PIC X(57)  VALUE
+           '061 028477 050       065       ISCHEMIC STROKE, PRECEREBR'.
+               05  FILLER   PIC X(57)  VALUE
+           '062 019437 034       040       ISCHEMIC STROKE, PRECEREBR'.
+               05  FILLER   PIC X(57)  VALUE
+           '063 016280 024       027       ISCHEMIC STROKE, PRECEREBR'.
+               05  FILLER   PIC X(57)  VALUE
+           '064 018692 044       061  Y    INTRACRANIAL HEMORRHAGE OR'.
+               05  FILLER   PIC X(57)  VALUE
+           '065 010315 031       038  Y    INTRACRANIAL HEMORRHAGE OR'.
+               05  FILLER   PIC X(57)  VALUE
+           '066 007268 021       025  Y    INTRACRANIAL HEMORRHAGE OR'.
+               05  FILLER   PIC X(57)  VALUE
+           '067 015014 036       048       NONSPECIFIC CVA & PRECEREB'.
+               05  FILLER   PIC X(57)  VALUE
+           '068 008987 023       028       NONSPECIFIC CVA & PRECEREB'.
+               05  FILLER   PIC X(57)  VALUE
+           '069 007655 021       025       TRANSIENT ISCHEMIA W/O THR'.
+               05  FILLER   PIC X(57)  VALUE
+           '070 016453 045       062  Y    NONSPECIFIC CEREBROVASCULA'.
+               05  FILLER   PIC X(57)  VALUE
+           '071 009858 033       043  Y    NONSPECIFIC CEREBROVASCULA'.
+               05  FILLER   PIC X(57)  VALUE
+           '072 007420 024       029  Y    NONSPECIFIC CEREBROVASCULA'.
+               05  FILLER   PIC X(57)  VALUE
+           '073 014111 037       051       CRANIAL & PERIPHERAL NERVE'.
+               05  FILLER   PIC X(57)  VALUE
+           '074 009739 029       037       CRANIAL & PERIPHERAL NERVE'.
+               05  FILLER   PIC X(57)  VALUE
+           '075 014816 048       060       VIRAL MENINGITIS W CC/MCC '.
+               05  FILLER   PIC X(57)  VALUE
+           '076 008248 028       033       VIRAL MENINGITIS W/O CC/MC'.
+               05  FILLER   PIC X(57)  VALUE
+           '077 015520 041       052       HYPERTENSIVE ENCEPHALOPATH'.
+               05  FILLER   PIC X(57)  VALUE
+           '078 009701 031       038       HYPERTENSIVE ENCEPHALOPATH'.
+               05  FILLER   PIC X(57)  VALUE
+           '079 007465 021       025       HYPERTENSIVE ENCEPHALOPATH'.
+               05  FILLER   PIC X(57)  VALUE
+           '080 018788 045       068       NONTRAUMATIC STUPOR & COMA'.
+               05  FILLER   PIC X(57)  VALUE
+           '081 008546 027       037       NONTRAUMATIC STUPOR & COMA'.
+               05  FILLER   PIC X(57)  VALUE
+           '082 021586 038       060       TRAUMATIC STUPOR & COMA, C'.
+               05  FILLER   PIC X(57)  VALUE
+           '083 012950 032       042       TRAUMATIC STUPOR & COMA, C'.
+               05  FILLER   PIC X(57)  VALUE
+           '084 009233 022       027       TRAUMATIC STUPOR & COMA, C'.
+               05  FILLER   PIC X(57)  VALUE
+           '085 021800 047       065  Y    TRAUMATIC STUPOR & COMA, C'.
+               05  FILLER   PIC X(57)  VALUE
+           '086 012431 032       041  Y    TRAUMATIC STUPOR & COMA, C'.
+               05  FILLER   PIC X(57)  VALUE
+           '087 008453 021       026  Y    TRAUMATIC STUPOR & COMA, C'.
+               05  FILLER   PIC X(57)  VALUE
+           '088 014796 036       047       CONCUSSION W MCC          '.
+               05  FILLER   PIC X(57)  VALUE
+           '089 010675 027       035       CONCUSSION W CC           '.
+               05  FILLER   PIC X(57)  VALUE
+           '090 007934 019       023       CONCUSSION W/O CC/MCC     '.
+               05  FILLER   PIC X(57)  VALUE
+           '091 016120 042       057  Y    OTHER DISORDERS OF NERVOUS'.
+               05  FILLER   PIC X(57)  VALUE
+           '092 009433 030       038  Y    OTHER DISORDERS OF NERVOUS'.
+               05  FILLER   PIC X(57)  VALUE
+           '093 007378 022       027  Y    OTHER DISORDERS OF NERVOUS'.
+               05  FILLER   PIC X(57)  VALUE
+           '094 036779 080       110       BACTERIAL & TUBERCULOUS IN'.
+               05  FILLER   PIC X(57)  VALUE
+           '095 023809 057       071       BACTERIAL & TUBERCULOUS IN'.
+               05  FILLER   PIC X(57)  VALUE
+           '096 021110 044       052       BACTERIAL & TUBERCULOUS IN'.
+               05  FILLER   PIC X(57)  VALUE
+           '097 035389 084       114       NON-BACTERIAL INFECT OF NE'.
+               05  FILLER   PIC X(57)  VALUE
+           '098 018505 054       069       NON-BACTERIAL INFECT OF NE'.
+               05  FILLER   PIC X(57)  VALUE
+           '099 012729 037       047       NON-BACTERIAL INFECT OF NE'.
+               05  FILLER   PIC X(57)  VALUE
+           '100 018124 043       059  Y    SEIZURES W MCC            '.
+               05  FILLER   PIC X(57)  VALUE
+           '101 008693 027       034  Y    SEIZURES W/O MCC          '.
+               05  FILLER   PIC X(57)  VALUE
+           '102 010765 030       040       HEADACHES W MCC           '.
+               05  FILLER   PIC X(57)  VALUE
+           '103 007814 023       030       HEADACHES W/O MCC         '.
+               05  FILLER   PIC X(57)  VALUE
+           '113 023027 045       062       ORBITAL PROCEDURES W CC/MC'.
+               05  FILLER   PIC X(57)  VALUE
+           '114 012551 023       029       ORBITAL PROCEDURES W/O CC/'.
+               05  FILLER   PIC X(57)  VALUE
+           '115 013621 035       045       EXTRAOCULAR PROCEDURES EXC'.
+               05  FILLER   PIC X(57)  VALUE
+           '116 017080 040       058       INTRAOCULAR PROCEDURES W C'.
+               05  FILLER   PIC X(57)  VALUE
+           '117 010025 023       031       INTRAOCULAR PROCEDURES W/O'.
+               05  FILLER   PIC X(57)  VALUE
+           '121 010593 040       052       ACUTE MAJOR EYE INFECTIONS'.
+               05  FILLER   PIC X(57)  VALUE
+           '122 007058 032       041       ACUTE MAJOR EYE INFECTIONS'.
+               05  FILLER   PIC X(57)  VALUE
+           '123 007529 020       025       NEUROLOGICAL EYE DISORDERS'.
+               05  FILLER   PIC X(57)  VALUE
+           '124 013313 036       049       OTHER DISORDERS OF THE EYE'.
+               05  FILLER   PIC X(57)  VALUE
+           '125 008102 026       033       OTHER DISORDERS OF THE EYE'.
+               05  FILLER   PIC X(57)  VALUE
+           '129 024310 037       055       MAJOR HEAD & NECK PROCEDUR'.
+               05  FILLER   PIC X(57)  VALUE
+           '130 014912 023       029       MAJOR HEAD & NECK PROCEDUR'.
+               05  FILLER   PIC X(57)  VALUE
+           '131 026284 042       057       CRANIAL/FACIAL PROCEDURES '.
+               05  FILLER   PIC X(57)  VALUE
+           '132 015286 020       025       CRANIAL/FACIAL PROCEDURES '.
+               05  FILLER   PIC X(57)  VALUE
+           '133 020986 040       058       OTHER EAR, NOSE, MOUTH & T'.
+               05  FILLER   PIC X(57)  VALUE
+           '134 011987 020       025       OTHER EAR, NOSE, MOUTH & T'.
+               05  FILLER   PIC X(57)  VALUE
+           '135 022982 044       064       SINUS & MASTOID PROCEDURES'.
+               05  FILLER   PIC X(57)  VALUE
+           '136 012125 018       028       SINUS & MASTOID PROCEDURES'.
+               05  FILLER   PIC X(57)  VALUE
+           '137 013771 036       048       MOUTH PROCEDURES W CC/MCC '.
+               05  FILLER   PIC X(57)  VALUE
+           '138 008452 020       024       MOUTH PROCEDURES W/O CC/MC'.
+               05  FILLER   PIC X(57)  VALUE
+           '139 011604 021       028       SALIVARY GLAND PROCEDURES '.
+               05  FILLER   PIC X(57)  VALUE
+           '146 019231 053       074       EAR, NOSE, MOUTH & THROAT '.
+               05  FILLER   PIC X(57)  VALUE
+           '147 012505 037       052       EAR, NOSE, MOUTH & THROAT '.
+               05  FILLER   PIC X(57)  VALUE
+           '148 007238 021       028       EAR, NOSE, MOUTH & THROAT '.
+               05  FILLER   PIC X(57)  VALUE
+           '149 007111 020       025       DYSEQUILIBRIUM            '.
+               05  FILLER   PIC X(57)  VALUE
+           '150 013275 035       048       EPISTAXIS W MCC           '.
+               05  FILLER   PIC X(57)  VALUE
+           '151 007038 022       028       EPISTAXIS W/O MCC         '.
+               05  FILLER   PIC X(57)  VALUE
+           '152 010421 032       041       OTITIS MEDIA & URI W MCC  '.
+               05  FILLER   PIC X(57)  VALUE
+           '153 007118 024       029       OTITIS MEDIA & URI W/O MCC'.
+               05  FILLER   PIC X(57)  VALUE
+           '154 014465 040       053       OTHER EAR, NOSE, MOUTH & T'.
+               05  FILLER   PIC X(57)  VALUE
+           '155 008833 029       037       OTHER EAR, NOSE, MOUTH & T'.
+               05  FILLER   PIC X(57)  VALUE
+           '156 006599 022       027       OTHER EAR, NOSE, MOUTH & T'.
+               05  FILLER   PIC X(57)  VALUE
+           '157 016730 044       061       DENTAL & ORAL DISEASES W M'.
+               05  FILLER   PIC X(57)  VALUE
+           '158 008903 028       036       DENTAL & ORAL DISEASES W C'.
+               05  FILLER   PIC X(57)  VALUE
+           '159 006784 021       026       DENTAL & ORAL DISEASES W/O'.
+               05  FILLER   PIC X(57)  VALUE
+           '163 049193 097       121  Y    MAJOR CHEST PROCEDURES W M'.
+               05  FILLER   PIC X(57)  VALUE
+           '164 025689 048       059  Y    MAJOR CHEST PROCEDURES W C'.
+               05  FILLER   PIC X(57)  VALUE
+           '165 018524 029       035  Y    MAJOR CHEST PROCEDURES W/O'.
+               05  FILLER   PIC X(57)  VALUE
+           '166 034980 079       102  Y    OTHER RESP SYSTEM O.R. PRO'.
+               05  FILLER   PIC X(57)  VALUE
+           '167 018976 043       056  Y    OTHER RESP SYSTEM O.R. PRO'.
+               05  FILLER   PIC X(57)  VALUE
+           '168 013416 024       030  Y    OTHER RESP SYSTEM O.R. PRO'.
+               05  FILLER   PIC X(57)  VALUE
+           '175 014649 043       053  Y    PULMONARY EMBOLISM W MCC  '.
+               05  FILLER   PIC X(57)  VALUE
+           '176 008990 028       034  Y    PULMONARY EMBOLISM W/O MCC'.
+               05  FILLER   PIC X(57)  VALUE
+           '177 018408 055       068  Y    RESPIRATORY INFECTIONS & I'.
+               05  FILLER   PIC X(57)  VALUE
+           '178 012744 043       053  Y    RESPIRATORY INFECTIONS & I'.
+               05  FILLER   PIC X(57)  VALUE
+           '179 009215 032       040  Y    RESPIRATORY INFECTIONS & I'.
+               05  FILLER   PIC X(57)  VALUE
+           '180 016960 049       065       RESPIRATORY NEOPLASMS W MC'.
+               05  FILLER   PIC X(57)  VALUE
+           '181 011409 034       045       RESPIRATORY NEOPLASMS W CC'.
+               05  FILLER   PIC X(57)  VALUE
+           '182 007951 022       028       RESPIRATORY NEOPLASMS W/O '.
+               05  FILLER   PIC X(57)  VALUE
+           '183 014909 044       055       MAJOR CHEST TRAUMA W MCC  '.
+               05  FILLER   PIC X(57)  VALUE
+           '184 010044 032       038       MAJOR CHEST TRAUMA W CC   '.
+               05  FILLER   PIC X(57)  VALUE
+           '185 007323 024       028       MAJOR CHEST TRAUMA W/O CC/'.
+               05  FILLER   PIC X(57)  VALUE
+           '186 015595 044       058  Y    PLEURAL EFFUSION W MCC    '.
+               05  FILLER   PIC X(57)  VALUE
+           '187 010540 033       041  Y    PLEURAL EFFUSION W CC     '.
+               05  FILLER   PIC X(57)  VALUE
+           '188 007672 024       030  Y    PLEURAL EFFUSION W/O CC/MC'.
+               05  FILLER   PIC X(57)  VALUE
+           '189 012353 038       048       PULMONARY EDEMA & RESPIRAT'.
+               05  FILLER   PIC X(57)  VALUE
+           '190 011907 038       047  Y    CHRONIC OBSTRUCTIVE PULMON'.
+               05  FILLER   PIC X(57)  VALUE
+           '191 009139 031       037  Y    CHRONIC OBSTRUCTIVE PULMON'.
+               05  FILLER   PIC X(57)  VALUE
+           '192 007241 025       030  Y    CHRONIC OBSTRUCTIVE PULMON'.
+               05  FILLER   PIC X(57)  VALUE
+           '193 013167 042       052  Y    SIMPLE PNEUMONIA & PLEURIS'.
+               05  FILLER   PIC X(57)  VALUE
+           '194 009002 033       039  Y    SIMPLE PNEUMONIA & PLEURIS'.
+               05  FILLER   PIC X(57)  VALUE
+           '195 006868 026       031  Y    SIMPLE PNEUMONIA & PLEURIS'.
+               05  FILLER   PIC X(57)  VALUE
+           '196 016381 048       062  Y    INTERSTITIAL LUNG DISEASE '.
+               05  FILLER   PIC X(57)  VALUE
+           '197 010017 033       040  Y    INTERSTITIAL LUNG DISEASE '.
+               05  FILLER   PIC X(57)  VALUE
+           '198 007585 025       031  Y    INTERSTITIAL LUNG DISEASE '.
+               05  FILLER   PIC X(57)  VALUE
+           '199 017828 053       069       PNEUMOTHORAX W MCC        '.
+               05  FILLER   PIC X(57)  VALUE
+           '200 010748 034       043       PNEUMOTHORAX W CC         '.
+               05  FILLER   PIC X(57)  VALUE
+           '201 006989 024       030       PNEUMOTHORAX W/O CC/MCC   '.
+               05  FILLER   PIC X(57)  VALUE
+           '202 009401 030       037       BRONCHITIS & ASTHMA W CC/M'.
+               05  FILLER   PIC X(57)  VALUE
+           '203 006970 024       029       BRONCHITIS & ASTHMA W/O CC'.
+               05  FILLER   PIC X(57)  VALUE
+           '204 007676 022       028       RESPIRATORY SIGNS & SYMPTO'.
+               05  FILLER   PIC X(57)  VALUE
+           '205 015179 040       054  Y    OTHER RESPIRATORY SYSTEM D'.
+               05  FILLER   PIC X(57)  VALUE
+           '206 008635 025       031  Y    OTHER RESPIRATORY SYSTEM D'.
+               05  FILLER   PIC X(57)  VALUE
+           '207 055965 120       139  Y    RESPIRATORY SYSTEM DIAGNOS'.
+               05  FILLER   PIC X(57)  VALUE
+           '208 024374 049       067       RESPIRATORY SYSTEM DIAGNOS'.
+               05  FILLER   PIC X(57)  VALUE
+           '215 128861 052       087       OTHER HEART ASSIST SYSTEM '.
+               05  FILLER   PIC X(57)  VALUE
+           '216 098209 125       153  Y Y  CARDIAC VALVE & OTH MAJ CA'.
+               05  FILLER   PIC X(57)  VALUE
+           '217 063628 073       088  Y Y  CARDIAC VALVE & OTH MAJ CA'.
+               05  FILLER   PIC X(57)  VALUE
+           '218 059053 041       055  Y Y  CARDIAC VALVE & OTH MAJ CA'.
+               05  FILLER   PIC X(57)  VALUE
+           '219 076916 091       111  Y Y  CARDIAC VALVE & OTH MAJ CA'.
+               05  FILLER   PIC X(57)  VALUE
+           '220 052053 061       067  Y Y  CARDIAC VALVE & OTH MAJ CA'.
+               05  FILLER   PIC X(57)  VALUE
+           '221 046074 042       048  Y Y  CARDIAC VALVE & OTH MAJ CA'.
+               05  FILLER   PIC X(57)  VALUE
+           '222 081372 092       111       CARDIAC DEFIB IMPLANT W CA'.
+               05  FILLER   PIC X(57)  VALUE
+           '223 063562 053       064       CARDIAC DEFIB IMPLANT W CA'.
+               05  FILLER   PIC X(57)  VALUE
+           '224 074247 077       096       CARDIAC DEFIB IMPLANT W CA'.
+               05  FILLER   PIC X(57)  VALUE
+           '225 057194 041       048       CARDIAC DEFIB IMPLANT W CA'.
+               05  FILLER   PIC X(57)  VALUE
+           '226 068182 065       084       CARDIAC DEFIBRILLATOR IMPL'.
+               05  FILLER   PIC X(57)  VALUE
+           '227 053167 031       041       CARDIAC DEFIBRILLATOR IMPL'.
+               05  FILLER   PIC X(57)  VALUE
+           '228 065762 067       097       OTHER CARDIOTHORACIC PROCE'.
+               05  FILLER   PIC X(57)  VALUE
+           '229 046484 034       047       OTHER CARDIOTHORACIC PROCE'.
+               05  FILLER   PIC X(57)  VALUE
+           '231 083989 103       120       CORONARY BYPASS W PTCA W M'.
+               05  FILLER   PIC X(57)  VALUE
+           '232 061604 080       088       CORONARY BYPASS W PTCA W/O'.
+               05  FILLER   PIC X(57)  VALUE
+           '233 076377 115       129  Y    CORONARY BYPASS W CARDIAC '.
+               05  FILLER   PIC X(57)  VALUE
+           '234 051472 081       086  Y    CORONARY BYPASS W CARDIAC '.
+               05  FILLER   PIC X(57)  VALUE
+           '235 058099 088       101  Y    CORONARY BYPASS W/O CARDIA'.
+               05  FILLER   PIC X(57)  VALUE
+           '236 039263 060       065  Y    CORONARY BYPASS W/O CARDIA'.
+               05  FILLER   PIC X(57)  VALUE
+           '239 047093 102       130  Y    AMPUTATION FOR CIRC SYS DI'.
+               05  FILLER   PIC X(57)  VALUE
+           '240 027449 070       085  Y    AMPUTATION FOR CIRC SYS DI'.
+               05  FILLER   PIC X(57)  VALUE
+           '241 015960 044       052  Y    AMPUTATION FOR CIRC SYS DI'.
+               05  FILLER   PIC X(57)  VALUE
+           '242 037369 054       070  Y    PERMANENT CARDIAC PACEMAKE'.
+               05  FILLER   PIC X(57)  VALUE
+           '243 025543 033       040  Y    PERMANENT CARDIAC PACEMAKE'.
+               05  FILLER   PIC X(57)  VALUE
+           '244 021108 023       027  Y    PERMANENT CARDIAC PACEMAKE'.
+               05  FILLER   PIC X(57)  VALUE
+           '245 050121 044       061       AICD GENERATOR PROCEDURES '.
+               05  FILLER   PIC X(57)  VALUE
+           '246 032388 041       054       PERCUTANEOUS CARDIOVASCULA'.
+               05  FILLER   PIC X(57)  VALUE
+           '247 020771 022       026       PERC CARDIOVASC PROC W DRU'.
+               05  FILLER   PIC X(57)  VALUE
+           '248 031726 047       063       PERCUTANEOUS CARDIOVASCULA'.
+               05  FILLER   PIC X(57)  VALUE
+           '249 019901 024       030       PERC CARDIOVASC PROC W NON'.
+               05  FILLER   PIC X(57)  VALUE
+           '250 025868 039       053       PERC CARDIOVASC PROC W/O C'.
+               05  FILLER   PIC X(57)  VALUE
+           '251 016778 022       027       PERC CARDIOVASC PROC W/O C'.
+               05  FILLER   PIC X(57)  VALUE
+           '252 032598 053       076       OTHER VASCULAR PROCEDURES '.
+               05  FILLER   PIC X(57)  VALUE
+           '253 025943 041       054       OTHER VASCULAR PROCEDURES '.
+               05  FILLER   PIC X(57)  VALUE
+           '254 018100 023       028       OTHER VASCULAR PROCEDURES '.
+               05  FILLER   PIC X(57)  VALUE
+           '255 025403 065       081  Y    UPPER LIMB & TOE AMPUTATIO'.
+               05  FILLER   PIC X(57)  VALUE
+           '256 017487 052       062  Y    UPPER LIMB & TOE AMPUTATIO'.
+               05  FILLER   PIC X(57)  VALUE
+           '257 011261 035       043  Y    UPPER LIMB & TOE AMPUTATIO'.
+               05  FILLER   PIC X(57)  VALUE
+           '258 029888 050       064       CARDIAC PACEMAKER DEVICE R'.
+               05  FILLER   PIC X(57)  VALUE
+           '259 020970 027       034       CARDIAC PACEMAKER DEVICE R'.
+               05  FILLER   PIC X(57)  VALUE
+           '260 036195 068       092       CARDIAC PACEMAKER REVISION'.
+               05  FILLER   PIC X(57)  VALUE
+           '261 019918 033       042       CARDIAC PACEMAKER REVISION'.
+               05  FILLER   PIC X(57)  VALUE
+           '262 016309 023       027       CARDIAC PACEMAKER REVISION'.
+               05  FILLER   PIC X(57)  VALUE
+           '263 023922 042       063       VEIN LIGATION & STRIPPING '.
+               05  FILLER   PIC X(57)  VALUE
+           '264 031586 065       092  Y    OTHER CIRCULATORY SYSTEM O'.
+               05  FILLER   PIC X(57)  VALUE
+           '265 031167 037       051       AICD LEAD PROCEDURES      '.
+               05  FILLER   PIC X(57)  VALUE
+           '266 071915 040       061  Y Y  ENDOVASCULAR CARDIAC VALVE'.
+               05  FILLER   PIC X(57)  VALUE
+           '267 058481 023       029  Y Y  ENDOVASCULAR CARDIAC VALVE'.
+               05  FILLER   PIC X(57)  VALUE
+           '268 067037 064       095       AORTIC AND HEART ASSIST PR'.
+               05  FILLER   PIC X(57)  VALUE
+           '269 041509 017       024       AORTIC AND HEART ASSIST PR'.
+               05  FILLER   PIC X(57)  VALUE
+           '270 050617 066       095       OTHER MAJOR CARDIOVASCULAR'.
+               05  FILLER   PIC X(57)  VALUE
+           '271 034938 043       058       OTHER MAJOR CARDIOVASCULAR'.
+               05  FILLER   PIC X(57)  VALUE
+           '272 026181 021       028       OTHER MAJOR CARDIOVASCULAR'.
+               05  FILLER   PIC X(57)  VALUE
+           '273 036525 053       073  Y Y  PERCUTANEOUS INTRACARDIAC '.
+               05  FILLER   PIC X(57)  VALUE
+           '274 029783 020       026  Y Y  PERCUTANEOUS INTRACARDIAC '.
+               05  FILLER   PIC X(57)  VALUE
+           '280 016571 042       054  Y    ACUTE MYOCARDIAL INFARCTIO'.
+               05  FILLER   PIC X(57)  VALUE
+           '281 009796 026       032  Y    ACUTE MYOCARDIAL INFARCTIO'.
+               05  FILLER   PIC X(57)  VALUE
+           '282 007490 018       022  Y    ACUTE MYOCARDIAL INFARCTIO'.
+               05  FILLER   PIC X(57)  VALUE
+           '283 018047 030       048       ACUTE MYOCARDIAL INFARCTIO'.
+               05  FILLER   PIC X(57)  VALUE
+           '284 007666 017       023       ACUTE MYOCARDIAL INFARCTIO'.
+               05  FILLER   PIC X(57)  VALUE
+           '285 005964 013       016       ACUTE MYOCARDIAL INFARCTIO'.
+               05  FILLER   PIC X(57)  VALUE
+           '286 021808 052       069       CIRCULATORY DISORDERS EXCE'.
+               05  FILLER   PIC X(57)  VALUE
+           '287 011389 024       030       CIRCULATORY DISORDERS EXCE'.
+               05  FILLER   PIC X(57)  VALUE
+           '288 026941 073       096  Y    ACUTE & SUBACUTE ENDOCARDI'.
+               05  FILLER   PIC X(57)  VALUE
+           '289 017099 054       067  Y    ACUTE & SUBACUTE ENDOCARDI'.
+               05  FILLER   PIC X(57)  VALUE
+           '290 010114 034       043  Y    ACUTE & SUBACUTE ENDOCARDI'.
+               05  FILLER   PIC X(57)  VALUE
+           '291 013454 041       052  Y    HEART FAILURE & SHOCK W MC'.
+               05  FILLER   PIC X(57)  VALUE
+           '292 009198 033       040  Y    HEART FAILURE & SHOCK W CC'.
+               05  FILLER   PIC X(57)  VALUE
+           '293 006656 024       028  Y    HEART FAILURE & SHOCK W/O '.
+               05  FILLER   PIC X(57)  VALUE
+           '294 011608 034       044       DEEP VEIN THROMBOPHLEBITIS'.
+               05  FILLER   PIC X(57)  VALUE
+           '295 005513 023       031       DEEP VEIN THROMBOPHLEBITIS'.
+               05  FILLER   PIC X(57)  VALUE
+           '296 015355 020       032       CARDIAC ARREST, UNEXPLAINE'.
+               05  FILLER   PIC X(57)  VALUE
+           '297 006524 013       015       CARDIAC ARREST, UNEXPLAINE'.
+               05  FILLER   PIC X(57)  VALUE
+           '298 004825 011       012       CARDIAC ARREST, UNEXPLAINE'.
+               05  FILLER   PIC X(57)  VALUE
+           '299 014504 039       052  Y    PERIPHERAL VASCULAR DISORD'.
+               05  FILLER   PIC X(57)  VALUE
+           '300 010237 033       041  Y    PERIPHERAL VASCULAR DISORD'.
+               05  FILLER   PIC X(57)  VALUE
+           '301 007262 023       028  Y    PERIPHERAL VASCULAR DISORD'.
+               05  FILLER   PIC X(57)  VALUE
+           '302 010695 027       036       ATHEROSCLEROSIS W MCC     '.
+               05  FILLER   PIC X(57)  VALUE
+           '303 006655 019       023       ATHEROSCLEROSIS W/O MCC   '.
+               05  FILLER   PIC X(57)  VALUE
+           '304 010811 030       039       HYPERTENSION W MCC        '.
+               05  FILLER   PIC X(57)  VALUE
+           '305 007199 022       027       HYPERTENSION W/O MCC      '.
+               05  FILLER   PIC X(57)  VALUE
+           '306 014088 038       052       CARDIAC CONGENITAL & VALVU'.
+               05  FILLER   PIC X(57)  VALUE
+           '307 008560 024       031       CARDIAC CONGENITAL & VALVU'.
+               05  FILLER   PIC X(57)  VALUE
+           '308 012036 036       046       CARDIAC ARRHYTHMIA & CONDU'.
+               05  FILLER   PIC X(57)  VALUE
+           '309 007635 025       030       CARDIAC ARRHYTHMIA & CONDU'.
+               05  FILLER   PIC X(57)  VALUE
+           '310 005623 019       022       CARDIAC ARRHYTHMIA & CONDU'.
+               05  FILLER   PIC X(57)  VALUE
+           '311 006872 019       024       ANGINA PECTORIS           '.
+               05  FILLER   PIC X(57)  VALUE
+           '312 008015 023       029       SYNCOPE & COLLAPSE        '.
+               05  FILLER   PIC X(57)  VALUE
+           '313 007073 017       021       CHEST PAIN                '.
+               05  FILLER   PIC X(57)  VALUE
+           '314 020231 048       065  Y    OTHER CIRCULATORY SYSTEM D'.
+               05  FILLER   PIC X(57)  VALUE
+           '315 009559 028       036  Y    OTHER CIRCULATORY SYSTEM D'.
+               05  FILLER   PIC X(57)  VALUE
+           '316 007513 020       024  Y    OTHER CIRCULATORY SYSTEM D'.
+               05  FILLER   PIC X(57)  VALUE
+           '326 052559 101       135  Y    STOMACH, ESOPHAGEAL & DUOD'.
+               05  FILLER   PIC X(57)  VALUE
+           '327 024843 049       067  Y    STOMACH, ESOPHAGEAL & DUOD'.
+               05  FILLER   PIC X(57)  VALUE
+           '328 015421 022       028  Y    STOMACH, ESOPHAGEAL & DUOD'.
+               05  FILLER   PIC X(57)  VALUE
+           '329 049927 108       134  Y    MAJOR SMALL & LARGE BOWEL '.
+               05  FILLER   PIC X(57)  VALUE
+           '330 025233 062       074  Y    MAJOR SMALL & LARGE BOWEL '.
+               05  FILLER   PIC X(57)  VALUE
+           '331 016947 037       042  Y    MAJOR SMALL & LARGE BOWEL '.
+               05  FILLER   PIC X(57)  VALUE
+           '332 033982 069       088  Y    RECTAL RESECTION W MCC    '.
+               05  FILLER   PIC X(57)  VALUE
+           '333 019278 044       054  Y    RECTAL RESECTION W CC     '.
+               05  FILLER   PIC X(57)  VALUE
+           '334 013062 024       029  Y    RECTAL RESECTION W/O CC/MC'.
+               05  FILLER   PIC X(57)  VALUE
+           '335 040620 101       123  Y    PERITONEAL ADHESIOLYSIS W '.
+               05  FILLER   PIC X(57)  VALUE
+           '336 022982 063       077  Y    PERITONEAL ADHESIOLYSIS W '.
+               05  FILLER   PIC X(57)  VALUE
+           '337 016033 039       048  Y    PERITONEAL ADHESIOLYSIS W/'.
+               05  FILLER   PIC X(57)  VALUE
+           '338 028648 066       082       APPENDECTOMY W COMPLICATED'.
+               05  FILLER   PIC X(57)  VALUE
+           '339 017406 043       052       APPENDECTOMY W COMPLICATED'.
+               05  FILLER   PIC X(57)  VALUE
+           '340 011878 024       029       APPENDECTOMY W COMPLICATED'.
+               05  FILLER   PIC X(57)  VALUE
+           '341 022845 046       063       APPENDECTOMY W/O COMPLICAT'.
+               05  FILLER   PIC X(57)  VALUE
+           '342 014188 027       035       APPENDECTOMY W/O COMPLICAT'.
+               05  FILLER   PIC X(57)  VALUE
+           '343 010853 017       020       APPENDECTOMY W/O COMPLICAT'.
+               05  FILLER   PIC X(57)  VALUE
+           '344 029872 076       101       MINOR SMALL & LARGE BOWEL '.
+               05  FILLER   PIC X(57)  VALUE
+           '345 016376 046       057       MINOR SMALL & LARGE BOWEL '.
+               05  FILLER   PIC X(57)  VALUE
+           '346 012366 032       038       MINOR SMALL & LARGE BOWEL '.
+               05  FILLER   PIC X(57)  VALUE
+           '347 024111 057       078       ANAL & STOMAL PROCEDURES W'.
+               05  FILLER   PIC X(57)  VALUE
+           '348 014000 036       047       ANAL & STOMAL PROCEDURES W'.
+               05  FILLER   PIC X(57)  VALUE
+           '349 009497 021       026       ANAL & STOMAL PROCEDURES W'.
+               05  FILLER   PIC X(57)  VALUE
+           '350 024465 051       069       INGUINAL & FEMORAL HERNIA '.
+               05  FILLER   PIC X(57)  VALUE
+           '351 015001 034       041       INGUINAL & FEMORAL HERNIA '.
+               05  FILLER   PIC X(57)  VALUE
+           '352 010535 021       025       INGUINAL & FEMORAL HERNIA '.
+               05  FILLER   PIC X(57)  VALUE
+           '353 029659 060       078       HERNIA PROCEDURES EXCEPT I'.
+               05  FILLER   PIC X(57)  VALUE
+           '354 017310 038       047       HERNIA PROCEDURES EXCEPT I'.
+               05  FILLER   PIC X(57)  VALUE
+           '355 013548 025       030       HERNIA PROCEDURES EXCEPT I'.
+               05  FILLER   PIC X(57)  VALUE
+           '356 039757 078       103  Y    OTHER DIGESTIVE SYSTEM O.R'.
+               05  FILLER   PIC X(57)  VALUE
+           '357 021367 047       059  Y    OTHER DIGESTIVE SYSTEM O.R'.
+               05  FILLER   PIC X(57)  VALUE
+           '358 013483 028       035  Y    OTHER DIGESTIVE SYSTEM O.R'.
+               05  FILLER   PIC X(57)  VALUE
+           '368 019440 047       062       MAJOR ESOPHAGEAL DISORDERS'.
+               05  FILLER   PIC X(57)  VALUE
+           '369 011088 032       039       MAJOR ESOPHAGEAL DISORDERS'.
+               05  FILLER   PIC X(57)  VALUE
+           '370 007433 022       028       MAJOR ESOPHAGEAL DISORDERS'.
+               05  FILLER   PIC X(57)  VALUE
+           '371 017388 054       070  Y    MAJOR GASTROINTESTINAL DIS'.
+               05  FILLER   PIC X(57)  VALUE
+           '372 010384 040       049  Y    MAJOR GASTROINTESTINAL DIS'.
+               05  FILLER   PIC X(57)  VALUE
+           '373 007576 031       037  Y    MAJOR GASTROINTESTINAL DIS'.
+               05  FILLER   PIC X(57)  VALUE
+           '374 020650 056       075  Y    DIGESTIVE MALIGNANCY W MCC'.
+               05  FILLER   PIC X(57)  VALUE
+           '375 012067 037       048  Y    DIGESTIVE MALIGNANCY W CC '.
+               05  FILLER   PIC X(57)  VALUE
+           '376 009157 025       031  Y    DIGESTIVE MALIGNANCY W/O C'.
+               05  FILLER   PIC X(57)  VALUE
+           '377 017888 045       057  Y    G.I. HEMORRHAGE W MCC     '.
+               05  FILLER   PIC X(57)  VALUE
+           '378 009903 030       036  Y    G.I. HEMORRHAGE W CC      '.
+               05  FILLER   PIC X(57)  VALUE
+           '379 006532 021       025  Y    G.I. HEMORRHAGE W/O CC/MCC'.
+               05  FILLER   PIC X(57)  VALUE
+           '380 019460 051       066  Y    COMPLICATED PEPTIC ULCER W'.
+               05  FILLER   PIC X(57)  VALUE
+           '381 010950 033       040  Y    COMPLICATED PEPTIC ULCER W'.
+               05  FILLER   PIC X(57)  VALUE
+           '382 007678 025       029  Y    COMPLICATED PEPTIC ULCER W'.
+               05  FILLER   PIC X(57)  VALUE
+           '383 013510 040       050       UNCOMPLICATED PEPTIC ULCER'.
+               05  FILLER   PIC X(57)  VALUE
+           '384 008553 026       032       UNCOMPLICATED PEPTIC ULCER'.
+               05  FILLER   PIC X(57)  VALUE
+           '385 016979 053       073       INFLAMMATORY BOWEL DISEASE'.
+               05  FILLER   PIC X(57)  VALUE
+           '386 009801 035       044       INFLAMMATORY BOWEL DISEASE'.
+               05  FILLER   PIC X(57)  VALUE
+           '387 006967 028       033       INFLAMMATORY BOWEL DISEASE'.
+               05  FILLER   PIC X(57)  VALUE
+           '388 015307 048       064  Y    G.I. OBSTRUCTION W MCC    '.
+               05  FILLER   PIC X(57)  VALUE
+           '389 008432 033       040  Y    G.I. OBSTRUCTION W CC     '.
+               05  FILLER   PIC X(57)  VALUE
+           '390 005910 025       029  Y    G.I. OBSTRUCTION W/O CC/MC'.
+               05  FILLER   PIC X(57)  VALUE
+           '391 012215 037       049       ESOPHAGITIS, GASTROENT & M'.
+               05  FILLER   PIC X(57)  VALUE
+           '392 007554 026       032       ESOPHAGITIS, GASTROENT & M'.
+               05  FILLER   PIC X(57)  VALUE
+           '393 016326 044       061       OTHER DIGESTIVE SYSTEM DIA'.
+               05  FILLER   PIC X(57)  VALUE
+           '394 009411 031       040       OTHER DIGESTIVE SYSTEM DIA'.
+               05  FILLER   PIC X(57)  VALUE
+           '395 006765 023       028       OTHER DIGESTIVE SYSTEM DIA'.
+               05  FILLER   PIC X(57)  VALUE
+           '405 053791 096       128  Y    PANCREAS, LIVER & SHUNT PR'.
+               05  FILLER   PIC X(57)  VALUE
+           '406 028326 056       070  Y    PANCREAS, LIVER & SHUNT PR'.
+               05  FILLER   PIC X(57)  VALUE
+           '407 020068 038       045  Y    PANCREAS, LIVER & SHUNT PR'.
+               05  FILLER   PIC X(57)  VALUE
+           '408 040465 092       119       BILIARY TRACT PROC EXCEPT '.
+               05  FILLER   PIC X(57)  VALUE
+           '409 023227 056       069       BILIARY TRACT PROC EXCEPT '.
+               05  FILLER   PIC X(57)  VALUE
+           '410 016526 037       045       BILIARY TRACT PROC EXCEPT '.
+               05  FILLER   PIC X(57)  VALUE
+           '411 039981 083       111       CHOLECYSTECTOMY W C.D.E. W'.
+               05  FILLER   PIC X(57)  VALUE
+           '412 023819 055       065       CHOLECYSTECTOMY W C.D.E. W'.
+               05  FILLER   PIC X(57)  VALUE
+           '413 016862 035       043       CHOLECYSTECTOMY W C.D.E. W'.
+               05  FILLER   PIC X(57)  VALUE
+           '414 035772 080       098  Y    CHOLECYSTECTOMY EXCEPT BY '.
+               05  FILLER   PIC X(57)  VALUE
+           '415 020188 052       061  Y    CHOLECYSTECTOMY EXCEPT BY '.
+               05  FILLER   PIC X(57)  VALUE
+           '416 013931 032       038  Y    CHOLECYSTECTOMY EXCEPT BY '.
+               05  FILLER   PIC X(57)  VALUE
+           '417 024234 054       067       LAPAROSCOPIC CHOLECYSTECTO'.
+               05  FILLER   PIC X(57)  VALUE
+           '418 016642 037       044       LAPAROSCOPIC CHOLECYSTECTO'.
+               05  FILLER   PIC X(57)  VALUE
+           '419 013042 025       029       LAPAROSCOPIC CHOLECYSTECTO'.
+               05  FILLER   PIC X(57)  VALUE
+           '420 035176 077       105       HEPATOBILIARY DIAGNOSTIC P'.
+               05  FILLER   PIC X(57)  VALUE
+           '421 017791 041       054       HEPATOBILIARY DIAGNOSTIC P'.
+               05  FILLER   PIC X(57)  VALUE
+           '422 015076 028       034       HEPATOBILIARY DIAGNOSTIC P'.
+               05  FILLER   PIC X(57)  VALUE
+           '423 039460 086       123       OTHER HEPATOBILIARY OR PAN'.
+               05  FILLER   PIC X(57)  VALUE
+           '424 021911 056       074       OTHER HEPATOBILIARY OR PAN'.
+               05  FILLER   PIC X(57)  VALUE
+           '425 014929 034       041       OTHER HEPATOBILIARY OR PAN'.
+               05  FILLER   PIC X(57)  VALUE
+           '432 018260 047       064       CIRRHOSIS & ALCOHOLIC HEPA'.
+               05  FILLER   PIC X(57)  VALUE
+           '433 010279 033       042       CIRRHOSIS & ALCOHOLIC HEPA'.
+               05  FILLER   PIC X(57)  VALUE
+           '434 006511 023       028       CIRRHOSIS & ALCOHOLIC HEPA'.
+               05  FILLER   PIC X(57)  VALUE
+           '435 016977 048       063       MALIGNANCY OF HEPATOBILIAR'.
+               05  FILLER   PIC X(57)  VALUE
+           '436 011359 035       045       MALIGNANCY OF HEPATOBILIAR'.
+               05  FILLER   PIC X(57)  VALUE
+           '437 008658 024       031       MALIGNANCY OF HEPATOBILIAR'.
+               05  FILLER   PIC X(57)  VALUE
+           '438 016382 046       063       DISORDERS OF PANCREAS EXCE'.
+               05  FILLER   PIC X(57)  VALUE
+           '439 008623 032       040       DISORDERS OF PANCREAS EXCE'.
+               05  FILLER   PIC X(57)  VALUE
+           '440 006213 025       029       DISORDERS OF PANCREAS EXCE'.
+               05  FILLER   PIC X(57)  VALUE
+           '441 018572 047       065  Y    DISORDERS OF LIVER EXCEPT '.
+               05  FILLER   PIC X(57)  VALUE
+           '442 009389 032       041  Y    DISORDERS OF LIVER EXCEPT '.
+               05  FILLER   PIC X(57)  VALUE
+           '443 006958 025       030  Y    DISORDERS OF LIVER EXCEPT '.
+               05  FILLER   PIC X(57)  VALUE
+           '444 016109 044       057       DISORDERS OF THE BILIARY T'.
+               05  FILLER   PIC X(57)  VALUE
+           '445 010676 032       039       DISORDERS OF THE BILIARY T'.
+               05  FILLER   PIC X(57)  VALUE
+           '446 007950 023       027       DISORDERS OF THE BILIARY T'.
+               05  FILLER   PIC X(57)  VALUE
+           '453 094969 076       097       COMBINED ANTERIOR/POSTERIO'.
+               05  FILLER   PIC X(57)  VALUE
+           '454 063368 040       047       COMBINED ANTERIOR/POSTERIO'.
+               05  FILLER   PIC X(57)  VALUE
+           '455 050000 026       030       COMBINED ANTERIOR/POSTERIO'.
+               05  FILLER   PIC X(57)  VALUE
+           '456 091252 095       116       SPINAL FUS EXC CERV W SPIN'.
+               05  FILLER   PIC X(57)  VALUE
+           '457 065446 053       061       SPINAL FUS EXC CERV W SPIN'.
+               05  FILLER   PIC X(57)  VALUE
+           '458 051212 032       036       SPINAL FUS EXC CERV W SPIN'.
+               05  FILLER   PIC X(57)  VALUE
+           '459 063848 063       079  Y    SPINAL FUSION EXCEPT CERVI'.
+               05  FILLER   PIC X(57)  VALUE
+           '460 040375 029       034  Y    SPINAL FUSION EXCEPT CERVI'.
+               05  FILLER   PIC X(57)  VALUE
+           '461 044825 056       067       BILATERAL OR MULTIPLE MAJO'.
+               05  FILLER   PIC X(57)  VALUE
+           '462 031941 029       032       BILATERAL OR MULTIPLE MAJO'.
+               05  FILLER   PIC X(57)  VALUE
+           '463 051319 098       130  Y    WND DEBRID & SKN GRFT EXC '.
+               05  FILLER   PIC X(57)  VALUE
+           '464 029440 055       070  Y    WND DEBRID & SKN GRFT EXC '.
+               05  FILLER   PIC X(57)  VALUE
+           '465 018374 027       035  Y    WND DEBRID & SKN GRFT EXC '.
+               05  FILLER   PIC X(57)  VALUE
+           '466 051132 066       083  Y    REVISION OF HIP OR KNEE RE'.
+               05  FILLER   PIC X(57)  VALUE
+           '467 034704 034       041  Y    REVISION OF HIP OR KNEE RE'.
+               05  FILLER   PIC X(57)  VALUE
+           '468 027914 022       025  Y    REVISION OF HIP OR KNEE RE'.
+               05  FILLER   PIC X(57)  VALUE
+           '469 031742 049       062  Y    MAJOR HIP AND KNEE JOINT R'.
+               05  FILLER   PIC X(57)  VALUE
+           '470 019898 022       025  Y    MAJOR HIP AND KNEE JOINT R'.
+               05  FILLER   PIC X(57)  VALUE
+           '471 050107 063       086       CERVICAL SPINAL FUSION W M'.
+               05  FILLER   PIC X(57)  VALUE
+           '472 029468 024       032       CERVICAL SPINAL FUSION W C'.
+               05  FILLER   PIC X(57)  VALUE
+           '473 023729 015       018       CERVICAL SPINAL FUSION W/O'.
+               05  FILLER   PIC X(57)  VALUE
+           '474 037951 089       111  Y    AMPUTATION FOR MUSCULOSKEL'.
+               05  FILLER   PIC X(57)  VALUE
+           '475 021488 058       071  Y    AMPUTATION FOR MUSCULOSKEL'.
+               05  FILLER   PIC X(57)  VALUE
+           '476 011507 031       040  Y    AMPUTATION FOR MUSCULOSKEL'.
+               05  FILLER   PIC X(57)  VALUE
+           '477 031384 082       102  Y Y  BIOPSIES OF MUSCULOSKELETA'.
+               05  FILLER   PIC X(57)  VALUE
+           '478 022792 053       066  Y Y  BIOPSIES OF MUSCULOSKELETA'.
+               05  FILLER   PIC X(57)  VALUE
+           '479 017980 034       042  Y Y  BIOPSIES OF MUSCULOSKELETA'.
+               05  FILLER   PIC X(57)  VALUE
+           '480 030304 064       075  Y Y  HIP & FEMUR PROCEDURES EXC'.
+               05  FILLER   PIC X(57)  VALUE
+           '481 020623 044       048  Y Y  HIP & FEMUR PROCEDURES EXC'.
+               05  FILLER   PIC X(57)  VALUE
+           '482 016645 035       037  Y Y  HIP & FEMUR PROCEDURES EXC'.
+               05  FILLER   PIC X(57)  VALUE
+           '483 023835 016       019       MAJOR JOINT/LIMB REATTACHM'.
+               05  FILLER   PIC X(57)  VALUE
+           '485 033041 080       096       KNEE PROCEDURES W PDX OF I'.
+               05  FILLER   PIC X(57)  VALUE
+           '486 022184 053       063       KNEE PROCEDURES W PDX OF I'.
+               05  FILLER   PIC X(57)  VALUE
+           '487 016502 037       042       KNEE PROCEDURES W PDX OF I'.
+               05  FILLER   PIC X(57)  VALUE
+           '488 021125 038       050  Y    KNEE PROCEDURES W/O PDX OF'.
+               05  FILLER   PIC X(57)  VALUE
+           '489 012974 021       025  Y    KNEE PROCEDURES W/O PDX OF'.
+               05  FILLER   PIC X(57)  VALUE
+           '492 033905 061       077  Y Y  LOWER EXTREM & HUMER PROC '.
+               05  FILLER   PIC X(57)  VALUE
+           '493 022461 040       048  Y Y  LOWER EXTREM & HUMER PROC '.
+               05  FILLER   PIC X(57)  VALUE
+           '494 017539 027       032  Y Y  LOWER EXTREM & HUMER PROC '.
+               05  FILLER   PIC X(57)  VALUE
+           '495 034623 073       098  Y Y  LOCAL EXCISION & REMOVAL I'.
+               05  FILLER   PIC X(57)  VALUE
+           '496 019609 035       045  Y Y  LOCAL EXCISION & REMOVAL I'.
+               05  FILLER   PIC X(57)  VALUE
+           '497 014350 019       024  Y Y  LOCAL EXCISION & REMOVAL I'.
+               05  FILLER   PIC X(57)  VALUE
+           '498 022780 051       068       LOCAL EXCISION & REMOVAL I'.
+               05  FILLER   PIC X(57)  VALUE
+           '499 011192 021       026       LOCAL EXCISION & REMOVAL I'.
+               05  FILLER   PIC X(57)  VALUE
+           '500 030680 073       097  Y Y  SOFT TISSUE PROCEDURES W M'.
+               05  FILLER   PIC X(57)  VALUE
+           '501 016874 042       052  Y Y  SOFT TISSUE PROCEDURES W C'.
+               05  FILLER   PIC X(57)  VALUE
+           '502 012911 025       030  Y Y  SOFT TISSUE PROCEDURES W/O'.
+               05  FILLER   PIC X(57)  VALUE
+           '503 025622 068       085       FOOT PROCEDURES W MCC     '.
+               05  FILLER   PIC X(57)  VALUE
+           '504 017295 048       058       FOOT PROCEDURES W CC      '.
+               05  FILLER   PIC X(57)  VALUE
+           '505 015798 028       034       FOOT PROCEDURES W/O CC/MCC'.
+               05  FILLER   PIC X(57)  VALUE
+           '506 014103 038       048       MAJOR THUMB OR JOINT PROCE'.
+               05  FILLER   PIC X(57)  VALUE
+           '507 019425 045       059       MAJOR SHOULDER OR ELBOW JO'.
+               05  FILLER   PIC X(57)  VALUE
+           '508 014474 021       026       MAJOR SHOULDER OR ELBOW JO'.
+               05  FILLER   PIC X(57)  VALUE
+           '509 016703 044       056       ARTHROSCOPY               '.
+               05  FILLER   PIC X(57)  VALUE
+           '510 027324 050       063  Y    SHOULDER,ELBOW OR FOREARM '.
+               05  FILLER   PIC X(57)  VALUE
+           '511 018473 034       040  Y    SHOULDER,ELBOW OR FOREARM '.
+               05  FILLER   PIC X(57)  VALUE
+           '512 015221 022       025  Y    SHOULDER,ELBOW OR FOREARM '.
+               05  FILLER   PIC X(57)  VALUE
+           '513 016396 041       053       HAND OR WRIST PROC, EXCEPT'.
+               05  FILLER   PIC X(57)  VALUE
+           '514 009998 023       029       HAND OR WRIST PROC, EXCEPT'.
+               05  FILLER   PIC X(57)  VALUE
+           '515 030820 064       083  Y Y  OTHER MUSCULOSKELET SYS & '.
+               05  FILLER   PIC X(57)  VALUE
+           '516 018854 038       047  Y Y  OTHER MUSCULOSKELET SYS & '.
+               05  FILLER   PIC X(57)  VALUE
+           '517 013809 022       027  Y Y  OTHER MUSCULOSKELET SYS & '.
+               05  FILLER   PIC X(57)  VALUE
+           '518 031002 034       054  Y Y  BACK & NECK PROC EXC SPINA'.
+               05  FILLER   PIC X(57)  VALUE
+           '519 018620 031       040  Y Y  BACK & NECK PROC EXC SPINA'.
+               05  FILLER   PIC X(57)  VALUE
+           '520 013141 019       023  Y Y  BACK & NECK PROC EXC SPINA'.
+               05  FILLER   PIC X(57)  VALUE
+           '533 015305 042       057  Y    FRACTURES OF FEMUR W MCC  '.
+               05  FILLER   PIC X(57)  VALUE
+           '534 007755 029       035  Y    FRACTURES OF FEMUR W/O MCC'.
+               05  FILLER   PIC X(57)  VALUE
+           '535 012548 038       049  Y    FRACTURES OF HIP & PELVIS '.
+               05  FILLER   PIC X(57)  VALUE
+           '536 007570 029       034  Y    FRACTURES OF HIP & PELVIS '.
+               05  FILLER   PIC X(57)  VALUE
+           '537 009105 031       037       SPRAINS, STRAINS, & DISLOC'.
+               05  FILLER   PIC X(57)  VALUE
+           '538 007270 025       029       SPRAINS, STRAINS, & DISLOC'.
+               05  FILLER   PIC X(57)  VALUE
+           '539 020192 061       082  Y    OSTEOMYELITIS W MCC       '.
+               05  FILLER   PIC X(57)  VALUE
+           '540 012969 045       057  Y    OSTEOMYELITIS W CC        '.
+               05  FILLER   PIC X(57)  VALUE
+           '541 008827 032       040  Y    OSTEOMYELITIS W/O CC/MCC  '.
+               05  FILLER   PIC X(57)  VALUE
+           '542 018253 052       069  Y    PATHOLOGICAL FRACTURES & M'.
+               05  FILLER   PIC X(57)  VALUE
+           '543 010725 037       046  Y    PATHOLOGICAL FRACTURES & M'.
+               05  FILLER   PIC X(57)  VALUE
+           '544 007984 028       033  Y    PATHOLOGICAL FRACTURES & M'.
+               05  FILLER   PIC X(57)  VALUE
+           '545 024791 056       080  Y    CONNECTIVE TISSUE DISORDER'.
+               05  FILLER   PIC X(57)  VALUE
+           '546 012144 036       046  Y    CONNECTIVE TISSUE DISORDER'.
+               05  FILLER   PIC X(57)  VALUE
+           '547 008576 027       033  Y    CONNECTIVE TISSUE DISORDER'.
+               05  FILLER   PIC X(57)  VALUE
+           '548 020672 061       078       SEPTIC ARTHRITIS W MCC    '.
+               05  FILLER   PIC X(57)  VALUE
+           '549 012442 041       051       SEPTIC ARTHRITIS W CC     '.
+               05  FILLER   PIC X(57)  VALUE
+           '550 009238 030       036       SEPTIC ARTHRITIS W/O CC/MC'.
+               05  FILLER   PIC X(57)  VALUE
+           '551 015916 044       057  Y    MEDICAL BACK PROBLEMS W MC'.
+               05  FILLER   PIC X(57)  VALUE
+           '552 009010 030       036  Y    MEDICAL BACK PROBLEMS W/O '.
+               05  FILLER   PIC X(57)  VALUE
+           '553 012376 039       050       BONE DISEASES & ARTHROPATH'.
+               05  FILLER   PIC X(57)  VALUE
+           '554 007569 028       034       BONE DISEASES & ARTHROPATH'.
+               05  FILLER   PIC X(57)  VALUE
+           '555 012792 037       050       SIGNS & SYMPTOMS OF MUSCUL'.
+               05  FILLER   PIC X(57)  VALUE
+           '556 007677 027       033       SIGNS & SYMPTOMS OF MUSCUL'.
+               05  FILLER   PIC X(57)  VALUE
+           '557 014324 046       057  Y    TENDONITIS, MYOSITIS & BUR'.
+               05  FILLER   PIC X(57)  VALUE
+           '558 008635 032       038  Y    TENDONITIS, MYOSITIS & BUR'.
+               05  FILLER   PIC X(57)  VALUE
+           '559 017987 048       066  Y    AFTERCARE, MUSCULOSKELETAL'.
+               05  FILLER   PIC X(57)  VALUE
+           '560 010217 036       046  Y    AFTERCARE, MUSCULOSKELETAL'.
+               05  FILLER   PIC X(57)  VALUE
+           '561 007561 027       035  Y    AFTERCARE, MUSCULOSKELETAL'.
+               05  FILLER   PIC X(57)  VALUE
+           '562 014081 041       052  Y    FX, SPRN, STRN & DISL EXCE'.
+               05  FILLER   PIC X(57)  VALUE
+           '563 008381 030       034  Y    FX, SPRN, STRN & DISL EXCE'.
+               05  FILLER   PIC X(57)  VALUE
+           '564 015722 047       061       OTHER MUSCULOSKELETAL SYS '.
+               05  FILLER   PIC X(57)  VALUE
+           '565 009758 034       041       OTHER MUSCULOSKELETAL SYS '.
+               05  FILLER   PIC X(57)  VALUE
+           '566 007623 026       032       OTHER MUSCULOSKELETAL SYS '.
+               05  FILLER   PIC X(57)  VALUE
+           '570 030347 076       102  Y    SKIN DEBRIDEMENT W MCC    '.
+               05  FILLER   PIC X(57)  VALUE
+           '571 017029 052       065  Y    SKIN DEBRIDEMENT W CC     '.
+               05  FILLER   PIC X(57)  VALUE
+           '572 011786 034       042  Y    SKIN DEBRIDEMENT W/O CC/MC'.
+               05  FILLER   PIC X(57)  VALUE
+           '573 052515 107       153  Y    SKIN GRAFT FOR SKIN ULCER '.
+               05  FILLER   PIC X(57)  VALUE
+           '574 030459 075       104  Y    SKIN GRAFT FOR SKIN ULCER '.
+               05  FILLER   PIC X(57)  VALUE
+           '575 017586 048       060  Y    SKIN GRAFT FOR SKIN ULCER '.
+               05  FILLER   PIC X(57)  VALUE
+           '576 048807 084       128       SKIN GRAFT EXC FOR SKIN UL'.
+               05  FILLER   PIC X(57)  VALUE
+           '577 025092 047       069       SKIN GRAFT EXC FOR SKIN UL'.
+               05  FILLER   PIC X(57)  VALUE
+           '578 015297 027       035       SKIN GRAFT EXC FOR SKIN UL'.
+               05  FILLER   PIC X(57)  VALUE
+           '579 027978 065       088  Y    OTHER SKIN, SUBCUT TISS & '.
+               05  FILLER   PIC X(57)  VALUE
+           '580 015898 041       053  Y    OTHER SKIN, SUBCUT TISS & '.
+               05  FILLER   PIC X(57)  VALUE
+           '581 012364 024       030  Y    OTHER SKIN, SUBCUT TISS & '.
+               05  FILLER   PIC X(57)  VALUE
+           '582 015695 024       034       MASTECTOMY FOR MALIGNANCY '.
+               05  FILLER   PIC X(57)  VALUE
+           '583 013781 017       020       MASTECTOMY FOR MALIGNANCY '.
+               05  FILLER   PIC X(57)  VALUE
+           '584 018714 036       047       BREAST BIOPSY, LOCAL EXCIS'.
+               05  FILLER   PIC X(57)  VALUE
+           '585 015657 022       027       BREAST BIOPSY, LOCAL EXCIS'.
+               05  FILLER   PIC X(57)  VALUE
+           '592 017082 054       071  Y    SKIN ULCERS W MCC         '.
+               05  FILLER   PIC X(57)  VALUE
+           '593 011294 042       053  Y    SKIN ULCERS W CC          '.
+               05  FILLER   PIC X(57)  VALUE
+           '594 008102 032       039  Y    SKIN ULCERS W/O CC/MCC    '.
+               05  FILLER   PIC X(57)  VALUE
+           '595 019869 052       071       MAJOR SKIN DISORDERS W MCC'.
+               05  FILLER   PIC X(57)  VALUE
+           '596 010115 035       044       MAJOR SKIN DISORDERS W/O M'.
+               05  FILLER   PIC X(57)  VALUE
+           '597 017200 049       066       MALIGNANT BREAST DISORDERS'.
+               05  FILLER   PIC X(57)  VALUE
+           '598 011623 035       047       MALIGNANT BREAST DISORDERS'.
+               05  FILLER   PIC X(57)  VALUE
+           '599 007164 022       029       MALIGNANT BREAST DISORDERS'.
+               05  FILLER   PIC X(57)  VALUE
+           '600 009560 035       043       NON-MALIGNANT BREAST DISOR'.
+               05  FILLER   PIC X(57)  VALUE
+           '601 006192 027       030       NON-MALIGNANT BREAST DISOR'.
+               05  FILLER   PIC X(57)  VALUE
+           '602 014440 047       059  Y    CELLULITIS W MCC          '.
+               05  FILLER   PIC X(57)  VALUE
+           '603 008477 033       039  Y    CELLULITIS W/O MCC        '.
+               05  FILLER   PIC X(57)  VALUE
+           '604 014168 039       050       TRAUMA TO THE SKIN, SUBCUT'.
+               05  FILLER   PIC X(57)  VALUE
+           '605 008605 027       033       TRAUMA TO THE SKIN, SUBCUT'.
+               05  FILLER   PIC X(57)  VALUE
+           '606 013808 042       058       MINOR SKIN DISORDERS W MCC'.
+               05  FILLER   PIC X(57)  VALUE
+           '607 008010 028       036       MINOR SKIN DISORDERS W/O M'.
+               05  FILLER   PIC X(57)  VALUE
+           '614 023636 035       048       ADRENAL & PITUITARY PROCED'.
+               05  FILLER   PIC X(57)  VALUE
+           '615 014812 020       023       ADRENAL & PITUITARY PROCED'.
+               05  FILLER   PIC X(57)  VALUE
+           '616 041352 101       127  Y    AMPUTAT OF LOWER LIMB FOR '.
+               05  FILLER   PIC X(57)  VALUE
+           '617 020736 059       070  Y    AMPUTAT OF LOWER LIMB FOR '.
+               05  FILLER   PIC X(57)  VALUE
+           '618 011593 035       043  Y    AMPUTAT OF LOWER LIMB FOR '.
+               05  FILLER   PIC X(57)  VALUE
+           '619 029207 030       047       O.R. PROCEDURES FOR OBESIT'.
+               05  FILLER   PIC X(57)  VALUE
+           '620 018096 020       025       O.R. PROCEDURES FOR OBESIT'.
+               05  FILLER   PIC X(57)  VALUE
+           '621 015783 015       017       O.R. PROCEDURES FOR OBESIT'.
+               05  FILLER   PIC X(57)  VALUE
+           '622 037980 087       120  Y    SKIN GRAFTS & WOUND DEBRID'.
+               05  FILLER   PIC X(57)  VALUE
+           '623 019232 055       066  Y    SKIN GRAFTS & WOUND DEBRID'.
+               05  FILLER   PIC X(57)  VALUE
+           '624 012960 033       040  Y    SKIN GRAFTS & WOUND DEBRID'.
+               05  FILLER   PIC X(57)  VALUE
+           '625 027833 048       070       THYROID, PARATHYROID & THY'.
+               05  FILLER   PIC X(57)  VALUE
+           '626 016106 025       036       THYROID, PARATHYROID & THY'.
+               05  FILLER   PIC X(57)  VALUE
+           '627 010850 014       017       THYROID, PARATHYROID & THY'.
+               05  FILLER   PIC X(57)  VALUE
+           '628 036750 073       100  Y    OTHER ENDOCRINE, NUTRIT & '.
+               05  FILLER   PIC X(57)  VALUE
+           '629 023387 060       072  Y    OTHER ENDOCRINE, NUTRIT & '.
+               05  FILLER   PIC X(57)  VALUE
+           '630 015345 029       036  Y    OTHER ENDOCRINE, NUTRIT & '.
+               05  FILLER   PIC X(57)  VALUE
+           '637 013813 039       051  Y    DIABETES W MCC            '.
+               05  FILLER   PIC X(57)  VALUE
+           '638 008722 029       036  Y    DIABETES W CC             '.
+               05  FILLER   PIC X(57)  VALUE
+           '639 006319 021       026  Y    DIABETES W/O CC/MCC       '.
+               05  FILLER   PIC X(57)  VALUE
+           '640 011902 033       045  Y    MISC DISORDERS OF NUTRITIO'.
+               05  FILLER   PIC X(57)  VALUE
+           '641 007519 026       033  Y    MISC DISORDERS OF NUTRITIO'.
+               05  FILLER   PIC X(57)  VALUE
+           '642 012635 032       043       INBORN AND OTHER DISORDERS'.
+               05  FILLER   PIC X(57)  VALUE
+           '643 016341 050       063  Y    ENDOCRINE DISORDERS W MCC '.
+               05  FILLER   PIC X(57)  VALUE
+           '644 010125 035       043  Y    ENDOCRINE DISORDERS W CC  '.
+               05  FILLER   PIC X(57)  VALUE
+           '645 007429 027       032  Y    ENDOCRINE DISORDERS W/O CC'.
+               05  FILLER   PIC X(57)  VALUE
+           '652 033146 053       061       KIDNEY TRANSPLANT         '.
+               05  FILLER   PIC X(57)  VALUE
+           '653 054890 105       135  Y    MAJOR BLADDER PROCEDURES W'.
+               05  FILLER   PIC X(57)  VALUE
+           '654 028733 062       073  Y    MAJOR BLADDER PROCEDURES W'.
+               05  FILLER   PIC X(57)  VALUE
+           '655 020772 037       044  Y    MAJOR BLADDER PROCEDURES W'.
+               05  FILLER   PIC X(57)  VALUE
+           '656 033276 060       079       KIDNEY & URETER PROCEDURES'.
+               05  FILLER   PIC X(57)  VALUE
+           '657 019474 036       043       KIDNEY & URETER PROCEDURES'.
+               05  FILLER   PIC X(57)  VALUE
+           '658 015664 023       026       KIDNEY & URETER PROCEDURES'.
+               05  FILLER   PIC X(57)  VALUE
+           '659 027271 061       082  Y    KIDNEY & URETER PROCEDURES'.
+               05  FILLER   PIC X(57)  VALUE
+           '660 014476 032       042  Y    KIDNEY & URETER PROCEDURES'.
+               05  FILLER   PIC X(57)  VALUE
+           '661 010728 020       023  Y    KIDNEY & URETER PROCEDURES'.
+               05  FILLER   PIC X(57)  VALUE
+           '662 031787 073       103       MINOR BLADDER PROCEDURES W'.
+               05  FILLER   PIC X(57)  VALUE
+           '663 016403 039       052       MINOR BLADDER PROCEDURES W'.
+               05  FILLER   PIC X(57)  VALUE
+           '664 011857 020       024       MINOR BLADDER PROCEDURES W'.
+               05  FILLER   PIC X(57)  VALUE
+           '665 031788 082       105       PROSTATECTOMY W MCC       '.
+               05  FILLER   PIC X(57)  VALUE
+           '666 017791 042       058       PROSTATECTOMY W CC        '.
+               05  FILLER   PIC X(57)  VALUE
+           '667 010804 022       028       PROSTATECTOMY W/O CC/MCC  '.
+               05  FILLER   PIC X(57)  VALUE
+           '668 028146 071       092       TRANSURETHRAL PROCEDURES W'.
+               05  FILLER   PIC X(57)  VALUE
+           '669 015825 040       052       TRANSURETHRAL PROCEDURES W'.
+               05  FILLER   PIC X(57)  VALUE
+           '670 009635 021       026       TRANSURETHRAL PROCEDURES W'.
+               05  FILLER   PIC X(57)  VALUE
+           '671 016835 039       053       URETHRAL PROCEDURES W CC/M'.
+               05  FILLER   PIC X(57)  VALUE
+           '672 010569 019       023       URETHRAL PROCEDURES W/O CC'.
+               05  FILLER   PIC X(57)  VALUE
+           '673 035773 079       109       OTHER KIDNEY & URINARY TRA'.
+               05  FILLER   PIC X(57)  VALUE
+           '674 023121 053       070       OTHER KIDNEY & URINARY TRA'.
+               05  FILLER   PIC X(57)  VALUE
+           '675 016253 028       036       OTHER KIDNEY & URINARY TRA'.
+               05  FILLER   PIC X(57)  VALUE
+           '682 015320 045       059  Y    RENAL FAILURE W MCC       '.
+               05  FILLER   PIC X(57)  VALUE
+           '683 009190 032       040  Y    RENAL FAILURE W CC        '.
+               05  FILLER   PIC X(57)  VALUE
+           '684 006198 023       027  Y    RENAL FAILURE W/O CC/MCC  '.
+               05  FILLER   PIC X(57)  VALUE
+           '686 017176 051       068       KIDNEY & URINARY TRACT NEO'.
+               05  FILLER   PIC X(57)  VALUE
+           '687 010537 033       043       KIDNEY & URINARY TRACT NEO'.
+               05  FILLER   PIC X(57)  VALUE
+           '688 007909 020       024       KIDNEY & URINARY TRACT NEO'.
+               05  FILLER   PIC X(57)  VALUE
+           '689 011116 039       048  Y    KIDNEY & URINARY TRACT INF'.
+               05  FILLER   PIC X(57)  VALUE
+           '690 007941 030       036  Y    KIDNEY & URINARY TRACT INF'.
+               05  FILLER   PIC X(57)  VALUE
+           '691 016242 030       039       URINARY STONES W ESW LITHO'.
+               05  FILLER   PIC X(57)  VALUE
+           '692 011306 020       024       URINARY STONES W ESW LITHO'.
+               05  FILLER   PIC X(57)  VALUE
+           '693 013236 038       051       URINARY STONES W/O ESW LIT'.
+               05  FILLER   PIC X(57)  VALUE
+           '694 007021 021       026       URINARY STONES W/O ESW LIT'.
+               05  FILLER   PIC X(57)  VALUE
+           '695 011487 036       047       KIDNEY & URINARY TRACT SIG'.
+               05  FILLER   PIC X(57)  VALUE
+           '696 006886 024       030       KIDNEY & URINARY TRACT SIG'.
+               05  FILLER   PIC X(57)  VALUE
+           '697 009600 025       036       URETHRAL STRICTURE        '.
+               05  FILLER   PIC X(57)  VALUE
+           '698 016151 049       062  Y    OTHER KIDNEY & URINARY TRA'.
+               05  FILLER   PIC X(57)  VALUE
+           '699 010279 034       042  Y    OTHER KIDNEY & URINARY TRA'.
+               05  FILLER   PIC X(57)  VALUE
+           '700 007597 025       031  Y    OTHER KIDNEY & URINARY TRA'.
+               05  FILLER   PIC X(57)  VALUE
+           '707 017914 023       032       MAJOR MALE PELVIC PROCEDUR'.
+               05  FILLER   PIC X(57)  VALUE
+           '708 014065 013       014       MAJOR MALE PELVIC PROCEDUR'.
+               05  FILLER   PIC X(57)  VALUE
+           '709 020318 036       058       PENIS PROCEDURES W CC/MCC '.
+               05  FILLER   PIC X(57)  VALUE
+           '710 016695 017       022       PENIS PROCEDURES W/O CC/MC'.
+               05  FILLER   PIC X(57)  VALUE
+           '711 020835 052       072       TESTES PROCEDURES W CC/MCC'.
+               05  FILLER   PIC X(57)  VALUE
+           '712 010768 024       029       TESTES PROCEDURES W/O CC/M'.
+               05  FILLER   PIC X(57)  VALUE
+           '713 014634 029       042       TRANSURETHRAL PROSTATECTOM'.
+               05  FILLER   PIC X(57)  VALUE
+           '714 009105 017       021       TRANSURETHRAL PROSTATECTOM'.
+               05  FILLER   PIC X(57)  VALUE
+           '715 022099 054       076       OTHER MALE REPRODUCTIVE SY'.
+               05  FILLER   PIC X(57)  VALUE
+           '716 014630 015       018       OTHER MALE REPRODUCTIVE SY'.
+               05  FILLER   PIC X(57)  VALUE
+           '717 019543 042       058       OTHER MALE REPRODUCTIVE SY'.
+               05  FILLER   PIC X(57)  VALUE
+           '718 012326 025       030       OTHER MALE REPRODUCTIVE SY'.
+               05  FILLER   PIC X(57)  VALUE
+           '722 016597 051       070       MALIGNANCY, MALE REPRODUCT'.
+               05  FILLER   PIC X(57)  VALUE
+           '723 011015 035       045       MALIGNANCY, MALE REPRODUCT'.
+               05  FILLER   PIC X(57)  VALUE
+           '724 006892 019       025       MALIGNANCY, MALE REPRODUCT'.
+               05  FILLER   PIC X(57)  VALUE
+           '725 012143 040       051       BENIGN PROSTATIC HYPERTROP'.
+               05  FILLER   PIC X(57)  VALUE
+           '726 007645 026       033       BENIGN PROSTATIC HYPERTROP'.
+               05  FILLER   PIC X(57)  VALUE
+           '727 014380 047       060       INFLAMMATION OF THE MALE R'.
+               05  FILLER   PIC X(57)  VALUE
+           '728 007914 030       036       INFLAMMATION OF THE MALE R'.
+               05  FILLER   PIC X(57)  VALUE
+           '729 010820 033       045       OTHER MALE REPRODUCTIVE SY'.
+               05  FILLER   PIC X(57)  VALUE
+           '730 005684 019       023       OTHER MALE REPRODUCTIVE SY'.
+               05  FILLER   PIC X(57)  VALUE
+           '734 023059 037       052       PELVIC EVISCERATION, RAD H'.
+               05  FILLER   PIC X(57)  VALUE
+           '735 013650 018       021       PELVIC EVISCERATION, RAD H'.
+               05  FILLER   PIC X(57)  VALUE
+           '736 040306 089       116       UTERINE & ADNEXA PROC FOR '.
+               05  FILLER   PIC X(57)  VALUE
+           '737 020314 046       054       UTERINE & ADNEXA PROC FOR '.
+               05  FILLER   PIC X(57)  VALUE
+           '738 013923 028       031       UTERINE & ADNEXA PROC FOR '.
+               05  FILLER   PIC X(57)  VALUE
+           '739 035977 066       094       UTERINE,ADNEXA PROC FOR NO'.
+               05  FILLER   PIC X(57)  VALUE
+           '740 017429 030       040       UTERINE,ADNEXA PROC FOR NO'.
+               05  FILLER   PIC X(57)  VALUE
+           '741 013278 017       020       UTERINE,ADNEXA PROC FOR NO'.
+               05  FILLER   PIC X(57)  VALUE
+           '742 017140 030       039       UTERINE & ADNEXA PROC FOR '.
+               05  FILLER   PIC X(57)  VALUE
+           '743 011156 018       020       UTERINE & ADNEXA PROC FOR '.
+               05  FILLER   PIC X(57)  VALUE
+           '744 016903 041       056       D&C, CONIZATION, LAPAROSCO'.
+               05  FILLER   PIC X(57)  VALUE
+           '745 010694 021       026       D&C, CONIZATION, LAPAROSCO'.
+               05  FILLER   PIC X(57)  VALUE
+           '746 016777 035       051       VAGINA, CERVIX & VULVA PRO'.
+               05  FILLER   PIC X(57)  VALUE
+           '747 009582 016       020       VAGINA, CERVIX & VULVA PRO'.
+               05  FILLER   PIC X(57)  VALUE
+           '748 012940 016       020       FEMALE REPRODUCTIVE SYSTEM'.
+               05  FILLER   PIC X(57)  VALUE
+           '749 026020 057       078       OTHER FEMALE REPRODUCTIVE '.
+               05  FILLER   PIC X(57)  VALUE
+           '750 012239 024       029       OTHER FEMALE REPRODUCTIVE '.
+               05  FILLER   PIC X(57)  VALUE
+           '754 018414 052       071       MALIGNANCY, FEMALE REPRODU'.
+               05  FILLER   PIC X(57)  VALUE
+           '755 010699 033       044       MALIGNANCY, FEMALE REPRODU'.
+               05  FILLER   PIC X(57)  VALUE
+           '756 007801 022       026       MALIGNANCY, FEMALE REPRODU'.
+               05  FILLER   PIC X(57)  VALUE
+           '757 014409 049       063       INFECTIONS, FEMALE REPRODU'.
+               05  FILLER   PIC X(57)  VALUE
+           '758 010204 037       046       INFECTIONS, FEMALE REPRODU'.
+               05  FILLER   PIC X(57)  VALUE
+           '759 007107 026       032       INFECTIONS, FEMALE REPRODU'.
+               05  FILLER   PIC X(57)  VALUE
+           '760 008717 026       033       MENSTRUAL & OTHER FEMALE R'.
+               05  FILLER   PIC X(57)  VALUE
+           '761 005494 018       021       MENSTRUAL & OTHER FEMALE R'.
+               05  FILLER   PIC X(57)  VALUE
+           '768 011314 027       042       VAGINAL DELIVERY W O.R. PR'.
+               05  FILLER   PIC X(57)  VALUE
+           '769 014579 032       043       POSTPARTUM & POST ABORTION'.
+               05  FILLER   PIC X(57)  VALUE
+           '770 010679 018       026       ABORTION W D&C, ASPIRATION'.
+               05  FILLER   PIC X(57)  VALUE
+           '776 006590 025       031       POSTPARTUM & POST ABORTION'.
+               05  FILLER   PIC X(57)  VALUE
+           '779 007543 017       027       ABORTION W/O D&C          '.
+               05  FILLER   PIC X(57)  VALUE
+           '783 017455 046       063       CESAREAN SECTION W STERILI'.
+               05  FILLER   PIC X(57)  VALUE
+           '784 011021 034       041       CESAREAN SECTION W STERILI'.
+               05  FILLER   PIC X(57)  VALUE
+           '785 008455 027       030       CESAREAN SECTION W STERILI'.
+               05  FILLER   PIC X(57)  VALUE
+           '786 015548 044       059       CESAREAN SECTION W/O STERI'.
+               05  FILLER   PIC X(57)  VALUE
+           '787 010811 035       042       CESAREAN SECTION W/O STERI'.
+               05  FILLER   PIC X(57)  VALUE
+           '788 009007 030       032       CESAREAN SECTION W/O STERI'.
+               05  FILLER   PIC X(57)  VALUE
+           '789 016637 018       018       NEONATES, DIED OR TRANSFER'.
+               05  FILLER   PIC X(57)  VALUE
+           '790 054863 179       179       EXTREME IMMATURITY OR RESP'.
+               05  FILLER   PIC X(57)  VALUE
+           '791 037470 133       133       PREMATURITY W MAJOR PROBLE'.
+               05  FILLER   PIC X(57)  VALUE
+           '792 022608 086       086       PREMATURITY W/O MAJOR PROB'.
+               05  FILLER   PIC X(57)  VALUE
+           '793 038489 047       047       FULL TERM NEONATE W MAJOR '.
+               05  FILLER   PIC X(57)  VALUE
+           '794 013623 034       034       NEONATE W OTHER SIGNIFICAN'.
+               05  FILLER   PIC X(57)  VALUE
+           '795 001844 031       031       NORMAL NEWBORN            '.
+               05  FILLER   PIC X(57)  VALUE
+           '796 014682 034       050       VAGINAL DELIVERY W STERILI'.
+               05  FILLER   PIC X(57)  VALUE
+           '797 008469 022       024       VAGINAL DELIVERY W STERILI'.
+               05  FILLER   PIC X(57)  VALUE
+           '798 008469 022       024       VAGINAL DELIVERY W STERILI'.
+               05  FILLER   PIC X(57)  VALUE
+           '799 047016 083       110       SPLENECTOMY W MCC         '.
+               05  FILLER   PIC X(57)  VALUE
+           '800 026268 047       061       SPLENECTOMY W CC          '.
+               05  FILLER   PIC X(57)  VALUE
+           '801 015563 025       028       SPLENECTOMY W/O CC/MCC    '.
+               05  FILLER   PIC X(57)  VALUE
+           '802 033472 074       100       OTHER O.R. PROC OF THE BLO'.
+               05  FILLER   PIC X(57)  VALUE
+           '803 017221 041       052       OTHER O.R. PROC OF THE BLO'.
+               05  FILLER   PIC X(57)  VALUE
+           '804 012305 021       026       OTHER O.R. PROC OF THE BLO'.
+               05  FILLER   PIC X(57)  VALUE
+           '805 010232 030       041       VAGINAL DELIVERY W/O STERI'.
+               05  FILLER   PIC X(57)  VALUE
+           '806 007074 024       027       VAGINAL DELIVERY W/O STERI'.
+               05  FILLER   PIC X(57)  VALUE
+           '807 006140 021       022       VAGINAL DELIVERY W/O STERI'.
+               05  FILLER   PIC X(57)  VALUE
+           '808 021492 055       075       MAJOR HEMATOL/IMMUN DIAG E'.
+               05  FILLER   PIC X(57)  VALUE
+           '809 012045 036       045       MAJOR HEMATOL/IMMUN DIAG E'.
+               05  FILLER   PIC X(57)  VALUE
+           '810 009220 026       032       MAJOR HEMATOL/IMMUN DIAG E'.
+               05  FILLER   PIC X(57)  VALUE
+           '811 013560 037       049       RED BLOOD CELL DISORDERS W'.
+               05  FILLER   PIC X(57)  VALUE
+           '812 008832 027       035       RED BLOOD CELL DISORDERS W'.
+               05  FILLER   PIC X(57)  VALUE
+           '813 016115 037       049       COAGULATION DISORDERS     '.
+               05  FILLER   PIC X(57)  VALUE
+           '814 016630 045       063       RETICULOENDOTHELIAL & IMMU'.
+               05  FILLER   PIC X(57)  VALUE
+           '815 009777 031       039       RETICULOENDOTHELIAL & IMMU'.
+               05  FILLER   PIC X(57)  VALUE
+           '816 007216 022       027       RETICULOENDOTHELIAL & IMMU'.
+               05  FILLER   PIC X(57)  VALUE
+           '817 025317 038       065       OTHER ANTEPARTUM DIAGNOSES'.
+               05  FILLER   PIC X(57)  VALUE
+           '818 013585 028       041       OTHER ANTEPARTUM DIAGNOSES'.
+               05  FILLER   PIC X(57)  VALUE
+           '819 008390 016       021       OTHER ANTEPARTUM DIAGNOSES'.
+               05  FILLER   PIC X(57)  VALUE
+           '820 054437 109       152       LYMPHOMA & LEUKEMIA W MAJO'.
+               05  FILLER   PIC X(57)  VALUE
+           '821 023943 043       061       LYMPHOMA & LEUKEMIA W MAJO'.
+               05  FILLER   PIC X(57)  VALUE
+           '822 012098 019       024       LYMPHOMA & LEUKEMIA W MAJO'.
+               05  FILLER   PIC X(57)  VALUE
+           '823 045246 104       138       LYMPHOMA & NON-ACUTE LEUKE'.
+               05  FILLER   PIC X(57)  VALUE
+           '824 021944 053       071       LYMPHOMA & NON-ACUTE LEUKE'.
+               05  FILLER   PIC X(57)  VALUE
+           '825 013590 025       035       LYMPHOMA & NON-ACUTE LEUKE'.
+               05  FILLER   PIC X(57)  VALUE
+           '826 049479 099       127       MYELOPROLIF DISORD OR POOR'.
+               05  FILLER   PIC X(57)  VALUE
+           '827 022517 047       061       MYELOPROLIF DISORD OR POOR'.
+               05  FILLER   PIC X(57)  VALUE
+           '828 016354 030       037       MYELOPROLIF DISORD OR POOR'.
+               05  FILLER   PIC X(57)  VALUE
+           '829 031097 064       096       MYELOPROLIFERATIVE DISORDE'.
+               05  FILLER   PIC X(57)  VALUE
+           '830 014188 026       032       MYELOPROLIFERATIVE DISORDE'.
+               05  FILLER   PIC X(57)  VALUE
+           '831 010281 032       045       OTHER ANTEPARTUM DIAGNOSES'.
+               05  FILLER   PIC X(57)  VALUE
+           '832 007188 025       036       OTHER ANTEPARTUM DIAGNOSES'.
+               05  FILLER   PIC X(57)  VALUE
+           '833 004803 019       025       OTHER ANTEPARTUM DIAGNOSES'.
+               05  FILLER   PIC X(57)  VALUE
+           '834 055078 100       165       ACUTE LEUKEMIA W/O MAJOR O'.
+               05  FILLER   PIC X(57)  VALUE
+           '835 021360 045       071       ACUTE LEUKEMIA W/O MAJOR O'.
+               05  FILLER   PIC X(57)  VALUE
+           '836 012126 026       039       ACUTE LEUKEMIA W/O MAJOR O'.
+               05  FILLER   PIC X(57)  VALUE
+           '837 053741 128       183       CHEMO W ACUTE LEUKEMIA AS '.
+               05  FILLER   PIC X(57)  VALUE
+           '838 023526 058       078       CHEMO W ACUTE LEUKEMIA AS '.
+               05  FILLER   PIC X(57)  VALUE
+           '839 012559 045       049       CHEMO W ACUTE LEUKEMIA AS '.
+               05  FILLER   PIC X(57)  VALUE
+           '840 032929 070       100  Y    LYMPHOMA & NON-ACUTE LEUKE'.
+               05  FILLER   PIC X(57)  VALUE
+           '841 016348 042       057  Y    LYMPHOMA & NON-ACUTE LEUKE'.
+               05  FILLER   PIC X(57)  VALUE
+           '842 011211 029       038  Y    LYMPHOMA & NON-ACUTE LEUKE'.
+               05  FILLER   PIC X(57)  VALUE
+           '843 018460 053       073       OTHER MYELOPROLIF DIS OR P'.
+               05  FILLER   PIC X(57)  VALUE
+           '844 011788 037       049       OTHER MYELOPROLIF DIS OR P'.
+               05  FILLER   PIC X(57)  VALUE
+           '845 008662 026       034       OTHER MYELOPROLIF DIS OR P'.
+               05  FILLER   PIC X(57)  VALUE
+           '846 028179 062       087       CHEMOTHERAPY W/O ACUTE LEU'.
+               05  FILLER   PIC X(57)  VALUE
+           '847 013265 036       041       CHEMOTHERAPY W/O ACUTE LEU'.
+               05  FILLER   PIC X(57)  VALUE
+           '848 009326 029       033       CHEMOTHERAPY W/O ACUTE LEU'.
+               05  FILLER   PIC X(57)  VALUE
+           '849 019702 050       070       RADIOTHERAPY              '.
+               05  FILLER   PIC X(57)  VALUE
+           '853 050571 099       128  Y    INFECTIOUS & PARASITIC DIS'.
+               05  FILLER   PIC X(57)  VALUE
+           '854 022028 057       071  Y    INFECTIOUS & PARASITIC DIS'.
+               05  FILLER   PIC X(57)  VALUE
+           '855 015600 036       045  Y    INFECTIOUS & PARASITIC DIS'.
+               05  FILLER   PIC X(57)  VALUE
+           '856 044883 089       120  Y    POSTOPERATIVE OR POST-TRAU'.
+               05  FILLER   PIC X(57)  VALUE
+           '857 020567 054       067  Y    POSTOPERATIVE OR POST-TRAU'.
+               05  FILLER   PIC X(57)  VALUE
+           '858 013801 037       045  Y    POSTOPERATIVE OR POST-TRAU'.
+               05  FILLER   PIC X(57)  VALUE
+           '862 018277 050       066  Y    POSTOPERATIVE & POST-TRAUM'.
+               05  FILLER   PIC X(57)  VALUE
+           '863 009848 035       043  Y    POSTOPERATIVE & POST-TRAUM'.
+               05  FILLER   PIC X(57)  VALUE
+           '864 008643 028       034       FEVER AND INFLAMMATORY CON'.
+               05  FILLER   PIC X(57)  VALUE
+           '865 013822 039       053       VIRAL ILLNESS W MCC       '.
+               05  FILLER   PIC X(57)  VALUE
+           '866 008204 027       034       VIRAL ILLNESS W/O MCC     '.
+               05  FILLER   PIC X(57)  VALUE
+           '867 021329 056       076  Y    OTHER INFECTIOUS & PARASIT'.
+               05  FILLER   PIC X(57)  VALUE
+           '868 010769 036       046  Y    OTHER INFECTIOUS & PARASIT'.
+               05  FILLER   PIC X(57)  VALUE
+           '869 007679 027       033  Y    OTHER INFECTIOUS & PARASIT'.
+               05  FILLER   PIC X(57)  VALUE
+           '870 062953 124       144  Y    SEPTICEMIA OR SEVERE SEPSI'.
+               05  FILLER   PIC X(57)  VALUE
+           '871 018564 048       063  Y    SEPTICEMIA OR SEVERE SEPSI'.
+               05  FILLER   PIC X(57)  VALUE
+           '872 010529 037       044  Y    SEPTICEMIA OR SEVERE SEPSI'.
+               05  FILLER   PIC X(57)  VALUE
+           '876 033014 072       148       O.R. PROCEDURE W PRINCIPAL'.
+               05  FILLER   PIC X(57)  VALUE
+           '880 008111 026       036       ACUTE ADJUSTMENT REACTION '.
+               05  FILLER   PIC X(57)  VALUE
+           '881 007585 038       050       DEPRESSIVE NEUROSES       '.
+               05  FILLER   PIC X(57)  VALUE
+           '882 007750 032       044       NEUROSES EXCEPT DEPRESSIVE'.
+               05  FILLER   PIC X(57)  VALUE
+           '883 013199 048       080       DISORDERS OF PERSONALITY &'.
+               05  FILLER   PIC X(57)  VALUE
+           '884 013479 043       067  Y    ORGANIC DISTURBANCES & INT'.
+               05  FILLER   PIC X(57)  VALUE
+           '885 011961 058       082       PSYCHOSES                 '.
+               05  FILLER   PIC X(57)  VALUE
+           '886 009887 037       063       BEHAVIORAL & DEVELOPMENTAL'.
+               05  FILLER   PIC X(57)  VALUE
+           '887 010645 030       047       OTHER MENTAL DISORDER DIAG'.
+               05  FILLER   PIC X(57)  VALUE
+           '894 005169 021       029       ALCOHOL/DRUG ABUSE OR DEPE'.
+               05  FILLER   PIC X(57)  VALUE
+           '895 014328 086       115       ALCOHOL/DRUG ABUSE OR DEPE'.
+               05  FILLER   PIC X(57)  VALUE
+           '896 017468 049       069  Y    ALCOHOL/DRUG ABUSE OR DEPE'.
+               05  FILLER   PIC X(57)  VALUE
+           '897 008208 034       043  Y    ALCOHOL/DRUG ABUSE OR DEPE'.
+               05  FILLER   PIC X(57)  VALUE
+           '901 044649 092       137       WOUND DEBRIDEMENTS FOR INJ'.
+               05  FILLER   PIC X(57)  VALUE
+           '902 019204 049       066       WOUND DEBRIDEMENTS FOR INJ'.
+               05  FILLER   PIC X(57)  VALUE
+           '903 011639 029       037       WOUND DEBRIDEMENTS FOR INJ'.
+               05  FILLER   PIC X(57)  VALUE
+           '904 032260 067       098       SKIN GRAFTS FOR INJURIES W'.
+               05  FILLER   PIC X(57)  VALUE
+           '905 017692 035       048       SKIN GRAFTS FOR INJURIES W'.
+               05  FILLER   PIC X(57)  VALUE
+           '906 018432 028       047       HAND PROCEDURES FOR INJURI'.
+               05  FILLER   PIC X(57)  VALUE
+           '907 042161 072       102  Y    OTHER O.R. PROCEDURES FOR '.
+               05  FILLER   PIC X(57)  VALUE
+           '908 019928 040       052  Y    OTHER O.R. PROCEDURES FOR '.
+               05  FILLER   PIC X(57)  VALUE
+           '909 013254 025       031  Y    OTHER O.R. PROCEDURES FOR '.
+               05  FILLER   PIC X(57)  VALUE
+           '913 014719 036       052       TRAUMATIC INJURY W MCC    '.
+               05  FILLER   PIC X(57)  VALUE
+           '914 008378 025       032       TRAUMATIC INJURY W/O MCC  '.
+               05  FILLER   PIC X(57)  VALUE
+           '915 016769 037       049       ALLERGIC REACTIONS W MCC  '.
+               05  FILLER   PIC X(57)  VALUE
+           '916 006353 018       022       ALLERGIC REACTIONS W/O MCC'.
+               05  FILLER   PIC X(57)  VALUE
+           '917 014737 035       048  Y    POISONING & TOXIC EFFECTS '.
+               05  FILLER   PIC X(57)  VALUE
+           '918 007787 023       031  Y    POISONING & TOXIC EFFECTS '.
+               05  FILLER   PIC X(57)  VALUE
+           '919 018243 043       060       COMPLICATIONS OF TREATMENT'.
+               05  FILLER   PIC X(57)  VALUE
+           '920 010031 029       038       COMPLICATIONS OF TREATMENT'.
+               05  FILLER   PIC X(57)  VALUE
+           '921 007066 022       027       COMPLICATIONS OF TREATMENT'.
+               05  FILLER   PIC X(57)  VALUE
+           '922 015584 038       056       OTHER INJURY, POISONING & '.
+               05  FILLER   PIC X(57)  VALUE
+           '923 008698 027       039       OTHER INJURY, POISONING & '.
+               05  FILLER   PIC X(57)  VALUE
+           '927 183845 222       290       EXTENSIVE BURNS OR FULL TH'.
+               05  FILLER   PIC X(57)  VALUE
+           '928 058756 107       150       FULL THICKNESS BURN W SKIN'.
+               05  FILLER   PIC X(57)  VALUE
+           '929 029722 058       079       FULL THICKNESS BURN W SKIN'.
+               05  FILLER   PIC X(57)  VALUE
+           '933 028603 026       045       EXTENSIVE BURNS OR FULL TH'.
+               05  FILLER   PIC X(57)  VALUE
+           '934 018335 042       060       FULL THICKNESS BURN W/O SK'.
+               05  FILLER   PIC X(57)  VALUE
+           '935 018217 034       053       NON-EXTENSIVE BURNS       '.
+               05  FILLER   PIC X(57)  VALUE
+           '939 032787 065       094       O.R. PROC W DIAGNOSES OF O'.
+               05  FILLER   PIC X(57)  VALUE
+           '940 021745 037       050       O.R. PROC W DIAGNOSES OF O'.
+               05  FILLER   PIC X(57)  VALUE
+           '941 018514 023       030       O.R. PROC W DIAGNOSES OF O'.
+               05  FILLER   PIC X(57)  VALUE
+           '945 013649 094       116  Y    REHABILITATION W CC/MCC   '.
+               05  FILLER   PIC X(57)  VALUE
+           '946 010427 071       079  Y    REHABILITATION W/O CC/MCC '.
+               05  FILLER   PIC X(57)  VALUE
+           '947 012056 035       048  Y    SIGNS & SYMPTOMS W MCC    '.
+               05  FILLER   PIC X(57)  VALUE
+           '948 007802 026       033  Y    SIGNS & SYMPTOMS W/O MCC  '.
+               05  FILLER   PIC X(57)  VALUE
+           '949 011462 045       064       AFTERCARE W CC/MCC        '.
+               05  FILLER   PIC X(57)  VALUE
+           '950 007449 034       048       AFTERCARE W/O CC/MCC      '.
+               05  FILLER   PIC X(57)  VALUE
+           '951 007984 025       034       OTHER FACTORS INFLUENCING '.
+               05  FILLER   PIC X(57)  VALUE
+           '955 060969 074       108       CRANIOTOMY FOR MULTIPLE SI'.
+               05  FILLER   PIC X(57)  VALUE
+           '956 037838 061       075  Y    LIMB REATTACHMENT, HIP & F'.
+               05  FILLER   PIC X(57)  VALUE
+           '957 075985 097       136       OTHER O.R. PROCEDURES FOR '.
+               05  FILLER   PIC X(57)  VALUE
+           '958 041798 070       087       OTHER O.R. PROCEDURES FOR '.
+               05  FILLER   PIC X(57)  VALUE
+           '959 024507 038       047       OTHER O.R. PROCEDURES FOR '.
+               05  FILLER   PIC X(57)  VALUE
+           '963 027950 053       080       OTHER MULTIPLE SIGNIFICANT'.
+               05  FILLER   PIC X(57)  VALUE
+           '964 014749 040       049       OTHER MULTIPLE SIGNIFICANT'.
+               05  FILLER   PIC X(57)  VALUE
+           '965 009743 027       032       OTHER MULTIPLE SIGNIFICANT'.
+               05  FILLER   PIC X(57)  VALUE
+           '969 055987 117       159       HIV W EXTENSIVE O.R. PROCE'.
+               05  FILLER   PIC X(57)  VALUE
+           '970 027877 065       087       HIV W EXTENSIVE O.R. PROCE'.
+               05  FILLER   PIC X(57)  VALUE
+           '974 027230 064       090       HIV W MAJOR RELATED CONDIT'.
+               05  FILLER   PIC X(57)  VALUE
+           '975 012899 041       053       HIV W MAJOR RELATED CONDIT'.
+               05  FILLER   PIC X(57)  VALUE
+           '976 009386 031       039       HIV W MAJOR RELATED CONDIT'.
+               05  FILLER   PIC X(57)  VALUE
+           '977 011699 034       046       HIV W OR W/O OTHER RELATED'.
+               05  FILLER   PIC X(57)  VALUE
+           '981 043705 084       114  Y    EXTENSIVE O.R. PROCEDURE U'.
+               05  FILLER   PIC X(57)  VALUE
+           '982 024529 049       065  Y    EXTENSIVE O.R. PROCEDURE U'.
+               05  FILLER   PIC X(57)  VALUE
+           '983 015691 025       033  Y    EXTENSIVE O.R. PROCEDURE U'.
+               05  FILLER   PIC X(57)  VALUE
+           '987 033326 081       108  Y Y  NON-EXTENSIVE O.R. PROC UN'.
+               05  FILLER   PIC X(57)  VALUE
+           '988 016931 044       059  Y Y  NON-EXTENSIVE O.R. PROC UN'.
+               05  FILLER   PIC X(57)  VALUE
+           '989 010407 021       028  Y Y  NON-EXTENSIVE O.R. PROC UN'.
+               05  FILLER   PIC X(57)  VALUE
+           '998 000000 000       000       PRINCIPAL DIAGNOSIS INVALI'.
+               05  FILLER   PIC X(57)  VALUE
+           '999 000000 000       000       UNGROUPABLE               '.
+           02  WK-DRG-DATA2 REDEFINES WK-DRG-DATA.
+               05  DRG-TAB OCCURS 761
+                           ASCENDING KEY IS WK-DRG-DRGX
+                           INDEXED BY DRG-IDX.
+                   10  DRG-DATA-TAB.
+                     15  WK-DRG-DRGX               PIC X(03).
+                     15  FILLER1                   PIC X(01).
+                     15  DRG-WEIGHT                PIC 9(02)V9(04).
+                     15  FILLER2                   PIC X(01).
+                     15  DRG-GMALOS                PIC 9(02)V9(01).
+                     15  FILLER3                   PIC X(05).
+                     15  DRG-LOW                   PIC X(01).
+                     15  FILLER5                   PIC X(01).
+                     15  DRG-ARITH-ALOS            PIC 9(02)V9(01).
+                     15  FILLER6                   PIC X(02).
+                     15  DRG-PAC                   PIC X(01).
+                     15  FILLER7                   PIC X(01).
+                     15  DRG-SPPAC                 PIC X(01).
+                     15  FILLER8                   PIC X(02).
+                     15  DRG-DESC                  PIC X(26).
