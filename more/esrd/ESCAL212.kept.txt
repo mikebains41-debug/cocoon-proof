@@ -70,39 +70,42 @@
 70 from the corpus
 71 from the corpus
 72 from the corpus
-73 from the corpus; B-DOB-DATE := '99999999' (none listed)
-74 from the corpus; B-DOB-DATE := 19400101
-75 from the corpus; dates: claim 2021-01-15, start 200 days before, age 75
-76 from the corpus; dates: claim 2021-01-15, start 200 days before, age 85
-77 from the corpus; dates: claim 2021-01-15, start 1200 days before, age 75
-78 from the corpus; dates: claim 2021-01-15, start 1200 days before, age 85
-79 from the corpus; dates: claim 2021-06-15, start 200 days before, age 75
-80 from the corpus; dates: claim 2021-06-15, start 200 days before, age 85
-81 from the corpus; dates: claim 2021-06-15, start 1200 days before, age 75
-82 from the corpus; dates: claim 2021-06-15, start 1200 days before, age 85
-83 from the corpus; dates: claim 2021-12-15, start 200 days before, age 75
-84 from the corpus; dates: claim 2021-12-15, start 200 days before, age 85
-85 from the corpus; B-DOB-DATE := '99999999' (none listed); B-TOT-PRICE-SB-OUTLIER := 1000000
-86 from the corpus; B-DOB-DATE := 19400101; B-TOT-PRICE-SB-OUTLIER := 1000000
-87 from the corpus; dates: claim 2021-01-15, start 200 days before, age 75; B-TOT-PRICE-SB-OUTLIER := 1000000
-88 from the corpus; dates: claim 2021-01-15, start 200 days before, age 85; B-TOT-PRICE-SB-OUTLIER := 1000000
-89 from the corpus; dates: claim 2021-01-15, start 1200 days before, age 75; B-TOT-PRICE-SB-OUTLIER := 1000000
-90 from the corpus; dates: claim 2021-01-15, start 1200 days before, age 85; B-TOT-PRICE-SB-OUTLIER := 1000000
-91 from the corpus; dates: claim 2021-06-15, start 200 days before, age 75; B-TOT-PRICE-SB-OUTLIER := 1000000
-92 from the corpus; dates: claim 2021-06-15, start 200 days before, age 85; B-TOT-PRICE-SB-OUTLIER := 1000000
-93 from the corpus; dates: claim 2021-06-15, start 1200 days before, age 75; B-TOT-PRICE-SB-OUTLIER := 1000000
-94 from the corpus; dates: claim 2021-06-15, start 1200 days before, age 85; B-TOT-PRICE-SB-OUTLIER := 1000000
-95 from the corpus; dates: claim 2021-12-15, start 200 days before, age 75; B-TOT-PRICE-SB-OUTLIER := 1000000
-96 from the corpus; dates: claim 2021-12-15, start 200 days before, age 85; B-TOT-PRICE-SB-OUTLIER := 1000000
-97 from the corpus; dates: claim 2021-06-15, start 1200 days before, age 75; B-TOT-PRICE-SB-OUTLIER := 1000000; B-THRU-CCYY := 1000; COMORBID-DATA (3) := '99' (none listed); B-COND-CODE := '73'; B-THRU-MM := 1
-98 from the corpus; B-DOB-DATE := '99999999' (none listed); B-TOT-PRICE-SB-OUTLIER := 1000000; B-COND-CODE := '73'
-99 from the corpus; B-DOB-DATE := '99999999' (none listed); B-TOT-PRICE-SB-OUTLIER := 1000000; B-COND-CODE := '87'
-100 from the corpus; B-DOB-DATE := 19400101; B-TOT-PRICE-SB-OUTLIER := 1000000; B-COND-CODE := '73'
-101 from the corpus; B-DOB-DATE := 19400101; B-TOT-PRICE-SB-OUTLIER := 1000000; B-COND-CODE := '87'
-102 from the corpus; dates: claim 2021-01-15, start 200 days before, age 75; B-TOT-PRICE-SB-OUTLIER := 1000000; B-COND-CODE := '73'
-103 from the corpus; dates: claim 2021-01-15, start 200 days before, age 75; B-TOT-PRICE-SB-OUTLIER := 1000000; B-COND-CODE := '87'
-104 from the corpus; dates: claim 2021-01-15, start 200 days before, age 85; B-TOT-PRICE-SB-OUTLIER := 1000000; B-COND-CODE := '73'
-105 from the corpus; dates: claim 2021-01-15, start 200 days before, age 85; B-TOT-PRICE-SB-OUTLIER := 1000000; B-COND-CODE := '87'
-106 from the corpus; dates: claim 2021-01-15, start 1200 days before, age 75; B-TOT-PRICE-SB-OUTLIER := 1000000; B-COND-CODE := '73'
-107 from the corpus; dates: claim 2021-01-15, start 1200 days before, age 75; B-TOT-PRICE-SB-OUTLIER := 1000000; B-COND-CODE := '87'
-108 from the corpus; dates: claim 2021-01-15, start 1200 days before, age 85; B-TOT-PRICE-SB-OUTLIER := 1000000; B-COND-CODE := '73'
+73 from the corpus
+74 from the corpus
+75 from the corpus
+76 from the corpus; B-LINE-ITEM-DATE-SERVICE := '99999999' (none listed)
+77 from the corpus; B-LINE-ITEM-DATE-SERVICE := 19400101
+78 from the corpus; B-LINE-ITEM-DATE-SERVICE := 19550615
+79 from the corpus; B-LINE-ITEM-DATE-SERVICE := 19700101
+80 from the corpus; B-LINE-ITEM-DATE-SERVICE := 19850615
+81 from the corpus; B-LINE-ITEM-DATE-SERVICE := 20000101
+82 from the corpus; B-LINE-ITEM-DATE-SERVICE := 20150101
+83 from the corpus; B-LINE-ITEM-DATE-SERVICE := 20201231
+84 from the corpus; B-LINE-ITEM-DATE-SERVICE := 20210101
+85 from the corpus; B-LINE-ITEM-DATE-SERVICE := 20210615
+86 from the corpus; B-LINE-ITEM-DATE-SERVICE := 20211231
+87 from the corpus; dates: claim 2021-01-15, start 200 days before, age 75
+88 from the corpus; B-LINE-ITEM-DATE-SERVICE := '99999999' (none listed); COMORBID-CWF-RETURN-CODE := '60'
+89 from the corpus; B-LINE-ITEM-DATE-SERVICE := 19400101; COMORBID-CWF-RETURN-CODE := '60'
+90 from the corpus; B-LINE-ITEM-DATE-SERVICE := 19550615; COMORBID-CWF-RETURN-CODE := '60'
+91 from the corpus; B-LINE-ITEM-DATE-SERVICE := 19700101; COMORBID-CWF-RETURN-CODE := '60'
+92 from the corpus; B-LINE-ITEM-DATE-SERVICE := 19850615; COMORBID-CWF-RETURN-CODE := '60'
+93 from the corpus; B-LINE-ITEM-DATE-SERVICE := 20000101; COMORBID-CWF-RETURN-CODE := '60'
+94 from the corpus; B-LINE-ITEM-DATE-SERVICE := 20150101; COMORBID-CWF-RETURN-CODE := '60'
+95 from the corpus; B-LINE-ITEM-DATE-SERVICE := 20201231; COMORBID-CWF-RETURN-CODE := '60'
+96 from the corpus; B-LINE-ITEM-DATE-SERVICE := 20210101; COMORBID-CWF-RETURN-CODE := '60'
+97 from the corpus; B-LINE-ITEM-DATE-SERVICE := 20210615; COMORBID-CWF-RETURN-CODE := '60'
+98 from the corpus; B-LINE-ITEM-DATE-SERVICE := 20211231; COMORBID-CWF-RETURN-CODE := '60'
+99 from the corpus; dates: claim 2021-01-15, start 200 days before, age 75; COMORBID-CWF-RETURN-CODE := '60'
+100 from the corpus; B-LINE-ITEM-DATE-SERVICE := '99999999' (none listed); COMORBID-CWF-RETURN-CODE := '60'; B-DOB-DATE := '99999999' (none listed)
+101 from the corpus; B-LINE-ITEM-DATE-SERVICE := '99999999' (none listed); COMORBID-CWF-RETURN-CODE := '60'; P-QIP-REDUCTION := '3'
+102 from the corpus; B-LINE-ITEM-DATE-SERVICE := '99999999' (none listed); COMORBID-CWF-RETURN-CODE := '60'; P-QIP-REDUCTION := '4'
+103 from the corpus; B-LINE-ITEM-DATE-SERVICE := '99999999' (none listed); COMORBID-CWF-RETURN-CODE := '60'; B-DOB-MM := B-THRU-MM +1
+104 from the corpus; B-LINE-ITEM-DATE-SERVICE := '99999999' (none listed); COMORBID-CWF-RETURN-CODE := '60'; B-DOB-MM := 10
+105 from the corpus; B-LINE-ITEM-DATE-SERVICE := 19400101; COMORBID-CWF-RETURN-CODE := '60'; B-DOB-DATE := '99999999' (none listed)
+106 from the corpus; B-LINE-ITEM-DATE-SERVICE := 19400101; COMORBID-CWF-RETURN-CODE := '60'; P-QIP-REDUCTION := '3'
+107 from the corpus; B-LINE-ITEM-DATE-SERVICE := 19400101; COMORBID-CWF-RETURN-CODE := '60'; P-QIP-REDUCTION := '4'
+108 from the corpus; B-LINE-ITEM-DATE-SERVICE := 19400101; COMORBID-CWF-RETURN-CODE := '60'; B-DOB-MM := B-THRU-MM +1
+109 from the corpus; B-LINE-ITEM-DATE-SERVICE := 19400101; COMORBID-CWF-RETURN-CODE := '60'; B-DOB-MM := 10
+110 from the corpus; B-LINE-ITEM-DATE-SERVICE := 19400101; COMORBID-CWF-RETURN-CODE := '60'; PPS-BSA := 100; BUN-CBSA-W-INDEX := 0.5000; PPS-CM-BMI-LT-18-5 := 0.500; B-DOB-DATE := '99999999' (none listed)
+111 from the corpus; B-LINE-ITEM-DATE-SERVICE := 19550615; COMORBID-CWF-RETURN-CODE := '60'; B-DOB-DATE := '99999999' (none listed)

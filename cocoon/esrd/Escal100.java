@@ -1061,11 +1061,19 @@ public class Escal100 {
     private void p2000AssemblePpsVariables() {
         hBsa.storeRounded(new BigDecimal(".007184").multiply(CobolDecimal.pow(bPatientHgt.value(), new BigDecimal(".725"))).multiply(CobolDecimal.pow(bPatientWgt.value(), new BigDecimal(".425"))));
         // TRUNCATES: the expression produces up to 14 integer digits and H-BSA holds 3. The high-order digits are lost, as in the original.
-        hBmi.storeRounded(CobolDecimal.divide(bPatientWgt.value(), CobolDecimal.pow(bPatientHgt.value(), new BigDecimal("2"))).multiply(new BigDecimal("10000")));
-        // TRUNCATES: the expression produces up to 7 integer digits and H-BMI holds 3. The high-order digits are lost, as in the original.
+        try {   // a zero divisor stores nothing, as in COBOL
+            hBmi.storeRounded(CobolDecimal.divide(bPatientWgt.value(), CobolDecimal.pow(bPatientHgt.value(), new BigDecimal("2"))).multiply(new BigDecimal("10000")));
+            // TRUNCATES: the expression produces up to 7 integer digits and H-BMI holds 3. The high-order digits are lost, as in the original.
+        } catch (CobolDecimal.ZeroDivide cocoonZeroDivide) {
+            // every receiver keeps what it held
+        }
         if (hPatientAge.value().compareTo(new BigDecimal("17")) > 0) {
-            hBsaFactor.storeRounded(CobolDecimal.pow(new BigDecimal("1.037"), CobolDecimal.divide(hBsa.value().subtract(new BigDecimal("1.84")), new BigDecimal(".1"))));
-            // TRUNCATES: the expression produces up to 3 integer digits and H-BSA-FACTOR holds 1. The high-order digits are lost, as in the original.
+            try {   // a zero divisor stores nothing, as in COBOL
+                hBsaFactor.storeRounded(CobolDecimal.pow(new BigDecimal("1.037"), CobolDecimal.divide(hBsa.value().subtract(new BigDecimal("1.84")), new BigDecimal(".1"))));
+                // TRUNCATES: the expression produces up to 3 integer digits and H-BSA-FACTOR holds 1. The high-order digits are lost, as in the original.
+            } catch (CobolDecimal.ZeroDivide cocoonZeroDivide) {
+                // every receiver keeps what it held
+            }
         } else {
             hBsaFactor.store(new BigDecimal("1.000"));
         }

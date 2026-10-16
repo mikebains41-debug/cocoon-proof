@@ -1,88 +1,60 @@
 1 every field empty
-2 every field empty; P-PROV-TYPE := '40'
-3 every field empty; P-PROV-TYPE := '41'
-4 every field empty; OLD-TEST-INDICATOR := 'T'
-5 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615
-6 every field empty; P-PROV-TYPE := '40'; B-DOB-DATE := '99999999' (none listed)
-7 every field empty; P-PROV-TYPE := '40'; P-SPEC-PYMT-IND := '9' (none listed)
-8 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'
-9 every field empty; P-PROV-TYPE := '41'; OLD-TEST-INDICATOR := 'T'
-10 every field empty; OLD-TEST-INDICATOR := 'T'; PPS-NAT-NONLABOR-PCT := 0.50000; P-PROV-TYPE := '41'; B-PATIENT-HGT := spaces (not numeric)
-11 every field empty; P-PROV-TYPE := '40'; P-PROV-TYPE := '41'; B-DOB-DATE := 20210615
-12 every field empty; P-PROV-TYPE := '40'; P-PROV-TYPE := '41'; DRUG-ADD-ON-RETURN := 0.5000; W-NEW-RATE1-RECORD := 1000; B-DOB-DATE := 20210101
-13 every field empty; P-PROV-TYPE := '40'; P-PROV-TYPE := '41'
-14 every field empty; P-PROV-TYPE := '40'; B-DOB-MM := B-THRU-MM +1
-15 every field empty; P-PROV-TYPE := '40'; B-DOB-CCYY := 1
-16 every field empty; P-PROV-TYPE := '40'; B-DOB-CCYY := 1000
-17 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; dates: claim 2021-06-15, start 100 days before, age 30; B-PATIENT-HGT := 300.01; PPS-NAT-LABOR-PCT := 1; B-REV-CODE := '0880'
-18 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; B-PATIENT-HGT := 1
-19 every field empty; P-PROV-TYPE := '40'; P-PROV-TYPE := '41'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; B-THRU-MM := 1; dates: claim 2021-01-15, start 1200 days before, age 30
-20 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; OLD-TEST-INDICATOR := 'T'
-21 every field empty; P-PROV-TYPE := '40'; B-DOB-DATE := '99999999' (none listed); OLD-TEST-INDICATOR := 'T'
-22 every field empty; P-PROV-TYPE := '40'; P-SPEC-PYMT-IND := '9' (none listed); OLD-TEST-INDICATOR := 'T'
-23 every field empty; P-PROV-TYPE := '40'; P-PROV-TYPE := '41'; DRUG-ADD-ON-RETURN := 0.5000; W-NEW-RATE1-RECORD := 1000; B-DOB-DATE := 20210101; OLD-TEST-INDICATOR := 'T'
-24 every field empty; P-PROV-TYPE := '40'; B-DOB-CCYY := 1; OLD-TEST-INDICATOR := 'T'; BLOOD-DOLLAR := 1; PPS-BDGT-NEUT-RATE := 1; PPS-NAT-NONLABOR-PCT := 0.50000
-25 every field empty; P-PROV-TYPE := '40'; P-SPEC-PYMT-IND := '9' (none listed); dates: claim 2021-06-15, start 100 days before, age 65; B-PATIENT-HGT := spaces (not numeric); P-SPEC-PYMT-IND := '1'; B-THRU-CCYY := 1000
-26 every field empty; P-PROV-TYPE := '40'; P-SPEC-PYMT-IND := '9' (none listed); P-SPEC-PYMT-IND := ' '; dates: claim 2021-12-15, start 200 days before, age 50; W-NEW-RATE2-RECORD := 0.50; MSA-ADJ-YEAR-AMT := 1000
-27 every field empty; P-PROV-TYPE := '40'; P-SPEC-PYMT-IND := '9' (none listed); dates: claim 2021-06-15, start 200 days before, age 15; P-SPEC-PYMT-IND := '1'; B-DOB-DATE := 19700101
-28 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615
-29 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'
-30 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; B-PATIENT-HGT := 1; B-REV-CODE := '0821'
-31 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; dates: claim 2021-06-15, start 100 days before, age 30; B-PATIENT-HGT := 300.01; PPS-NAT-LABOR-PCT := 1; B-REV-CODE := '0880'; B-PATIENT-HGT := 1
-32 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; dates: claim 2021-06-15, start 100 days before, age 30; B-PATIENT-HGT := 300.01; PPS-NAT-LABOR-PCT := 1; B-REV-CODE := '0880'; dates: claim 2021-06-15, start 1200 days before, age 85; dates: claim 2021-06-15, start 200 days before, age 5; B-PATIENT-HGT := 300.00
-33 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; dates: claim 2021-06-15, start 100 days before, age 30; B-PATIENT-HGT := 300.01; PPS-NAT-LABOR-PCT := 1; B-REV-CODE := '0880'; B-COND-CODE := '99' (none listed)
-34 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; B-PATIENT-HGT := 1; B-REV-CODE := '0831'
-35 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; B-PATIENT-HGT := 1; B-REV-CODE := '0841'
-36 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; B-PATIENT-HGT := 1; B-REV-CODE := '0851'
-37 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; B-PATIENT-HGT := 1; B-REV-CODE := '0880'
-38 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; B-PATIENT-HGT := 1; B-REV-CODE := '0881'
-39 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; B-PATIENT-HGT := 1; dates: claim 2021-06-15, start 200 days before, age 15; B-REV-CODE := '0851'; dates: claim 2021-01-15, start 200 days before, age 5
-40 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; dates: claim 2021-06-15, start 100 days before, age 30; B-PATIENT-HGT := 300.01; PPS-NAT-LABOR-PCT := 1; B-REV-CODE := '0880'; B-PATIENT-HGT := 300.00
-41 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-COND-CODE := '73'
-42 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; P-PROV-TYPE := '41'
-43 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; B-PATIENT-HGT := 1; B-REV-CODE := '0841'; B-COND-CODE := '73'
-44 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-COND-CODE := '74'
-45 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01
-46 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-THRU-DATE := 19550615
-47 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-THRU-DATE := 19700101
-48 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; dates: claim 2021-01-15, start 30 days before, age 75
-49 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; dates: claim 2021-06-15, start 100 days before, age 30; B-PATIENT-HGT := 300.01; PPS-NAT-LABOR-PCT := 1; B-REV-CODE := '0880'; B-PATIENT-HGT := 300.00; B-REV-CODE := '0880'; dates: claim 2021-06-15, start 1200 days before, age 85; B-DOB-DATE := '99999999' (none listed); OLD-TEST-INDICATOR := 'T'
-50 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; dates: claim 2021-06-15, start 100 days before, age 30; B-PATIENT-HGT := 300.01; PPS-NAT-LABOR-PCT := 1; B-REV-CODE := '0880'; B-COND-CODE := '99' (none listed); OLD-TEST-INDICATOR := 'T'
-51 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; dates: claim 2021-06-15, start 100 days before, age 30; B-PATIENT-HGT := 300.01; PPS-NAT-LABOR-PCT := 1; B-REV-CODE := '0880'; B-COND-CODE := '99' (none listed); CBSA-WAGE-PMT-RATE := 1000; OLD-TEST-INDICATOR := 'T'; COMORBID-CWF-RETURN-CODE := '20'
-52 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; dates: claim 2021-06-15, start 100 days before, age 30; B-PATIENT-HGT := 300.01; PPS-NAT-LABOR-PCT := 1; B-REV-CODE := '0880'; dates: claim 2021-06-15, start 1200 days before, age 85; dates: claim 2021-06-15, start 200 days before, age 5; B-PATIENT-HGT := 300.00; dates: claim 2021-01-15, start 100 days before, age 30; OLD-TEST-INDICATOR := 'T'; PPS-WAGE-ADJ-RATE := 0.50
-53 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00
-54 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 499.99
-55 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 0.50
-56 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00; B-PATIENT-WGT := 0.50; B-DOB-DATE := 20211231; B-THRU-DATE := 20201231
-57 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; B-PATIENT-HGT := 1; B-REV-CODE := '0841'; B-COND-CODE := '73'; OLD-TEST-INDICATOR := 'T'
-58 every field empty; P-PROV-TYPE := '41'; COMORBID-CWF-RETURN-CODE := '20'; B-PATIENT-WGT := 0.50; B-DOB-DATE := 19850615; dates: claim 2021-06-15, start 100 days before, age 30; B-PATIENT-HGT := 300.01; PPS-NAT-LABOR-PCT := 1; B-REV-CODE := '0880'; dates: claim 2021-06-15, start 1200 days before, age 85; dates: claim 2021-06-15, start 200 days before, age 5; B-PATIENT-HGT := 300.00; dates: claim 2021-01-15, start 100 days before, age 30; OLD-TEST-INDICATOR := 'T'; PPS-WAGE-ADJ-RATE := 0.50; B-DOB-DATE := '99999999' (none listed)
-59 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-COND-CODE := '73'; B-DOB-DATE := '99999999' (none listed)
-60 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-COND-CODE := '73'; B-DOB-DATE := 19400101
-61 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-COND-CODE := '73'; B-DOB-DATE := 19550615
-62 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-COND-CODE := '73'; B-DOB-DATE := 19700101
-63 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-COND-CODE := '73'; B-DOB-DATE := 19850615
-64 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-COND-CODE := '73'; B-THRU-DATE := 19400101
-65 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00; B-PATIENT-WGT := 0.50; B-DOB-DATE := 20211231; B-THRU-DATE := 20201231; B-DOB-DATE := '99999999' (none listed)
-66 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00; B-PATIENT-WGT := 0.50; B-DOB-DATE := 20211231; B-THRU-DATE := 20201231; B-THRU-DATE := 19400101
-67 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00; B-PATIENT-WGT := 0.50; B-DOB-DATE := 20211231; B-THRU-DATE := 20201231; B-DOB-DATE := 19400101
-68 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00; B-DOB-DATE := '99999999' (none listed)
-69 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00; B-DOB-DATE := 19400101
-70 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00; B-DOB-DATE := 19550615
-71 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00; B-DOB-DATE := 19700101
-72 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00; B-DOB-DATE := 19850615
-73 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00; B-THRU-DATE := 19400101
-74 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 499.99; B-DOB-DATE := '99999999' (none listed)
-75 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 499.99; B-DOB-DATE := 19400101
-76 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 499.99; B-DOB-DATE := 19550615
-77 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00; B-PATIENT-WGT := 0.50; B-DOB-DATE := 20211231; B-THRU-DATE := 20201231; B-DOB-DATE := '99999999' (none listed); P-PROV-TYPE := '41'
-78 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00; B-PATIENT-WGT := 0.50; B-DOB-DATE := 20211231; B-THRU-DATE := 20201231; B-THRU-DATE := 19400101; P-PROV-TYPE := '41'
-79 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00; B-PATIENT-WGT := 0.50; B-DOB-DATE := 20211231; B-THRU-DATE := 20201231; B-DOB-DATE := 19400101; P-PROV-TYPE := '41'
-80 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00; B-DOB-DATE := '99999999' (none listed); P-PROV-TYPE := '41'
-81 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00; B-DOB-DATE := 19400101; P-PROV-TYPE := '41'
-82 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00; B-DOB-DATE := 19550615; P-PROV-TYPE := '41'
-83 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00; B-DOB-DATE := 19700101; P-PROV-TYPE := '41'
-84 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00; B-DOB-DATE := 19850615; P-PROV-TYPE := '41'
-85 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 500.00; B-THRU-DATE := 19400101; P-PROV-TYPE := '41'
-86 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 499.99; B-DOB-DATE := '99999999' (none listed); P-PROV-TYPE := '41'
-87 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 499.99; B-DOB-DATE := 19400101; P-PROV-TYPE := '41'
-88 every field empty; P-PROV-TYPE := '40'; OLD-TEST-INDICATOR := 'T'; B-PATIENT-WGT := 1; W-NEW-RATE1-RECORD := 1000; CBSA-WAGE-ADJ := 1000; B-DOB-DATE := 20210615; PPS-NAT-NONLABOR-PCT := 1; MSA-WAGE-ADJ := 0.50; B-PATIENT-HGT := 0.50; B-REV-CODE := '0851'; B-PATIENT-WGT := 500.01; B-PATIENT-WGT := 499.99; B-DOB-DATE := 19550615; P-PROV-TYPE := '41'
+2 from the corpus
+3 from the corpus
+4 from the corpus
+5 from the corpus
+6 from the corpus
+7 from the corpus
+8 from the corpus
+9 from the corpus
+10 from the corpus
+11 from the corpus
+12 from the corpus
+13 from the corpus
+14 from the corpus
+15 from the corpus
+16 from the corpus
+17 from the corpus
+18 from the corpus
+19 from the corpus
+20 from the corpus
+21 from the corpus
+22 from the corpus
+23 from the corpus
+24 from the corpus
+25 from the corpus; B-PATIENT-WGT := 1
+26 from the corpus; B-PATIENT-WGT := 500.00
+27 from the corpus; B-PATIENT-WGT := 499.99
+28 from the corpus; B-PATIENT-WGT := 0.50
+29 from the corpus; B-PATIENT-WGT := 499.99; dates: claim 2021-01-15, start 100 days before, age 75; W-NEW-RATE2-RECORD := 1
+30 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1
+31 from the corpus; OLD-TEST-INDICATOR := 'T'
+32 from the corpus; B-DOB-CCYY := 1
+33 from the corpus; B-DOB-CCYY := 1000
+34 from the corpus; B-THRU-DATE := 19400101
+35 from the corpus; dates: claim 2021-01-15, start 30 days before, age 85
+36 from the corpus; dates: claim 2021-06-15, start 30 days before, age 85
+37 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; B-DOB-DATE := '99999999' (none listed)
+38 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; B-DOB-DATE := 19400101
+39 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; AGE-RETURN := 1; dates: claim 2021-06-15, start 30 days before, age 85
+40 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; B-THRU-CCYY := 1; CBSA-WAGE-PMT-RATE := 0.50; dates: claim 2021-01-15, start 30 days before, age 85; B-THRU-MM := 1
+41 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; dates: claim 2021-06-15, start 100 days before, age 5; dates: claim 2021-12-15, start 200 days before, age 85; CASE-MIX-FCTR-ADJ-RATE := 1000000; B-COND-CODE := ' '
+42 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; B-THRU-DATE := 19400101
+43 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; dates: claim 2021-01-15, start 1200 days before, age 85; PPS-RTC := 1; dates: claim 2021-06-15, start 200 days before, age 30; dates: claim 2021-06-15, start 200 days before, age 75
+44 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; B-THRU-DATE := 20000101; dates: claim 2021-01-15, start 30 days before, age 75; COMORBID-CWF-RETURN-CODE := '10'
+45 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; B-DOB-DATE := 19550615
+46 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; B-THRU-DATE := 19550615
+47 from the corpus; B-PATIENT-WGT := 499.99; dates: claim 2021-01-15, start 100 days before, age 75; W-NEW-RATE2-RECORD := 1; B-DOB-DATE := '99999999' (none listed)
+48 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; B-DOB-DATE := 19700101
+49 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; B-THRU-DATE := 19550615; B-DOB-CCYY := 1
+50 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; B-THRU-DATE := 19550615; B-DOB-CCYY := 1000
+51 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; B-DOB-DATE := 19700101; B-THRU-CCYY := 1
+52 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; B-DOB-DATE := 19700101; B-THRU-CCYY := 1000
+53 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; B-THRU-DATE := 19400101; B-DOB-CCYY := 1
+54 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; B-THRU-DATE := 19400101; B-DOB-CCYY := 1000
+55 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; B-THRU-DATE := 19400101; B-DOB-DATE := 20210615
+56 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; B-THRU-DATE := 19400101; B-DOB-DATE := 20211231
+57 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; dates: claim 2021-01-15, start 1200 days before, age 85; PPS-RTC := 1; dates: claim 2021-06-15, start 200 days before, age 30; dates: claim 2021-06-15, start 200 days before, age 75; B-DOB-DATE := '99999999' (none listed)
+58 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; B-THRU-DATE := 20000101; dates: claim 2021-01-15, start 30 days before, age 75; COMORBID-CWF-RETURN-CODE := '10'; B-DOB-DATE := '99999999' (none listed)
+59 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; B-DOB-DATE := 19550615; B-THRU-CCYY := 1
+60 from the corpus; dates: claim 2021-06-15, start 30 days before, age 65; dates: claim 2021-12-15, start 30 days before, age 15; B-PATIENT-WGT := 1; B-DOB-DATE := 19550615; B-THRU-CCYY := 1000

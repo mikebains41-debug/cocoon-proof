@@ -63,7 +63,6 @@
  1745                MOVE CAPD-OR-CCPD-FACTOR TO HEMO-CCPD-CAPD
  1747                MOVE 'A'                 TO AMT-INDIC
  1748                MOVE ZERO                TO BLOOD-DOLLAR
- 1925                               MOVE 02 TO PPS-RTC
  1980             COMPUTE PPS-2011-BLEND-COMP-RATE    ROUNDED =
  1982             COMPUTE PPS-2011-BLEND-PPS-RATE     ROUNDED =
  1984             COMPUTE PPS-2011-BLEND-OUTLIER-RATE ROUNDED =

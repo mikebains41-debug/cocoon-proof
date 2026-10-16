@@ -13,7 +13,7 @@ fields set to exactly the values the calculator's conditions test, one more
 and one less, and mixes of those. Sets were found by climbing: each round kept the ones
 that reached a statement, or a step between statements, that none before them
 reached, or that ran further than the set they came from, and changed those
-next. Statement coverage, measured when the sets were made, is in the table
+next. Statement coverage, measured on these record sets, is in the table
 in EVIDENCE.md.
 
 For each calculator here:
@@ -25,9 +25,24 @@ For each calculator here:
 | `<PROGRAM>.kept.txt` | how each kept set was made, step by step |
 | `<PROGRAM>.never.txt` | the statements no set reached, with their source; absent where every statement was reached |
 
-They were generated from the calculators' own source by tools in Cocoon's
-private repository. Checking them does not need those tools: the inputs are
-data.
+And for all of them:
+
+| File | What it is |
+|---|---|
+| `unreachable.txt` | every statement no set reaches, 508 in all, with the reason no input can run it |
+
+## Every statement accounted for
+
+The record sets reach 7,742 of the 20 calculators' 8,250 statements. Each of the
+other 508 is proven unreachable from CMS's own source, from four patterns
+(CWF-RESET 220, CONST 180, FLAG-CONTRA 63, PATHS-CONTRA 45); each row of `unreachable.txt` gives its reason in full, with the lines it rests on. Two of the patterns are dead code in CMS's own programs: the
+comorbidity branches, where the return code is blanked before the calculation
+tests it, and the pediatric branches of the low-volume outlier payment, where
+the low-volume flag is only ever set for adults.
+
+The record sets and the proofs were made by tools in Cocoon's private
+repository. Checking them does not need those tools: the record sets are
+data, and each proof names the source lines it rests on.
 
 Each calculator runs on the build its recorded run used: `cobc -x -frelax-syntax-checks -frelax-level-hierarchy`,
 without `-debug`.

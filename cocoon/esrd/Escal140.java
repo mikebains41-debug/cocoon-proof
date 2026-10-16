@@ -1666,13 +1666,21 @@ public class Escal140 {
         hBunBsa.storeRounded(new BigDecimal(".007184").multiply(CobolDecimal.pow(bPatientHgt.value(), new BigDecimal(".725"))).multiply(CobolDecimal.pow(bPatientWgt.value(), new BigDecimal(".425"))));
         // TRUNCATES: the expression produces up to 14 integer digits and H-BUN-BSA holds 3. The high-order digits are lost, as in the original.
         if (hPatientAge.value().compareTo(new BigDecimal("17")) > 0) {
-            hBunBsaFactor.storeRounded(CobolDecimal.pow(cmBsa.value(), CobolDecimal.divide(hBunBsa.value().subtract(new BigDecimal("1.87")), new BigDecimal(".1"))));
-            // TRUNCATES: the expression produces up to 3 integer digits and H-BUN-BSA-FACTOR holds 1. The high-order digits are lost, as in the original.
+            try {   // a zero divisor stores nothing, as in COBOL
+                hBunBsaFactor.storeRounded(CobolDecimal.pow(cmBsa.value(), CobolDecimal.divide(hBunBsa.value().subtract(new BigDecimal("1.87")), new BigDecimal(".1"))));
+                // TRUNCATES: the expression produces up to 3 integer digits and H-BUN-BSA-FACTOR holds 1. The high-order digits are lost, as in the original.
+            } catch (CobolDecimal.ZeroDivide cocoonZeroDivide) {
+                // every receiver keeps what it held
+            }
         } else {
             hBunBsaFactor.store(new BigDecimal("1.000"));
         }
-        hBunBmi.storeRounded(CobolDecimal.divide(bPatientWgt.value(), CobolDecimal.pow(bPatientHgt.value(), new BigDecimal("2"))).multiply(new BigDecimal("10000")));
-        // TRUNCATES: the expression produces up to 7 integer digits and H-BUN-BMI holds 3. The high-order digits are lost, as in the original.
+        try {   // a zero divisor stores nothing, as in COBOL
+            hBunBmi.storeRounded(CobolDecimal.divide(bPatientWgt.value(), CobolDecimal.pow(bPatientHgt.value(), new BigDecimal("2"))).multiply(new BigDecimal("10000")));
+            // TRUNCATES: the expression produces up to 7 integer digits and H-BUN-BMI holds 3. The high-order digits are lost, as in the original.
+        } catch (CobolDecimal.ZeroDivide cocoonZeroDivide) {
+            // every receiver keeps what it held
+        }
         if (hPatientAge.value().compareTo(new BigDecimal("17")) > 0 && hBunBmi.value().compareTo(new BigDecimal("18.5")) < 0) {
             hBunBmiFactor.store(cmBmiLt185.value());
             lowBmiTrack.store("Y");
@@ -1754,7 +1762,11 @@ public class Escal140 {
             }
         } else {
             if (bCondCode.value().compareTo("74") == 0 && (bRevCode.value().compareTo("0841") == 0 || bRevCode.value().compareTo("0851") == 0)) {
-                hCc74PerDiemAmt.storeRounded(CobolDecimal.divide(hBunAdjustedBaseWageAmt.value().multiply(new BigDecimal("3")), new BigDecimal("7")));
+                try {   // a zero divisor stores nothing, as in COBOL
+                    hCc74PerDiemAmt.storeRounded(CobolDecimal.divide(hBunAdjustedBaseWageAmt.value().multiply(new BigDecimal("3")), new BigDecimal("7")));
+                } catch (CobolDecimal.ZeroDivide cocoonZeroDivide) {
+                    // every receiver keeps what it held
+                }
             } else {
                 hBunWageAdjTrainingAmt.store(BigDecimal.ZERO);
                 hCc74PerDiemAmt.store(BigDecimal.ZERO);
@@ -1762,8 +1774,12 @@ public class Escal140 {
         }
         if (bCondCode.value().compareTo("74") == 0 && (bRevCode.value().compareTo("0841") == 0 || bRevCode.value().compareTo("0851") == 0)) {
             hPpsFinalPayAmt.storeRounded(hCc74PerDiemAmt.value());
-            hFullClaimAmt.storeRounded(CobolDecimal.divide(hBunAdjustedBaseWageAmt.value().multiply(bClaimNumDialysisSessions.value().multiply(new BigDecimal("3"))), new BigDecimal("7")));
-            // TRUNCATES: the expression produces up to 9 integer digits and H-FULL-CLAIM-AMT holds 7. The high-order digits are lost, as in the original.
+            try {   // a zero divisor stores nothing, as in COBOL
+                hFullClaimAmt.storeRounded(CobolDecimal.divide(hBunAdjustedBaseWageAmt.value().multiply(bClaimNumDialysisSessions.value().multiply(new BigDecimal("3"))), new BigDecimal("7")));
+                // TRUNCATES: the expression produces up to 9 integer digits and H-FULL-CLAIM-AMT holds 7. The high-order digits are lost, as in the original.
+            } catch (CobolDecimal.ZeroDivide cocoonZeroDivide) {
+                // every receiver keeps what it held
+            }
         } else {
             hPpsFinalPayAmt.storeRounded(hBunAdjustedBaseWageAmt.value().add(hBunWageAdjTrainingAmt.value()));
         }
@@ -1879,13 +1895,21 @@ public class Escal140 {
         hOutBsa.storeRounded(new BigDecimal(".007184").multiply(CobolDecimal.pow(bPatientHgt.value(), new BigDecimal(".725"))).multiply(CobolDecimal.pow(bPatientWgt.value(), new BigDecimal(".425"))));
         // TRUNCATES: the expression produces up to 14 integer digits and H-OUT-BSA holds 3. The high-order digits are lost, as in the original.
         if (hPatientAge.value().compareTo(new BigDecimal("17")) > 0) {
-            hOutBsaFactor.storeRounded(CobolDecimal.pow(sbBsa.value(), CobolDecimal.divide(hOutBsa.value().subtract(new BigDecimal("1.87")), new BigDecimal(".1"))));
-            // TRUNCATES: the expression produces up to 3 integer digits and H-OUT-BSA-FACTOR holds 1. The high-order digits are lost, as in the original.
+            try {   // a zero divisor stores nothing, as in COBOL
+                hOutBsaFactor.storeRounded(CobolDecimal.pow(sbBsa.value(), CobolDecimal.divide(hOutBsa.value().subtract(new BigDecimal("1.87")), new BigDecimal(".1"))));
+                // TRUNCATES: the expression produces up to 3 integer digits and H-OUT-BSA-FACTOR holds 1. The high-order digits are lost, as in the original.
+            } catch (CobolDecimal.ZeroDivide cocoonZeroDivide) {
+                // every receiver keeps what it held
+            }
         } else {
             hOutBsaFactor.store(new BigDecimal("1.000"));
         }
-        hOutBmi.storeRounded(CobolDecimal.divide(bPatientWgt.value(), CobolDecimal.pow(bPatientHgt.value(), new BigDecimal("2"))).multiply(new BigDecimal("10000")));
-        // TRUNCATES: the expression produces up to 7 integer digits and H-OUT-BMI holds 3. The high-order digits are lost, as in the original.
+        try {   // a zero divisor stores nothing, as in COBOL
+            hOutBmi.storeRounded(CobolDecimal.divide(bPatientWgt.value(), CobolDecimal.pow(bPatientHgt.value(), new BigDecimal("2"))).multiply(new BigDecimal("10000")));
+            // TRUNCATES: the expression produces up to 7 integer digits and H-OUT-BMI holds 3. The high-order digits are lost, as in the original.
+        } catch (CobolDecimal.ZeroDivide cocoonZeroDivide) {
+            // every receiver keeps what it held
+        }
         if (hPatientAge.value().compareTo(new BigDecimal("17")) > 0 && hOutBmi.value().compareTo(new BigDecimal("18.5")) < 0) {
             hOutBmiFactor.store(sbBmiLt185.value());
         } else {
@@ -1956,10 +1980,22 @@ public class Escal140 {
             // TRUNCATES: ADJ-AVG-MAP-AMT-GT-17 holds 4+2 digits, H-OUT-ADJ-AVG-MAP-AMT holds 3+2. The original loses the excess here; so does this.
         }
         if (bCondCode.value().compareTo("74") == 0 && (bRevCode.value().compareTo("0841") == 0 || bRevCode.value().compareTo("0851") == 0)) {
-            hHemoEquivDialSessions.storeRounded(CobolDecimal.divide(bClaimNumDialysisSessions.value().multiply(new BigDecimal("3")), new BigDecimal("7")));
-            hOutImputedMap.storeRounded(CobolDecimal.divide(bTotPriceSbOutlier.value(), hHemoEquivDialSessions.value()));
+            try {   // a zero divisor stores nothing, as in COBOL
+                hHemoEquivDialSessions.storeRounded(CobolDecimal.divide(bClaimNumDialysisSessions.value().multiply(new BigDecimal("3")), new BigDecimal("7")));
+            } catch (CobolDecimal.ZeroDivide cocoonZeroDivide) {
+                // every receiver keeps what it held
+            }
+            try {   // a zero divisor stores nothing, as in COBOL
+                hOutImputedMap.storeRounded(CobolDecimal.divide(bTotPriceSbOutlier.value(), hHemoEquivDialSessions.value()));
+            } catch (CobolDecimal.ZeroDivide cocoonZeroDivide) {
+                // every receiver keeps what it held
+            }
         } else {
-            hOutImputedMap.storeRounded(CobolDecimal.divide(bTotPriceSbOutlier.value(), bClaimNumDialysisSessions.value()));
+            try {   // a zero divisor stores nothing, as in COBOL
+                hOutImputedMap.storeRounded(CobolDecimal.divide(bTotPriceSbOutlier.value(), bClaimNumDialysisSessions.value()));
+            } catch (CobolDecimal.ZeroDivide cocoonZeroDivide) {
+                // every receiver keeps what it held
+            }
         }
         if (hPatientAge.value().compareTo(new BigDecimal("18")) < 0) {
             hOutPredictedMap.storeRounded(hOutCmAdjPredictMapTrt.value().add(fixDollarLossLt18.value()));
@@ -1989,8 +2025,12 @@ public class Escal140 {
         }
         outNonPerDiemPayment.store(hOutPayment.value());
         if (bCondCode.value().compareTo("74") == 0 && (bRevCode.value().compareTo("0841") == 0 || bRevCode.value().compareTo("0851") == 0)) {
-            hOutPayment.storeRounded(hOutPayment.value().multiply(CobolDecimal.divide(bClaimNumDialysisSessions.value().multiply(new BigDecimal("3")), new BigDecimal("7"))));
-            // TRUNCATES: the expression produces up to 9 integer digits and H-OUT-PAYMENT holds 7. The high-order digits are lost, as in the original.
+            try {   // a zero divisor stores nothing, as in COBOL
+                hOutPayment.storeRounded(hOutPayment.value().multiply(CobolDecimal.divide(bClaimNumDialysisSessions.value().multiply(new BigDecimal("3")), new BigDecimal("7"))));
+                // TRUNCATES: the expression produces up to 9 integer digits and H-OUT-PAYMENT holds 7. The high-order digits are lost, as in the original.
+            } catch (CobolDecimal.ZeroDivide cocoonZeroDivide) {
+                // every receiver keeps what it held
+            }
         }
     }
 
@@ -2057,7 +2097,11 @@ public class Escal140 {
             }
         } else {
             if (bCondCode.value().compareTo("74") == 0 && (bRevCode.value().compareTo("0841") == 0 || bRevCode.value().compareTo("0851") == 0)) {
-                hCc74PerDiemAmt.storeRounded(CobolDecimal.divide(hLvBunAdjustBaseWageAmt.value().multiply(new BigDecimal("3")), new BigDecimal("7")));
+                try {   // a zero divisor stores nothing, as in COBOL
+                    hCc74PerDiemAmt.storeRounded(CobolDecimal.divide(hLvBunAdjustBaseWageAmt.value().multiply(new BigDecimal("3")), new BigDecimal("7")));
+                } catch (CobolDecimal.ZeroDivide cocoonZeroDivide) {
+                    // every receiver keeps what it held
+                }
             } else {
                 hBunWageAdjTrainingAmt.store(BigDecimal.ZERO);
                 hCc74PerDiemAmt.store(BigDecimal.ZERO);
@@ -2110,8 +2154,12 @@ public class Escal140 {
         }
         outNonPerDiemPayment.store(hLvOutPayment.value());
         if (bCondCode.value().compareTo("74") == 0 && (bRevCode.value().compareTo("0841") == 0 || bRevCode.value().compareTo("0851") == 0)) {
-            hLvOutPayment.storeRounded(hLvOutPayment.value().multiply(CobolDecimal.divide(bClaimNumDialysisSessions.value().multiply(new BigDecimal("3")), new BigDecimal("7"))));
-            // TRUNCATES: the expression produces up to 9 integer digits and H-LV-OUT-PAYMENT holds 7. The high-order digits are lost, as in the original.
+            try {   // a zero divisor stores nothing, as in COBOL
+                hLvOutPayment.storeRounded(hLvOutPayment.value().multiply(CobolDecimal.divide(bClaimNumDialysisSessions.value().multiply(new BigDecimal("3")), new BigDecimal("7"))));
+                // TRUNCATES: the expression produces up to 9 integer digits and H-LV-OUT-PAYMENT holds 7. The high-order digits are lost, as in the original.
+            } catch (CobolDecimal.ZeroDivide cocoonZeroDivide) {
+                // every receiver keeps what it held
+            }
         }
     }
 
@@ -2141,13 +2189,21 @@ public class Escal140 {
         hBsa.storeRounded(new BigDecimal(".007184").multiply(CobolDecimal.pow(bPatientHgt.value(), new BigDecimal(".725"))).multiply(CobolDecimal.pow(bPatientWgt.value(), new BigDecimal(".425"))));
         // TRUNCATES: the expression produces up to 14 integer digits and H-BSA holds 3. The high-order digits are lost, as in the original.
         if (hPatientAge.value().compareTo(new BigDecimal("17")) > 0) {
-            hBsaFactor.storeRounded(CobolDecimal.pow(crBsa.value(), CobolDecimal.divide(hBsa.value().subtract(new BigDecimal("1.87")), new BigDecimal(".1"))));
-            // TRUNCATES: the expression produces up to 3 integer digits and H-BSA-FACTOR holds 1. The high-order digits are lost, as in the original.
+            try {   // a zero divisor stores nothing, as in COBOL
+                hBsaFactor.storeRounded(CobolDecimal.pow(crBsa.value(), CobolDecimal.divide(hBsa.value().subtract(new BigDecimal("1.87")), new BigDecimal(".1"))));
+                // TRUNCATES: the expression produces up to 3 integer digits and H-BSA-FACTOR holds 1. The high-order digits are lost, as in the original.
+            } catch (CobolDecimal.ZeroDivide cocoonZeroDivide) {
+                // every receiver keeps what it held
+            }
         } else {
             hBsaFactor.store(new BigDecimal("1.000"));
         }
-        hBmi.storeRounded(CobolDecimal.divide(bPatientWgt.value(), CobolDecimal.pow(bPatientHgt.value(), new BigDecimal("2"))).multiply(new BigDecimal("10000")));
-        // TRUNCATES: the expression produces up to 7 integer digits and H-BMI holds 3. The high-order digits are lost, as in the original.
+        try {   // a zero divisor stores nothing, as in COBOL
+            hBmi.storeRounded(CobolDecimal.divide(bPatientWgt.value(), CobolDecimal.pow(bPatientHgt.value(), new BigDecimal("2"))).multiply(new BigDecimal("10000")));
+            // TRUNCATES: the expression produces up to 7 integer digits and H-BMI holds 3. The high-order digits are lost, as in the original.
+        } catch (CobolDecimal.ZeroDivide cocoonZeroDivide) {
+            // every receiver keeps what it held
+        }
         if (hPatientAge.value().compareTo(new BigDecimal("17")) > 0 && hBmi.value().compareTo(new BigDecimal("18.5")) < 0) {
             hBmiFactor.store(crBmiLt185.value());
         } else {
@@ -2354,7 +2410,11 @@ public class Escal140 {
         pps2011ComorbidMa.store(" ");
         pps2011ComorbidMaCc.store(" ");
         if (bCondCode.value().compareTo("74") == 0 && (bRevCode.value().compareTo("0841") == 0 || bRevCode.value().compareTo("0851") == 0)) {
-            hOutPayment.storeRounded(CobolDecimal.divide(hOutPayment.value(), bClaimNumDialysisSessions.value()));
+            try {   // a zero divisor stores nothing, as in COBOL
+                hOutPayment.storeRounded(CobolDecimal.divide(hOutPayment.value(), bClaimNumDialysisSessions.value()));
+            } catch (CobolDecimal.ZeroDivide cocoonZeroDivide) {
+                // every receiver keeps what it held
+            }
         }
         if (pProvWaiveBlendPayIndic.value().compareTo("N") == 0) {
             pps2011BlendCompRate.storeRounded(hPymtAmt.value().multiply(comCbsaBlendPct.value()));

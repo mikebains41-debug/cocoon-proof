@@ -2,7 +2,7 @@
 
 > **In this repository,** `verify.sh`, `verify_esrd.sh` and `verify_ltch.sh` reproduce the Home Health, ESRD and LTCH results below with no Cocoon software at all. The analyser figures are reproduced with Cocoon itself, which is available for evaluation; their raw records are in `evidence/` and `analysis/`. Commit hashes refer to Cocoon's private development repository.
 
-As of 15 October 2026. Every figure below comes from a run anyone can repeat,
+As of 16 October 2026. Every figure below comes from a run anyone can repeat,
 and names the commit that produced it. Where something has not been
 measured, this page says so.
 
@@ -29,39 +29,46 @@ recently at `c5373a2`.
 four (lines 1531-1540, the RAP payment rules) cannot be reached by any input:
 every RAP leaves the calculator at line 431 with return code 03, before them.
 
-**20 ESRD calculators, driven directly.** CMS's ESRD calculators ESCAL056 to
-ESCAL212, from its CY2021.2 mainframe package, each translated to Java by Cocoon
-at `f20bfab` with no statement refused, leave exactly the same bytes as the COBOL
-compiled with GnuCOBOL 3.2 in every record of every call. CMS ships no test
-claims for them, so each is driven directly on record sets made from its own
-conditions (`more/esrd/README.md` says how). `verify_esrd.sh` reproduces the
-calls, records and differences below; GitHub runs it on every change.
+**20 ESRD calculators, driven directly, every statement accounted for.** CMS's
+ESRD calculators ESCAL056 to ESCAL212, from its CY2021.2 mainframe package, each
+translated to Java by Cocoon at `6c25895` with no statement refused, leave exactly
+the same bytes as the COBOL compiled with GnuCOBOL 3.2 in every record of
+every call. CMS ships no test claims for them, so each is driven directly on
+record sets made from its own conditions (`more/esrd/README.md` says how).
+`verify_esrd.sh` reproduces the calls, records and differences below; GitHub
+runs it on every change.
 
-| Calculator | Calls | Records compared | Differences | Statements reached |
-|---|---:|---:|---:|---:|
-| ESCAL056 | 3,000 | 9,000 | 0 | 137 of 137 |
-| ESCAL062 | 3,000 | 12,000 | 0 | 139 of 139 |
-| ESCAL070 | 3,000 | 12,000 | 0 | 139 of 139 |
-| ESCAL071 | 3,000 | 12,000 | 0 | 141 of 141 |
-| ESCAL080 | 3,000 | 12,000 | 0 | 142 of 142 |
-| ESCAL091 | 3,000 | 12,000 | 0 | 135 of 135 |
-| ESCAL100 | 3,000 | 12,000 | 0 | 134 of 134 |
-| ESCAL117 | 3,000 | 15,000 | 0 | 511 of 531 |
-| ESCAL122 | 3,000 | 15,000 | 0 | 565 of 594 |
-| ESCAL130 | 3,000 | 15,000 | 0 | 565 of 594 |
-| ESCAL140 | 3,000 | 15,000 | 0 | 520 of 595 |
-| ESCAL151 | 3,000 | 15,000 | 0 | 520 of 595 |
-| ESCAL160 | 3,000 | 15,000 | 0 | 496 of 567 |
-| ESCAL170 | 3,000 | 15,000 | 0 | 505 of 535 |
-| ESCAL171 | 3,000 | 15,000 | 0 | 505 of 536 |
-| ESCAL180 | 3,000 | 15,000 | 0 | 500 of 540 |
-| ESCAL191 | 3,000 | 15,000 | 0 | 500 of 540 |
-| ESCAL200 | 3,000 | 15,000 | 0 | 500 of 540 |
-| ESCAL202 | 3,000 | 15,000 | 0 | 522 of 553 |
-| ESCAL212 | 3,000 | 15,000 | 0 | 533 of 563 |
-| **all 20** | **60,000** | **276,000** | **0** | |
+| Calculator | Calls | Records compared | Differences | Statements reached | Proven unreachable |
+|---|---:|---:|---:|---:|---:|
+| ESCAL056 | 3,000 | 9,000 | 0 | 137 of 137 | 0 |
+| ESCAL062 | 3,000 | 12,000 | 0 | 139 of 139 | 0 |
+| ESCAL070 | 3,000 | 12,000 | 0 | 139 of 139 | 0 |
+| ESCAL071 | 3,000 | 12,000 | 0 | 141 of 141 | 0 |
+| ESCAL080 | 3,000 | 12,000 | 0 | 142 of 142 | 0 |
+| ESCAL091 | 3,000 | 12,000 | 0 | 135 of 135 | 0 |
+| ESCAL100 | 3,000 | 12,000 | 0 | 134 of 134 | 0 |
+| ESCAL117 | 3,000 | 15,000 | 0 | 511 of 531 | 20 |
+| ESCAL122 | 3,000 | 15,000 | 0 | 565 of 594 | 29 |
+| ESCAL130 | 3,000 | 15,000 | 0 | 565 of 594 | 29 |
+| ESCAL140 | 3,000 | 15,000 | 0 | 520 of 595 | 75 |
+| ESCAL151 | 3,000 | 15,000 | 0 | 520 of 595 | 75 |
+| ESCAL160 | 3,000 | 15,000 | 0 | 497 of 567 | 70 |
+| ESCAL170 | 3,000 | 15,000 | 0 | 505 of 535 | 30 |
+| ESCAL171 | 3,000 | 15,000 | 0 | 506 of 536 | 30 |
+| ESCAL180 | 3,000 | 15,000 | 0 | 510 of 540 | 30 |
+| ESCAL191 | 3,000 | 15,000 | 0 | 510 of 540 | 30 |
+| ESCAL200 | 3,000 | 15,000 | 0 | 510 of 540 | 30 |
+| ESCAL202 | 3,000 | 15,000 | 0 | 523 of 553 | 30 |
+| ESCAL212 | 3,000 | 15,000 | 0 | 533 of 563 | 30 |
+| **all 20** | **60,000** | **276,000** | **0** | **7,742 of 8,250** | **508** |
 
-Statements reached is the harness's count when the sets were made, on the phone; across the 20 it runs from 87% to 100%; where any statement was never reached, `more/esrd/<PROGRAM>.never.txt` lists them with their source.
+Statements reached is the harness's count on these record sets, on the phone.
+Every statement they never reach is proven unreachable from CMS's own source:
+`more/esrd/unreachable.txt` gives each, with its reason, from four patterns the
+prover checks (CWF-RESET 220, CONST 180, FLAG-CONTRA 63, PATHS-CONTRA 45). Two of them are dead code in CMS's own programs: the
+comorbidity branches, where the return code is blanked before the calculation
+tests it, and the pediatric branches of the low-volume outlier payment, where
+the low-volume flag is only ever set for adults.
 
 **28 LTCH calculators, driven directly, every statement accounted for.** CMS's
 LTCH calculators LTCAL032 to LTCAL212, from its FY2021.2 mainframe package, each

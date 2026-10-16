@@ -59,6 +59,9 @@ is compared byte for byte. Its last line should read:
 ALL: CALLS=60000 RECORDS=276000 EQUAL=276000 EXCEPTIONS=0
 ```
 
+The record sets reach 7,742 of the 8,250 statements in the 20; each of the other
+508 is proven unreachable, with its reason, in `more/esrd/unreachable.txt`.
+
 The calculators are built as the recorded run built them, with
 `-frelax-syntax-checks -frelax-level-hierarchy` and without `-debug`.
 None of them needs a build-only change: GnuCOBOL compiles every file as CMS ships it. The inputs, and how they were made, are in `more/esrd/`.
@@ -110,7 +113,7 @@ and nothing else changed, and the script builds those copies. CMS's own files ar
 | `more/` | the inputs of the larger runs, and how each was made |
 | `cms/esrd/` | CMS's 20 ESRD calculators and their copybooks, unmodified |
 | `cocoon/esrd/` | Cocoon's output for them: the Java for each, and each tapped driver |
-| `more/esrd/` | each one's record sets, driver, how the kept sets were made, what was never reached |
+| `more/esrd/` | each one's record sets, driver, how the kept sets were made, what was never reached, and why |
 | `cms/ltch/` | CMS's 28 LTCH calculators and their copybooks, unmodified (`build/`: see above) |
 | `cocoon/ltch/` | Cocoon's output for them: the Java for each, and each tapped driver |
 | `more/ltch/` | each one's record sets, driver, how the kept sets were made, what was never reached, and why |
