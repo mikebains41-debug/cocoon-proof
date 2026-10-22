@@ -1,6 +1,6 @@
 # Cocoon: what is proven, what is not, and how to check
 
-> **In this repository,** `verify.sh`, `verify_esrd.sh` and `verify_ltch.sh` reproduce the Home Health, ESRD and LTCH results below with no Cocoon software at all. The analyser figures are reproduced with Cocoon itself, which is available for evaluation; their raw records are in `evidence/` and `analysis/`. Commit hashes refer to Cocoon's private development repository.
+> **In this repository,** `verify.sh`, `verify_more.sh`, `verify_esrd.sh` and `verify_ltch.sh` reproduce the Home Health, ESRD and LTCH results below with no Cocoon software at all. The analyser figures are reproduced with Cocoon itself, which is available for evaluation; their raw records are in `evidence/` and `analysis/`. Commit hashes refer to Cocoon's private development repository.
 
 As of 16 October 2026. Every figure below comes from a run anyone can repeat,
 and names the commit that produced it. Where something has not been
@@ -224,10 +224,31 @@ been measured at 18% precision, Coverity at 37%.
 
 ## Check it yourself
 
-You need GnuCOBOL 3.2, Java 17 or later with `ecj`, Python 3, and CMS's
-CY2021 Home Health pricer COBOL, which CMS publishes in its PC Pricer and
-COBOL Text File Archive. The scripts expect this repository at `~/Cocoon`;
-copy `verify/hh/*` into the directory holding CMS's pricer files, then:
+The transformer results need no Cocoon software at all. With GnuCOBOL 3.2
+(`cobc`), a Java compiler (`javac` from any JDK, or `ecj`), `java` and a
+POSIX shell:
+
+```
+git clone https://github.com/mikebains41-debug/cocoon-proof
+cd cocoon-proof
+sh verify.sh        # CALLS=21 RECORDS=126 EQUAL=126 EXCEPTIONS=0
+sh verify_more.sh   # ALL: CALLS=11856 RECORDS=71136 EQUAL=71136 EXCEPTIONS=0
+sh verify_esrd.sh   # ALL: CALLS=60000 RECORDS=276000 EQUAL=276000 EXCEPTIONS=0
+sh verify_ltch.sh   # ALL: CALLS=84000 RECORDS=570000 EQUAL=570000 EXCEPTIONS=0
+```
+
+Each compares Cocoon's Java with GnuCOBOL byte for byte, prints any
+difference it finds, and exits with a failure if there is one. The proof of
+every statement never reached is in `more/esrd/unreachable.txt` and
+`more/ltch/unreachable.txt`, each with its reason, to check against CMS's
+source in `cms/`.
+
+**With Cocoon itself, for evaluators.** The statement counts, the
+conformance probe and the analyser's figures come from Cocoon's own tools,
+which are not in this repository. With Cocoon's repository at `~/Cocoon`,
+CMS's CY2021 Home Health pricer COBOL (from CMS's PC Pricer and COBOL Text
+File Archive), Java 17 or later with `ecj`, and Python 3, copy
+`verify/hh/*` into the directory holding CMS's pricer files, then:
 
 ```
 ./rebuild_baseline.sh     # the COBOL baseline from CMS's source

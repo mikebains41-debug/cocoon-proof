@@ -2,14 +2,28 @@
 
 [![verify](https://github.com/mikebains41-debug/cocoon-proof/actions/workflows/verify.yml/badge.svg)](https://github.com/mikebains41-debug/cocoon-proof/actions/workflows/verify.yml)
 
-GitHub runs `verify.sh`, `verify_more.sh`, `verify_esrd.sh` and `verify_ltch.sh` on a fresh Ubuntu machine, with GnuCOBOL 3.2 built from GNU's release, on every change and every week. The badge shows the latest result; the run's full log is one click away.
+Cocoon translates COBOL into Java. This repository lets anyone check, on
+their own machine, that its Java for real Medicare pricing programs,
+published by CMS, leaves exactly the same bytes as the COBOL they came from.
 
-Cocoon translates COBOL into Java. This repository lets you check, on your
-own machine, that its Java for a real Medicare pricing program leaves
-exactly the same bytes as the COBOL it came from.
+## In thirty seconds
 
-The program is HHCAL213, the calculator at the heart of CMS's Home Health
-pricer for 2021. The inputs are the 21 test claims CMS ships with it.
+| CMS programs | Calls | Records compared | Differences | Statements |
+|---|---:|---:|---:|---|
+| Home Health calculator HHCAL213 | 11,877 | 71,262 | 0 | 337 of 341 run; the other 4 cannot be reached by any input |
+| 20 ESRD calculators, ESCAL056 to ESCAL212 | 60,000 | 276,000 | 0 | 7,742 of 8,250 reached; the other 508 proven unreachable |
+| 28 LTCH calculators, LTCAL032 to LTCAL212 | 84,000 | 570,000 | 0 | 8,970 of 9,142 reached; the other 172 proven unreachable |
+
+The reference is GnuCOBOL 3.2, an independent COBOL compiler. GitHub re-runs
+`verify.sh`, `verify_more.sh`, `verify_esrd.sh` and `verify_ltch.sh` from
+scratch on a fresh Ubuntu machine, with GnuCOBOL 3.2 built from GNU's
+release, on every change and every week; the badge above shows the latest
+result, and the run's full log is one click away. What this does not show -
+IBM's own compiler first - is listed at the end. `EVIDENCE.md` gives the
+detail behind every number.
+
+The first check is HHCAL213, the calculator at the heart of CMS's Home Health
+pricer for 2021, on the 21 test claims CMS ships with it.
 
 ## Run it
 
