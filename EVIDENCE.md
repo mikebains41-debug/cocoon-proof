@@ -1,6 +1,6 @@
 # Cocoon: what is proven, what is not, and how to check
 
-> **In this repository,** `verify.sh`, `verify_more.sh`, `verify_esrd.sh` and `verify_ltch.sh` reproduce the Home Health, ESRD and LTCH results below with no Cocoon software at all. The analyser figures are reproduced with Cocoon itself, which is available for evaluation; their raw records are in `evidence/` and `analysis/`. Commit hashes refer to Cocoon's private development repository.
+> **In this repository,** `verify.sh`, `verify_more.sh`, `verify_esrd.sh`, `verify_ltch.sh` and `verify_esdrv.sh` reproduce the Home Health, ESRD and LTCH results below with no Cocoon software at all. The analyser figures are reproduced with Cocoon itself, which is available for evaluation; their raw records are in `evidence/` and `analysis/`. Commit hashes refer to Cocoon's private development repository.
 
 As of 16 October 2026. Every figure below comes from a run anyone can repeat,
 and names the commit that produced it. Where something has not been
@@ -118,6 +118,49 @@ patterns the prover checks; the last two, LTCAL212 lines 2401 and 2406, rest on
 thirteen facts checked against LTCAL212's source and tables
 (`more/ltch/LTCAL212_2401_2406.txt`).
 
+**CMS's ESRD driver ESDRV212, with the 20 calculators it calls.** CMS's
+ESRD driver, from its CY2021.2 mainframe package, checks each claim, finds
+its wage index in CMS's tables and calls the calculator for the claim's
+date. Driven directly on record sets made from its own conditions and from
+CMS's own wage tables (`more/esdrv/README.md` says how), ESDRV212 and the 20
+calculators, as Cocoon's Java, leave exactly the same bytes as the COBOL
+compiled with GnuCOBOL 3.2, its run-time checks on, in every record of every
+call that runs clean; where CMS's COBOL reads outside a table, the checks
+stop the call and the Java stops in the same paragraph, and both go on from
+a fresh load. `verify_esdrv.sh` reproduces it; GitHub runs it on every
+change.
+
+| Calls | Clean, every record byte-identical | Stopped under GnuCOBOL's checks, the Java in the same paragraph | Anything else |
+|---:|---:|---:|---:|
+| 14,119 | 11,148 | 2,971 | 0 |
+
+The stops are CMS's own: those record sets take ESDRV212 down paths where
+it reads a table at a subscript of 0 or past its end, which COBOL leaves
+undefined.
+
+**Planted bugs.** 400 bugs were planted in the Java for ESDRV212, one at a
+time, in two samples of 100 and 300, of the kinds a translation gets wrong:
+comparisons turned round or loosened, statements deleted, constants
+changed, ADD made SUBTRACT, ROUNDED added. Every call was run against each.
+317 were caught; each of the other 83 has a written proof that it
+cannot change any result, checked against the Java, CMS's source and CMS's
+tables by Cocoon's prover (`more/esdrv/planted/`):
+
+| Proof | Bugs |
+|---|---:|
+| GUARD-TAKEN | 27 |
+| UNREACHED | 21 |
+| FLOW | 8 |
+| OVERWRITTEN | 7 |
+| DATE-LADDER | 6 |
+| UNREAD-BYTES | 5 |
+| TABLE-EDGE | 2 |
+| LOOP-STEP | 2 |
+| CAP-ROUND | 2 |
+| REDUNDANT | 2 |
+| VALUE-SET | 1 |
+
+
 **Storage.** Working-storage records start with exactly the bytes GnuCOBOL
 gives them: 859 records compared directly (823 in 56 CMS pricers, 36 in the
 Home Health calculator). The generated Java reproduces that layout for all
@@ -207,10 +250,10 @@ been measured at 18% precision, Coverity at 37%.
   pricer is to be run on the same claims as an independent check.
 - **The other 12 CMS pricers**; COMP-5 byte order; invalid numeric data
   (S0C7).
-- **The ESRD and LTCH calculators through CMS's own drivers.** They are proven
+- **The LTCH calculators through CMS's own driver, LTDRV212.** They are proven
   driven directly, on record sets made from their own conditions; not yet
-  called through CMS's drivers, ESDRV212 and LTDRV212, as a claim would reach
-  them.
+  called through LTDRV212 as a claim would reach them. (The ESRD calculators
+  through ESDRV212 are above.)
 - **Independent precision labels** (pending, above), and the review tier:
   most of its findings are noise today, chiefly running totals real data
   cannot overflow and MOVEs that cut report text.
@@ -235,6 +278,7 @@ sh verify.sh        # CALLS=21 RECORDS=126 EQUAL=126 EXCEPTIONS=0
 sh verify_more.sh   # ALL: CALLS=11856 RECORDS=71136 EQUAL=71136 EXCEPTIONS=0
 sh verify_esrd.sh   # ALL: CALLS=60000 RECORDS=276000 EQUAL=276000 EXCEPTIONS=0
 sh verify_ltch.sh   # ALL: CALLS=84000 RECORDS=570000 EQUAL=570000 EXCEPTIONS=0
+sh verify_esdrv.sh  # ALL: CALLS=14119 CLEAN=11148 EQUAL=11148 STOPPED=2971 SAME-PARAGRAPH=2971 FAILED=0
 ```
 
 Each compares Cocoon's Java with GnuCOBOL byte for byte, prints any

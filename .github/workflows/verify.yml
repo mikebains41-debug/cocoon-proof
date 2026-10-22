@@ -68,3 +68,6 @@ jobs:
 
       - name: verify_ltch.sh
         run: sh verify_ltch.sh
+
+      - name: verify_esdrv.sh
+        run: sh verify_esdrv.sh

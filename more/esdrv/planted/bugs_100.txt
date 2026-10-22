@@ -1,0 +1,411 @@
+Esdrv212: 100 bugs planted, one at a time, in Esdrv212; of the 100 that compiled, the suite of 14119 calls caught 81 (81.0%). Of the 97 whose line some call ran, it caught 81 (83.5%); 3 were on lines no call reached; 0 did not compile
+
+   ADD and SUBTRACT         caught   2   ran, not caught   0   never reached   0   did not compile   0
+   IF turned around         caught  18   ran, not caught   0   never reached   0   did not compile   0
+   MOVE or COMPUTE deleted  caught  28   ran, not caught   5   never reached   1   did not compile   0
+   compare < and <=         caught   1   ran, not caught   8   never reached   0   did not compile   0
+   compare ==/!=            caught   5   ran, not caught   0   never reached   0   did not compile   0
+   compare > and >=         caught  16   ran, not caught   2   never reached   1   did not compile   0
+   constant changed         caught   5   ran, not caught   1   never reached   1   did not compile   0
+   subscript one off        caught   6   ran, not caught   0   never reached   0   did not compile   0
+
+   1  caught           IF turned around         Esdrv212:1308
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20110101") < 0 && pEsrdRate.value().compareTo(BigDecimal.ZERO) > 0) {
+      now: if (!(CobolText.compareAlnum(bThruDate.value(), "20110101") < 0 && pEsrdRate.value().compareTo(BigDecimal.ZERO) > 0)) {
+      FAIL call 2: PPS-DATA-ALL byte 0: COBOL 3532202020202020, Java 3031202020202020
+   2  caught           subscript one off        Esdrv212:1646
+      was: bunCbsaDate.store(bunDate[bunSub.value().intValue() - 1].value());
+      now: bunCbsaDate.store(bunDate[bunSub.value().intValue()].value());
+      FAIL call 30: the Java threw java.lang.ArrayIndexOutOfBoundsException: Index 11 out of bounds for length 11 at Esdrv212.p0850GetBundledCbsaRate(Esdrv212.java:1646)
+   3  caught           MOVE or COMPUTE deleted  Esdrv212:1274
+      was: pps2011BlendOutlierRate.store(BigDecimal.ZERO);
+      now: ;   // planted: statement deleted
+      FAIL call 2665: PPS-DATA-ALL byte 183: COBOL 3030303030303030, Java 3130303030303030
+   4  caught           compare > and >=         Esdrv212:1386
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20131231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20150101") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20131231") >= 0 && CobolText.compareAlnum(bThruDate.value(), "20150101") < 0) {
+      FAIL call 84: BILL-NEW-DATA byte 103: COBOL 4E59203420303030, Java 5959203420303030
+   5  caught           IF turned around         Esdrv212:1300
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20050401") < 0 || !bThruDate.isNumeric()) {
+      now: if (!(CobolText.compareAlnum(bThruDate.value(), "20050401") < 0 || !bThruDate.isNumeric())) {
+      FAIL call 2: PPS-DATA-ALL byte 0: COBOL 3532202020202020, Java 3938202020202020
+   6  caught           ADD and SUBTRACT         Esdrv212:1581
+      was: bunSub.store(bunSub.value().subtract(new BigDecimal("1")));
+      now: bunSub.store(bunSub.value().add(new BigDecimal("1")));
+      FAIL call 2: the Java threw java.lang.ArrayIndexOutOfBoundsException: Index 11 out of bounds for length 11 at Esdrv212.p0800FindBundledCbsaWi(Esdrv212.java:1580)
+   7  caught           MOVE or COMPUTE deleted  Esdrv212:1561
+      was: bunCbsaWIndex.store(pSpecWageIndx.value());
+      now: ;   // planted: statement deleted
+      FAIL call 31: PPS-DATA-ALL byte 22: COBOL 353235394331312E, Java 383833384331312E
+   8  caught           constant changed         Esdrv212:1570
+      was: childHospTableSub.store(childHospTableSub.value().add(new BigDecimal("1")));
+      now: childHospTableSub.store(childHospTableSub.value().add(new BigDecimal("2")));
+      FAIL call 11: the Java threw java.lang.ArrayIndexOutOfBoundsException: Index 6 out of bounds for length 6 at Esdrv212.p0820SearchChildHospTable(Esdrv212.java:1638)
+   9  caught           compare ==/!=            Esdrv212:1496
+      was: if (pSpecPymtInd.value().compareTo("1") == 0) {
+      now: if (pSpecPymtInd.value().compareTo("1") != 0) {
+      FAIL call 13: the Java stopped in p0850GetBundledCbsaRate, not 0750-GET-COMP-CBSA-RATE: java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 5029
+  10  NOT caught       compare < and <=         Esdrv212:1354
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20200630") > 0 && CobolText.compareAlnum(bThruDate.value(), "20210101") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20200630") > 0 && CobolText.compareAlnum(bThruDate.value(), "20210101") <= 0) {
+      calls ran its line; no record came out different
+  11  caught           MOVE or COMPUTE deleted  Esdrv212:1290
+      was: outNonPerDiemPayment.store(BigDecimal.ZERO);
+      now: ;   // planted: statement deleted
+      FAIL call 370: PPS-DATA-ALL byte 284: COBOL 3030303030303030, Java 3530303030303030
+  12  caught           MOVE or COMPUTE deleted  Esdrv212:1579
+      was: bThruYearCode.store(bThruYearCode.value().subtract(new BigDecimal("10")));
+      now: ;   // planted: statement deleted
+      FAIL call 3: PPS-DATA-ALL byte 0: COBOL 3532202020202020, Java 3630202020202020
+  13  caught           MOVE or COMPUTE deleted  Esdrv212:1256
+      was: ppsAgeFactor.store(BigDecimal.ZERO);
+      now: ;   // planted: statement deleted
+      FAIL call 479: PPS-DATA-ALL byte 69: COBOL 3030303030303030, Java 3130303030303030
+  14  caught           subscript one off        Esdrv212:1501
+      was: while (!(bThruDate.value().compareTo(comDate[comSub.value().intValue() - 1].value()) >= 0)) {
+      now: while (!(bThruDate.value().compareTo(comDate[comSub.value().intValue()].value()) >= 0)) {
+      FAIL call 2: the Java threw java.lang.ArrayIndexOutOfBoundsException: Index 8 out of bounds for length 8 at Esdrv212.p0700FindCompositeCbsaWi(Esdrv212.java:1501)
+  15  caught           ADD and SUBTRACT         Esdrv212:1544
+      was: wSub2.store(wSub2.value().subtract(new BigDecimal("1")));
+      now: wSub2.store(wSub2.value().add(new BigDecimal("1")));
+      FAIL call 273: BILL-NEW-DATA byte 242: COBOL 3436303630313338, Java 3336363730313338
+  16  caught           MOVE or COMPUTE deleted  Esdrv212:1243
+      was: ppsMsa.store(" ");
+      now: ;   // planted: statement deleted
+      FAIL call 7282: PPS-DATA-ALL byte 2: COBOL 2020202020202020, Java 5A5A5A5A20202020
+  17  caught           compare ==/!=            Esdrv212:1560
+      was: if (pSpecPymtInd.value().compareTo("1") == 0) {
+      now: if (pSpecPymtInd.value().compareTo("1") != 0) {
+      FAIL call 28: BILL-NEW-DATA byte 103: COBOL 2020322031303030, Java 5920322031303030
+  18  caught           compare > and >=         Esdrv212:1394
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20111231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20130101") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20111231") >= 0 && CobolText.compareAlnum(bThruDate.value(), "20130101") < 0) {
+      FAIL call 199: BILL-NEW-DATA byte 232: COBOL 3730303030303030, Java 3330303030303030
+  19  caught           IF turned around         Esdrv212:1366
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20171231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20190101") < 0) {
+      now: if (!(CobolText.compareAlnum(bThruDate.value(), "20171231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20190101") < 0)) {
+      FAIL call 2: BILL-NEW-DATA byte 103: COBOL 2020202020303030, Java 5920202020303030
+  20  caught           MOVE or COMPUTE deleted  Esdrv212:1294
+      was: networkReductionReturn.store(BigDecimal.ZERO);
+      now: ;   // planted: statement deleted
+      FAIL call 7282: PPS-DATA-ALL byte 316: COBOL 3030303030303030, Java 3939393030303030
+  21  caught           IF turned around         Esdrv212:1426
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20050331") > 0 && CobolText.compareAlnum(bThruDate.value(), "20060101") < 0) {
+      now: if (!(CobolText.compareAlnum(bThruDate.value(), "20050331") > 0 && CobolText.compareAlnum(bThruDate.value(), "20060101") < 0)) {
+      FAIL call 32: BILL-NEW-DATA byte 253: COBOL 3030303030303030, Java 2030303030303030
+  22  caught           MOVE or COMPUTE deleted  Esdrv212:1257
+      was: ppsBsaFactor.store(BigDecimal.ZERO);
+      now: ;   // planted: statement deleted
+      FAIL call 405: PPS-DATA-ALL byte 74: COBOL 3030303030303030, Java 3530303030303030
+  23  NOT caught       MOVE or COMPUTE deleted  Esdrv212:1253
+      was: filler.store(" ");
+      now: ;   // planted: statement deleted
+      calls ran its line; no record came out different
+  24  caught           MOVE or COMPUTE deleted  Esdrv212:1255
+      was: ppsNatNonlaborPct.store(BigDecimal.ZERO);
+      now: ;   // planted: statement deleted
+      FAIL call 7282: PPS-DATA-ALL byte 63: COBOL 3030303030303030, Java 3939393939393030
+  25  caught           IF turned around         Esdrv212:1619
+      was: if (hEsrdSuppWiRatio.value().compareTo(new BigDecimal("-0.05")) < 0) {
+      now: if (!(hEsrdSuppWiRatio.value().compareTo(new BigDecimal("-0.05")) < 0)) {
+      FAIL call 226: PPS-DATA-ALL byte 24: COBOL 35354332302E3237, Java 34324332302E3237
+  26  caught           MOVE or COMPUTE deleted  Esdrv212:1246
+      was: ppsFinalPayAmt.store(BigDecimal.ZERO);
+      now: ;   // planted: statement deleted
+      FAIL call 405: PPS-DATA-ALL byte 17: COBOL 3030303030303030, Java 3130303030303030
+  27  caught           IF turned around         Esdrv212:1496
+      was: if (pSpecPymtInd.value().compareTo("1") == 0) {
+      now: if (!(pSpecPymtInd.value().compareTo("1") == 0)) {
+      FAIL call 13: the Java stopped in p0850GetBundledCbsaRate, not 0750-GET-COMP-CBSA-RATE: java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 5029
+  28  NOT caught       compare < and <=         Esdrv212:1358
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20191231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20200701") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20191231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20200701") <= 0) {
+      calls ran its line; no record came out different
+  29  caught           subscript one off        Esdrv212:1540
+      was: if (comWiDateCode[wSub2.value().intValue() - 1].value().compareTo(comDateCode[comSub.value().intValue() - 1].value()) <= 0) {
+      now: if (comWiDateCode[wSub2.value().intValue() - 1].value().compareTo(comDateCode[comSub.value().intValue()].value()) <= 0) {
+      FAIL call 9: the Java threw java.lang.ArrayIndexOutOfBoundsException: Index 8 out of bounds for length 8 at Esdrv212.p0750GetCompCbsaRate(Esdrv212.java:1540)
+  30  caught           MOVE or COMPUTE deleted  Esdrv212:1654
+      was: ppsRtc.store(new BigDecimal("60"));
+      now: ;   // planted: statement deleted
+      FAIL call 565: BILL-NEW-DATA byte 103: COBOL 4E59203420303030, Java 5959203420303030
+  31  caught           compare > and >=         Esdrv212:1612
+      was: if (pSuppWi.value().compareTo(new BigDecimal("0")) > 0) {
+      now: if (pSuppWi.value().compareTo(new BigDecimal("0")) >= 0) {
+      FAIL call 28: BILL-NEW-DATA byte 103: COBOL 2020322031303030, Java 5920322031303030
+  32  NOT caught       compare < and <=         Esdrv212:1362
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20181231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20200101") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20181231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20200101") <= 0) {
+      calls ran its line; no record came out different
+  33  NOT caught       compare > and >=         Esdrv212:1545
+      was: if (wSub2.value().compareTo(comPtr[comIndx - 1 - 1].value()) > 0) {
+      now: if (wSub2.value().compareTo(comPtr[comIndx - 1 - 1].value()) >= 0) {
+      calls ran its line; no record came out different
+  34  caught           compare > and >=         Esdrv212:1650
+      was: if (wSub3.value().compareTo(bunPtr[bunIndx - 1 - 1].value()) > 0) {
+      now: if (wSub3.value().compareTo(bunPtr[bunIndx - 1 - 1].value()) >= 0) {
+      FAIL call 1294: BILL-NEW-DATA byte 103: COBOL 4E59323420303030, Java 5959323420303030
+  35  NOT caught       compare < and <=         Esdrv212:1370
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20170630") > 0 && CobolText.compareAlnum(bThruDate.value(), "20180101") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20170630") > 0 && CobolText.compareAlnum(bThruDate.value(), "20180101") <= 0) {
+      calls ran its line; no record came out different
+  36  caught           IF turned around         Esdrv212:1474
+      was: if (wwwDtcd[wSub1.value().intValue() - 1].value().compareTo(wwdDtcd[wwdSub.value().intValue() - 1].value()) <= 0) {
+      now: if (!(wwwDtcd[wSub1.value().intValue() - 1].value().compareTo(wwdDtcd[wwdSub.value().intValue() - 1].value()) <= 0)) {
+      FAIL call 368: BILL-NEW-DATA byte 264: COBOL 3133313030303030, Java 3030303030303030
+  37  caught           compare > and >=         Esdrv212:1370
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20170630") > 0 && CobolText.compareAlnum(bThruDate.value(), "20180101") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20170630") >= 0 && CobolText.compareAlnum(bThruDate.value(), "20180101") < 0) {
+      FAIL call 119: PPS-DATA-ALL byte 30: COBOL 3037343038343130, Java 3137343038343130
+  38  caught           compare > and >=         Esdrv212:1362
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20181231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20200101") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20181231") >= 0 && CobolText.compareAlnum(bThruDate.value(), "20200101") < 0) {
+      FAIL call 25: PPS-DATA-ALL byte 28: COBOL 382E302020202020, Java 392E312020202020
+  39  caught           MOVE or COMPUTE deleted  Esdrv212:1566
+      was: childHospTableSub.store(new BigDecimal("1"));
+      now: ;   // planted: statement deleted
+      FAIL call 11: the Java threw java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 6 at Esdrv212.p0820SearchChildHospTable(Esdrv212.java:1638)
+  40  caught           compare > and >=         Esdrv212:1410
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20071231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20090101") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20071231") >= 0 && CobolText.compareAlnum(bThruDate.value(), "20090101") < 0) {
+      FAIL call 2724: BILL-NEW-DATA byte 312: COBOL 3631323330303030, Java 3439373830303030
+  41  caught           constant changed         Esdrv212:1620
+      was: bunCbsaWIndex.storeRounded(pSuppWi.value().multiply(new BigDecimal("0.95")));
+      now: bunCbsaWIndex.storeRounded(pSuppWi.value().multiply(new BigDecimal("0.96")));
+      FAIL call 226: PPS-DATA-ALL byte 23: COBOL 3235354332302E32, Java 3330304332302E32
+  42  caught           compare < and <=         Esdrv212:1540
+      was: if (comWiDateCode[wSub2.value().intValue() - 1].value().compareTo(comDateCode[comSub.value().intValue() - 1].value()) <= 0) {
+      now: if (comWiDateCode[wSub2.value().intValue() - 1].value().compareTo(comDateCode[comSub.value().intValue() - 1].value()) < 0) {
+      FAIL call 273: BILL-NEW-DATA byte 243: COBOL 3630363031333835, Java 3530373031333835
+  43  caught           MOVE or COMPUTE deleted  Esdrv212:1293
+      was: tpniesReturn.store(BigDecimal.ZERO);
+      now: ;   // planted: statement deleted
+      FAIL call 7282: PPS-DATA-ALL byte 305: COBOL 3030303030303030, Java 3939393939393939
+  44  NOT caught       compare > and >=         Esdrv212:1338
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20050331") > 0 && CobolText.compareAlnum(bThruDate.value(), "20060101") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20050331") >= 0 && CobolText.compareAlnum(bThruDate.value(), "20060101") < 0) {
+      calls ran its line; no record came out different
+  45  caught           compare > and >=         Esdrv212:1414
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20070331") > 0 && CobolText.compareAlnum(bThruDate.value(), "20080101") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20070331") >= 0 && CobolText.compareAlnum(bThruDate.value(), "20080101") < 0) {
+      FAIL call 1607: BILL-NEW-DATA byte 313: COBOL 3733393030303030, Java 3833343030303030
+  46  caught           MOVE or COMPUTE deleted  Esdrv212:1301
+      was: ppsRtc.store(new BigDecimal("98"));
+      now: ;   // planted: statement deleted
+      FAIL call 1: PPS-DATA-ALL byte 0: COBOL 3938202020202020, Java 3030202020202020
+  47  caught           MOVE or COMPUTE deleted  Esdrv212:1447
+      was: ppsRtc.store(new BigDecimal("60"));
+      now: ;   // planted: statement deleted
+      FAIL call 23: BILL-NEW-DATA byte 253: COBOL 3030303030303030, Java 2030303030303030
+  48  caught           IF turned around         Esdrv212:1586
+      was: if (cocoonHead3 >= cocoonTail3 - 1) {
+      now: if (!(cocoonHead3 >= cocoonTail3 - 1)) {
+      FAIL call 2: PPS-DATA-ALL byte 0: COBOL 3532202020202020, Java 3630202020202020
+  49  caught           MOVE or COMPUTE deleted  Esdrv212:1614
+      was: hEsrdSuppWiRatio.store(CobolDecimal.divide(bunCbsaWIndex.value().subtract(pSuppWi.value()), pSuppWi.value()));
+      now: ;   // planted: statement deleted
+      FAIL call 226: PPS-DATA-ALL byte 24: COBOL 35354332302E3237, Java 34324332302E3237
+  50  caught           IF turned around         Esdrv212:1382
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20141231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20160101") < 0) {
+      now: if (!(CobolText.compareAlnum(bThruDate.value(), "20141231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20160101") < 0)) {
+      FAIL call 2: BILL-NEW-DATA byte 103: COBOL 2020202020303030, Java 5920202020303030
+  51  caught           IF turned around         Esdrv212:1524
+      was: if (cocoonRet2 < 0) {
+      now: if (!(cocoonRet2 < 0)) {
+      FAIL call 2: PPS-DATA-ALL byte 0: COBOL 3532202020202020, Java 3630202020202020
+  52  caught           IF turned around         Esdrv212:1564
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20141231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20160101") < 0) {
+      now: if (!(CobolText.compareAlnum(bThruDate.value(), "20141231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20160101") < 0)) {
+      FAIL call 354: PPS-DATA-ALL byte 21: COBOL 3131303238433230, Java 3038373832433230
+  53  caught           constant changed         Esdrv212:1447
+      was: ppsRtc.store(new BigDecimal("60"));
+      now: ppsRtc.store(new BigDecimal("61"));
+      FAIL call 23: PPS-DATA-ALL byte 1: COBOL 3020202020202020, Java 3120202020202020
+  54  caught           subscript one off        Esdrv212:1647
+      was: bunCbsaWIndex.store(bunWageIndex[wSub3.value().intValue() - 1].value());
+      now: bunCbsaWIndex.store(bunWageIndex[wSub3.value().intValue()].value());
+      FAIL call 123: PPS-DATA-ALL byte 23: COBOL 3432334331392E31, Java 3337324331392E31
+  55  caught           MOVE or COMPUTE deleted  Esdrv212:1314
+      was: ppsFinalPayAmt.store(pEsrdRate.value());
+      now: ;   // planted: statement deleted
+      FAIL call 34: PPS-DATA-ALL byte 23: COBOL 3130304432312E32, Java 3030304432312E32
+  56  caught           compare ==/!=            Esdrv212:1313
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20101231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20140101") < 0 && pPacificIsTrustTerr.valu
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20101231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20140101") < 0 && pPacificIsTrustTerr.valu
+      FAIL call 34: PPS-DATA-ALL byte 0: COBOL 3031202020202020, Java 3532202020202020
+  57  caught           IF turned around         Esdrv212:1410
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20071231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20090101") < 0) {
+      now: if (!(CobolText.compareAlnum(bThruDate.value(), "20071231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20090101") < 0)) {
+      FAIL call 4: PPS-DATA-ALL byte 28: COBOL 362E322020202020, Java 382E302020202020
+  58  caught           IF turned around         Esdrv212:1545
+      was: if (wSub2.value().compareTo(comPtr[comIndx - 1 - 1].value()) > 0) {
+      now: if (!(wSub2.value().compareTo(comPtr[comIndx - 1 - 1].value()) > 0)) {
+      FAIL call 273: BILL-NEW-DATA byte 241: COBOL 3134363036303133, Java 3036343132303133
+  59  caught           compare > and >=         Esdrv212:1382
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20141231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20160101") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20141231") >= 0 && CobolText.compareAlnum(bThruDate.value(), "20160101") < 0) {
+      FAIL call 17: PPS-DATA-ALL byte 28: COBOL 342E302020202020, Java 352E312020202020
+  60  NOT caught       constant changed         Esdrv212:1581
+      was: bunSub.store(bunSub.value().subtract(new BigDecimal("1")));
+      now: bunSub.store(bunSub.value().subtract(new BigDecimal("2")));
+      calls ran its line; no record came out different
+  61  caught           MOVE or COMPUTE deleted  Esdrv212:1570
+      was: childHospTableSub.store(childHospTableSub.value().add(new BigDecimal("1")));
+      now: ;   // planted: statement deleted
+      ran past 60 s
+  62  caught           MOVE or COMPUTE deleted  Esdrv212:1581
+      was: bunSub.store(bunSub.value().subtract(new BigDecimal("1")));
+      now: ;   // planted: statement deleted
+      ran past 60 s
+  63  caught           compare > and >=         Esdrv212:1347
+      was: if (ppsRtc.value().compareTo(new BigDecimal("00")) > 0) {
+      now: if (ppsRtc.value().compareTo(new BigDecimal("00")) >= 0) {
+      FAIL call 2: PPS-DATA-ALL byte 0: COBOL 3532202020202020, Java 3030202020202020
+  64  caught           MOVE or COMPUTE deleted  Esdrv212:1578
+      was: bThruYearCode.store(new CobolText(r_BILL_NEW_DATA, 26, 2).value());
+      now: ;   // planted: statement deleted
+      FAIL call 3: PPS-DATA-ALL byte 0: COBOL 3532202020202020, Java 3630202020202020
+  65  NOT caught       MOVE or COMPUTE deleted  Esdrv212:1541
+      was: comCbsaDate.store(comDate[comSub.value().intValue() - 1].value());
+      now: ;   // planted: statement deleted
+      calls ran its line; no record came out different
+  66  caught           MOVE or COMPUTE deleted  Esdrv212:1250
+      was: pps2011WageAdjRate.store(BigDecimal.ZERO);
+      now: ;   // planted: statement deleted
+      FAIL call 7282: PPS-DATA-ALL byte 37: COBOL 3030303030303030, Java 3939393939393030
+  67  NOT caught       compare < and <=         Esdrv212:1374
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20161231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20170701") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20161231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20170701") <= 0) {
+      calls ran its line; no record came out different
+  68  caught           constant changed         Esdrv212:1301
+      was: ppsRtc.store(new BigDecimal("98"));
+      now: ppsRtc.store(new BigDecimal("99"));
+      FAIL call 1: PPS-DATA-ALL byte 1: COBOL 3820202020202020, Java 3920202020202020
+  69  never reached    MOVE or COMPUTE deleted  Esdrv212:1483
+      was: wNewRate1Record.store(new BigDecimal("0"));
+      now: ;   // planted: statement deleted
+      no call ran the line it is on
+  70  caught           compare ==/!=            Esdrv212:1508
+      was: if (mainframePcSwitch.value().compareTo(dsErrorCode.value()) == 0) {
+      now: if (mainframePcSwitch.value().compareTo(dsErrorCode.value()) != 0) {
+      FAIL call 769: PPS-DATA-ALL byte 1: COBOL 3020202020202020, Java 3120202020202020
+  71  caught           compare > and >=         Esdrv212:1350
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20201231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20220101") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20201231") >= 0 && CobolText.compareAlnum(bThruDate.value(), "20220101") < 0) {
+      FAIL call 19: PPS-DATA-ALL byte 28: COBOL 302E322020202020, Java 312E322020202020
+  72  caught           compare > and >=         Esdrv212:1354
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20200630") > 0 && CobolText.compareAlnum(bThruDate.value(), "20210101") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20200630") >= 0 && CobolText.compareAlnum(bThruDate.value(), "20210101") < 0) {
+      FAIL call 27: PPS-DATA-ALL byte 30: COBOL 3020202020202030, Java 3220202020202030
+  73  caught           compare ==/!=            Esdrv212:1587
+      was: if (mainframePcSwitch.value().compareTo(dsErrorCode.value()) == 0) {
+      now: if (mainframePcSwitch.value().compareTo(dsErrorCode.value()) != 0) {
+      FAIL call 24: PPS-DATA-ALL byte 1: COBOL 3020202020202020, Java 3120202020202020
+  74  caught           MOVE or COMPUTE deleted  Esdrv212:1286
+      was: crBmiMultiplier.store(BigDecimal.ZERO);
+      now: ;   // planted: statement deleted
+      FAIL call 7282: PPS-DATA-ALL byte 252: COBOL 3030303030303030, Java 3939393930303030
+  75  NOT caught       compare < and <=         Esdrv212:1334
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20051231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20090101") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20051231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20090101") <= 0) {
+      calls ran its line; no record came out different
+  76  NOT caught       compare < and <=         Esdrv212:1398
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20101231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20120101") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20101231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20120101") <= 0) {
+      calls ran its line; no record came out different
+  77  caught           MOVE or COMPUTE deleted  Esdrv212:1577
+      was: bunSub.store(bunMaxDate.value());
+      now: ;   // planted: statement deleted
+      FAIL call 2: the Java threw java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 11 at Esdrv212.p0800FindBundledCbsaWi(Esdrv212.java:1580)
+  78  caught           subscript one off        Esdrv212:1475
+      was: wNewEffDate.store(wwdDate[wwdSub.value().intValue() - 1].value());
+      now: wNewEffDate.store(wwdDate[wwdSub.value().intValue()].value());
+      FAIL call 4: the Java threw java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1 at Esdrv212.p0550NGetWageRate(Esdrv212.java:1475)
+  79  caught           compare > and >=         Esdrv212:1501
+      was: while (!(bThruDate.value().compareTo(comDate[comSub.value().intValue() - 1].value()) >= 0)) {
+      now: while (!(bThruDate.value().compareTo(comDate[comSub.value().intValue() - 1].value()) > 0)) {
+      FAIL call 4: the Java threw java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 8 at Esdrv212.p0700FindCompositeCbsaWi(Esdrv212.java:1501)
+  80  caught           IF turned around         Esdrv212:1453
+      was: if (cocoonRet1 == 0) {
+      now: if (!(cocoonRet1 == 0)) {
+      FAIL call 5: COBOL reads outside a table here (undefined); the Java should stop in 0550-N-GET-WAGE-RATE and ran to the end
+  81  never reached    compare > and >=         Esdrv212:1480
+      was: if (wSub1.value().compareTo(wwmPtr[wwmIndx - 1 - 1].value()) > 0) {
+      now: if (wSub1.value().compareTo(wwmPtr[wwmIndx - 1 - 1].value()) >= 0) {
+      no call ran the line it is on
+  82  caught           constant changed         Esdrv212:1588
+      was: ppsRtc.store(new BigDecimal("60"));
+      now: ppsRtc.store(new BigDecimal("61"));
+      FAIL call 24: PPS-DATA-ALL byte 1: COBOL 3020202020202020, Java 3120202020202020
+  83  NOT caught       MOVE or COMPUTE deleted  Esdrv212:1264
+      was: filler.store(" ");
+      now: ;   // planted: statement deleted
+      calls ran its line; no record came out different
+  84  caught           compare > and >=         Esdrv212:1610
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20200930") > 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20200930") >= 0) {
+      FAIL call 307: PPS-DATA-ALL byte 23: COBOL 3038344332302E32, Java 3431304332302E32
+  85  caught           IF turned around         Esdrv212:1446
+      was: if (cocoonHead1 >= cocoonTail1 - 1) {
+      now: if (!(cocoonHead1 >= cocoonTail1 - 1)) {
+      FAIL call 4: BILL-NEW-DATA byte 253: COBOL 2030303030303030, Java 3030303030303030
+  86  NOT caught       MOVE or COMPUTE deleted  Esdrv212:1653
+      was: bunCbsaWIndex.store(new BigDecimal("0"));
+      now: ;   // planted: statement deleted
+      calls ran its line; no record came out different
+  87  caught           MOVE or COMPUTE deleted  Esdrv212:1269
+      was: pps2011FullCompRate.store(BigDecimal.ZERO);
+      now: ;   // planted: statement deleted
+      FAIL call 342: PPS-DATA-ALL byte 145: COBOL 3030303030303030, Java 3530303030303030
+  88  caught           subscript one off        Esdrv212:1645
+      was: if (bunWiDateCode[wSub3.value().intValue() - 1].value().compareTo(bThruYearCode.value()) == 0) {
+      now: if (bunWiDateCode[wSub3.value().intValue()].value().compareTo(bThruYearCode.value()) == 0) {
+      FAIL call 2: PPS-DATA-ALL byte 0: COBOL 3532202020202020, Java 3630202020202020
+  89  caught           MOVE or COMPUTE deleted  Esdrv212:1283
+      was: ppsBunBasePmtRate.store(BigDecimal.ZERO);
+      now: ;   // planted: statement deleted
+      FAIL call 730: PPS-DATA-ALL byte 231: COBOL 3030303030303030, Java 3130303030303030
+  90  caught           compare > and >=         Esdrv212:1390
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20121231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20140101") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20121231") >= 0 && CobolText.compareAlnum(bThruDate.value(), "20140101") < 0) {
+      FAIL call 83: BILL-NEW-DATA byte 232: COBOL 3330303030303030, Java 3030303030303030
+  91  caught           MOVE or COMPUTE deleted  Esdrv212:1649
+      was: wSub3.store(wSub3.value().subtract(new BigDecimal("1")));
+      now: ;   // planted: statement deleted
+      ran past 60 s
+  92  caught           IF turned around         Esdrv212:1334
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20051231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20090101") < 0) {
+      now: if (!(CobolText.compareAlnum(bThruDate.value(), "20051231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20090101") < 0)) {
+      FAIL call 4: BILL-NEW-DATA byte 253: COBOL 2030303030303030, Java 3030303030303030
+  93  NOT caught       compare < and <=         Esdrv212:1378
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20151231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20170101") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20151231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20170101") <= 0) {
+      calls ran its line; no record came out different
+  94  never reached    constant changed         Esdrv212:1479
+      was: wSub1.store(wSub1.value().subtract(new BigDecimal("1")));
+      now: wSub1.store(wSub1.value().subtract(new BigDecimal("2")));
+      no call ran the line it is on
+  95  caught           MOVE or COMPUTE deleted  Esdrv212:1249
+      was: ppsRevCode.store(" ");
+      now: ;   // planted: statement deleted
+      FAIL call 7282: PPS-DATA-ALL byte 33: COBOL 2020202030303030, Java 5A5A5A5A30303030
+  96  caught           IF turned around         Esdrv212:1370
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20170630") > 0 && CobolText.compareAlnum(bThruDate.value(), "20180101") < 0) {
+      now: if (!(CobolText.compareAlnum(bThruDate.value(), "20170630") > 0 && CobolText.compareAlnum(bThruDate.value(), "20180101") < 0)) {
+      FAIL call 2: BILL-NEW-DATA byte 103: COBOL 2020202020303030, Java 5920202020303030
+  97  caught           IF turned around         Esdrv212:1598
+      was: if (cocoonRet3 == 0) {
+      now: if (!(cocoonRet3 == 0)) {
+      FAIL call 123: PPS-DATA-ALL byte 23: COBOL 3432334331392E31, Java 3635304331392E31
+  98  caught           MOVE or COMPUTE deleted  Esdrv212:1315
+      was: ppsRtc.store(new BigDecimal("01"));
+      now: ;   // planted: statement deleted
+      FAIL call 34: PPS-DATA-ALL byte 1: COBOL 3120202020202020, Java 3020202020202020
+  99  NOT caught       MOVE or COMPUTE deleted  Esdrv212:1475
+      was: wNewEffDate.store(wwdDate[wwdSub.value().intValue() - 1].value());
+      now: ;   // planted: statement deleted
+      calls ran its line; no record came out different
+ 100  caught           compare > and >=         Esdrv212:1422
+      was: if (CobolText.compareAlnum(bThruDate.value(), "20051231") > 0 && CobolText.compareAlnum(bThruDate.value(), "20070101") < 0) {
+      now: if (CobolText.compareAlnum(bThruDate.value(), "20051231") >= 0 && CobolText.compareAlnum(bThruDate.value(), "20070101") < 0) {
+      FAIL call 858: PPS-DATA-ALL byte 28: COBOL 352E362020202020, Java 362E322020202020
