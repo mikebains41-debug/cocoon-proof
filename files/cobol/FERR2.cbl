@@ -1,0 +1,22 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. FERR2.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT IN-FILE ASSIGN TO NOSUCH
+               ORGANIZATION IS LINE SEQUENTIAL
+               FILE STATUS IS WS-FS.
+       DATA DIVISION.
+       FILE SECTION.
+       FD  IN-FILE.
+       01  IN-REC         PIC X(10).
+       WORKING-STORAGE SECTION.
+       01  WS-FS          PIC XX.
+       PROCEDURE DIVISION.
+           OPEN INPUT IN-FILE
+           DISPLAY 'OPEN ' WS-FS
+           READ IN-FILE
+           DISPLAY 'READ ' WS-FS
+           CLOSE IN-FILE
+           DISPLAY 'CLOSE ' WS-FS
+           STOP RUN.

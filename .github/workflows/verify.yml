@@ -71,3 +71,50 @@ jobs:
 
       - name: verify_esdrv.sh
         run: sh verify_esdrv.sh
+
+  files:
+    # Files, with GnuCOBOL 3.2 built with Berkeley DB, so indexed files work too.
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Libraries GnuCOBOL needs, Berkeley DB among them
+        run: sudo apt-get update -q && sudo apt-get install -y -q libgmp-dev libncurses-dev libdb-dev
+
+      - name: GnuCOBOL 3.2 with Berkeley DB, from the cache when it is there
+        id: cobol
+        uses: actions/cache@v4
+        with:
+          path: ~/gnucobol-db
+          key: gnucobol-3.2-db-ubuntu-24.04-v1
+
+      - name: Build GnuCOBOL 3.2 with Berkeley DB from GNU's release
+        if: steps.cobol.outputs.cache-hit != 'true'
+        run: |
+          curl -fsSL -o gnucobol-3.2.tar.xz https://ftp.gnu.org/gnu/gnucobol/gnucobol-3.2.tar.xz \
+            || curl -fsSL -o gnucobol-3.2.tar.xz https://mirrors.kernel.org/gnu/gnucobol/gnucobol-3.2.tar.xz
+          echo "3bb48af46ced4779facf41fdc2ee60e4ccb86eaa99d010b36685315df39c2ee2  gnucobol-3.2.tar.xz" | sha256sum -c -
+          tar xf gnucobol-3.2.tar.xz
+          cd gnucobol-3.2
+          ./configure --prefix="$HOME/gnucobol-db" --with-db
+          make -j"$(nproc)"
+          make install
+
+      - name: GnuCOBOL on the path
+        run: |
+          echo "$HOME/gnucobol-db/bin" >> "$GITHUB_PATH"
+          echo "LD_LIBRARY_PATH=$HOME/gnucobol-db/lib" >> "$GITHUB_ENV"
+
+      - name: Versions
+        run: |
+          cobc --version | head -1
+          cobc --info | grep -i "indexed"
+          javac -version
+
+      - name: verify_files.sh
+        run: sh verify_files.sh

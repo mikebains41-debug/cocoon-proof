@@ -189,3 +189,15 @@ Cocoon's own source is not here, and nothing in `verify.sh`, `verify_more.sh`,
 ## Cocoon itself
 
 Cocoon is available for evaluation. Open an issue here to get in touch.
+
+## Files: seven programs, against GnuCOBOL
+
+Cocoon's Java now reads and writes files. Seven small COBOL programs exercise it: a
+line-sequential copy, the same copy failing on a record GnuCOBOL refuses to write
+(status 71, the run ends), a fixed-length file written, extended, rewritten in place and
+read past its end, a missing file with and without FILE STATUS, an indexed file written,
+read by key, rewritten, deleted, started and read in key order, and DISPLAY of every kind
+of number. `verify_files.sh` compiles each under GnuCOBOL and its Java with javac, runs
+both on the same input file, and compares the output, the exit status and every file
+written, byte for byte. GitHub runs it with GnuCOBOL 3.2 built with Berkeley DB, so the
+indexed program is checked too.

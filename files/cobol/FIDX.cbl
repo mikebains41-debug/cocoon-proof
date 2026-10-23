@@ -1,0 +1,65 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. FIDX.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT IDX-FILE ASSIGN TO IDXFILE
+               ORGANIZATION IS INDEXED
+               ACCESS MODE IS DYNAMIC
+               RECORD KEY IS IDX-KEY
+               FILE STATUS IS WS-FS.
+       DATA DIVISION.
+       FILE SECTION.
+       FD  IDX-FILE.
+       01  IDX-REC.
+           05  IDX-KEY    PIC 9(3).
+           05  IDX-NAME   PIC X(6).
+       WORKING-STORAGE SECTION.
+       01  WS-FS          PIC XX.
+       01  WS-EOF         PIC X VALUE 'N'.
+       PROCEDURE DIVISION.
+           OPEN OUTPUT IDX-FILE
+           DISPLAY 'OPEN OUTPUT ' WS-FS
+           MOVE 5 TO IDX-KEY  MOVE 'FIVE' TO IDX-NAME  WRITE IDX-REC
+           MOVE 1 TO IDX-KEY  MOVE 'ONE' TO IDX-NAME   WRITE IDX-REC
+           MOVE 3 TO IDX-KEY  MOVE 'THREE' TO IDX-NAME WRITE IDX-REC
+           MOVE 3 TO IDX-KEY  MOVE 'AGAIN' TO IDX-NAME
+           WRITE IDX-REC
+               INVALID KEY DISPLAY 'DUP ' WS-FS
+               NOT INVALID KEY DISPLAY 'WROTE ' WS-FS
+           END-WRITE
+           CLOSE IDX-FILE
+           OPEN I-O IDX-FILE
+           MOVE 3 TO IDX-KEY
+           READ IDX-FILE
+               INVALID KEY DISPLAY 'NO 3 ' WS-FS
+               NOT INVALID KEY DISPLAY 'GOT ' IDX-KEY ' ' IDX-NAME
+           END-READ
+           MOVE 'TRES' TO IDX-NAME
+           REWRITE IDX-REC
+               INVALID KEY DISPLAY 'REWRITE FAILED ' WS-FS
+           END-REWRITE
+           MOVE 1 TO IDX-KEY
+           DELETE IDX-FILE RECORD
+               INVALID KEY DISPLAY 'DELETE FAILED ' WS-FS
+           END-DELETE
+           MOVE 1 TO IDX-KEY
+           READ IDX-FILE
+               INVALID KEY DISPLAY 'NO 1 NOW ' WS-FS
+           END-READ
+           MOVE 2 TO IDX-KEY
+           START IDX-FILE KEY IS NOT LESS THAN IDX-KEY
+               INVALID KEY DISPLAY 'START FAILED ' WS-FS
+           END-START
+           PERFORM 4 TIMES
+               READ IDX-FILE NEXT RECORD
+                   AT END DISPLAY 'END ' WS-FS
+                   NOT AT END DISPLAY 'NEXT ' IDX-KEY ' ' IDX-NAME
+               END-READ
+           END-PERFORM
+           MOVE 9 TO IDX-KEY
+           START IDX-FILE KEY > IDX-KEY
+               INVALID KEY DISPLAY 'NOTHING AFTER 9 ' WS-FS
+           END-START
+           CLOSE IDX-FILE
+           STOP RUN.
